@@ -1,0 +1,42 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "Scale": "1, 1, 1",
+    "Children": [
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "-14.891956, 0, -20",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "35.108044, 0, -20",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "15.108044, 0, -20",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 180, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "-34.891956, 0, -20",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 180, 0",
+        "Children": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#545454FF",
+          "DiffuseColor": "#D6D6D6FF",
+          "SpecularColor": "#8C8C8CFF",
+          "SpecularPower": 4.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Ast.tga",
+          "NormalTexturePath": "../Textures/Ast_Normal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#3D3D3DFF",
+          "DiffuseColor": "LightGray",
+          "SpecularColor": "#9C9C9CFF",
+          "SpecularPower": 21.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Trunk.tga",
+          "NormalTexturePath": "../Textures/Trunk_Normal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/AlphaDeadTree.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

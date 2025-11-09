@@ -1,0 +1,37 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#191919FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "#505050FF",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/ladyluck.tga",
+          "NormalTexturePath": "../Textures/ladyluckNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#262626FF",
+          "DiffuseColor": "#3F3F3FFF",
+          "SpecularColor": "White",
+          "SpecularPower": 14.0,
+          "EmissiveColor": "Black"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/Casino01.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

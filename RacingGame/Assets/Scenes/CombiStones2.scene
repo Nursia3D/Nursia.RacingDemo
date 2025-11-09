@@ -1,0 +1,136 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "Scale": "1, 1, 1",
+    "Children": [
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock2.scene",
+        "Translation": "-0.256915, 0, 0.361337",
+        "Scale": "3.22525, 3.22525, 3.22525",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "-2.184279, 0, 9.731478",
+        "Scale": "1.774, 1.774, 1.774",
+        "Rotation": "0, 223.7763, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-8.404821, 0, -0.996648",
+        "Scale": "1.25155, 1.25155, 1.25155",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "8.374397, 0, 1.862267",
+        "Scale": "0.8959771, 0.895977, 0.8959771",
+        "Rotation": "0, 92.49889, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone4.scene",
+        "Translation": "3.531147, 0, -5.570911",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-4.46388, 0, 7.723042",
+        "Scale": "0.542969, 0.542969, 0.542969",
+        "Rotation": "0, 306.29797, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "3.030837, 0, 9.795755",
+        "Scale": "0.8516799, 0.85168, 0.8516799",
+        "Rotation": "0, 24.248734, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-8.619246, 0, -3.927042",
+        "Scale": "0.56064, 0.56064, 0.56064",
+        "Rotation": "0, 224.2114, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-9.97723, 0, 2.291272",
+        "Scale": "0.582768, 0.582768, 0.582768",
+        "Rotation": "0, 91.23179, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "8.873469, 0, 4.073815",
+        "Scale": "0.44291902, 0.442919, 0.44291902",
+        "Rotation": "0, 48.236366, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "8.373981, 0, -0.710763",
+        "Scale": "0.632711, 0.632711, 0.632711",
+        "Rotation": "0, 297.29565, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "2.387575, 0, -7.071849",
+        "Scale": "0.534545, 0.534545, 0.534545",
+        "Rotation": "0, 125.03857, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-3.616145, 0, -7.82918",
+        "Scale": "0.576269, 0.576269, 0.576269",
+        "Rotation": "0, 135.61162, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-9.119556, 0, 6.86536",
+        "Scale": "0.47334504, 0.473345, 0.47334504",
+        "Rotation": "0, 310.5378, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "8.655902, 0, 9.206137",
+        "Scale": "0.551011, 0.551011, 0.551011",
+        "Rotation": "0, 110.00113, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "7.146996, 0, -7.615829",
+        "Scale": "0.364625, 0.364625, 0.364625",
+        "Children": []
+      }
+    ]
+  }
+}

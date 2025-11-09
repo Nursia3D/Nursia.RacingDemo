@@ -1,0 +1,41 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "Scale": "1, 1, 1",
+    "Children": [
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "RuinHouse.scene",
+        "Translation": "0.262445, 0, 0.358365",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Ruin.scene",
+        "Translation": "-4.993606, 0, -12.175295",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Ruin.scene",
+        "Translation": "5.297468, 0, 13.463447",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Ruin.scene",
+        "Translation": "-17.390259, 0, -1.058999",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 90, 0",
+        "Children": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#212121FF",
+          "DiffuseColor": "#EDEDEDFF",
+          "SpecularColor": "#909090FF",
+          "SpecularPower": 36.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Ruin01.tga",
+          "NormalTexturePath": "../Textures/Ruin01_Normal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/RuinHouse.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

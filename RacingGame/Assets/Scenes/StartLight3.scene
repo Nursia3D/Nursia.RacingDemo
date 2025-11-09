@@ -1,0 +1,75 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#505050FF",
+          "DiffuseColor": "#A7A7A7FF",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/TLight.tga",
+          "NormalTexturePath": "../Textures/TLightNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#1F1F1FFF",
+          "DiffuseColor": "#4D4D4DFF",
+          "SpecularColor": "#757575FF",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Light.tga",
+          "NormalTexturePath": "../Textures/LightNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#002B00FF",
+          "DiffuseColor": "#00EB1AFF",
+          "SpecularColor": "#BCD8A8FF",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Light.tga",
+          "NormalTexturePath": "../Textures/LightNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#505050FF",
+          "DiffuseColor": "#A7A7A7FF",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/TLight.tga",
+          "NormalTexturePath": "../Textures/TLightNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#1F1F1FFF",
+          "DiffuseColor": "#4D4D4DFF",
+          "SpecularColor": "#757575FF",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Light.tga",
+          "NormalTexturePath": "../Textures/LightNormal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/StartLight3.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

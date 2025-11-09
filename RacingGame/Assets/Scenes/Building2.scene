@@ -1,0 +1,63 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#2D2D2DFF",
+          "DiffuseColor": "#C4C4C4FF",
+          "SpecularColor": "#A3A3A3FF",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/building2.tga",
+          "NormalTexturePath": "../Textures/building2Normal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#646464FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/building2.tga",
+          "NormalTexturePath": "../Textures/building2Normal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#646464FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/building2.tga",
+          "NormalTexturePath": "../Textures/building2Normal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#646464FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/building2.tga",
+          "NormalTexturePath": "../Textures/building2Normal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/Building2.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

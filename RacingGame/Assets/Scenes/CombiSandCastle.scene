@@ -1,0 +1,79 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "Scale": "1, 1, 1",
+    "Children": [
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SandCastle.scene",
+        "Translation": "0.113811, 0, 0.11219",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "1.979637, 0, -4.18812",
+        "Scale": "1.29025, 1.29025, 1.29025",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "3.901264, 0, 5.210114",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "6.9336, 0, 18.552402",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 17.637512, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "4.302882, 0, 16.995895",
+        "Scale": "1.0000001, 1.0000014, 1.0000001",
+        "Rotation": "354.06577, 143.87842, 351.9366",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "15.495893, 0, 0.257044",
+        "Scale": "0.903812, 0.903812, 0.903812",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-16.314316, 0, -7.424619",
+        "Scale": "1.1548, 1.1548, 1.1548",
+        "Rotation": "0, 314.02542, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-3.174204, 0, -18.543203",
+        "Scale": "0.831134, 0.831134, 0.831134",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "1.069044, 0, -15.409787",
+        "Scale": "1.1064248, 1.1064248, 1.1064249",
+        "Rotation": "340.04858, 324.66714, 1.4225644",
+        "Children": []
+      }
+    ]
+  }
+}

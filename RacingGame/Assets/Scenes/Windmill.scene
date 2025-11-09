@@ -1,0 +1,39 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#7C7C7CFF",
+          "DiffuseColor": "#A5A5A5FF",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Windmill.tga",
+          "NormalTexturePath": "../Textures/WindmillNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#7C7C7CFF",
+          "DiffuseColor": "#A5A5A5FF",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Windmill.tga",
+          "NormalTexturePath": "../Textures/WindmillNormal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/Windmill.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

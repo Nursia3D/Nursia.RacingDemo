@@ -1,0 +1,71 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "Scale": "1, 1, 1",
+    "Children": [
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building.scene",
+        "Translation": "-1.07316, 0, -3.37378",
+        "Scale": "1.54, 1.54, 1.54",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building2.scene",
+        "Translation": "14.72731, 0, 31.239922",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building3.scene",
+        "Translation": "28.873264, 0, 6.577801",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building4.scene",
+        "Translation": "28.873264, 0, -13.422199",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building5.scene",
+        "Translation": "-41.126736, 0, 6.577801",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building.scene",
+        "Translation": "-41.126736, 0, 36.5778",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 270, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building2.scene",
+        "Translation": "-21.126736, 0, -33.4222",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 180, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building3.scene",
+        "Translation": "28.873264, 0, -33.4222",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 90, 0",
+        "Children": []
+      }
+    ]
+  }
+}

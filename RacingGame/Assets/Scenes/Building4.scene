@@ -1,0 +1,27 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#595959FF",
+          "DiffuseColor": "#909090FF",
+          "SpecularColor": "#727272FF",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/building4.tga",
+          "NormalTexturePath": "../Textures/building4Normal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/Building4.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

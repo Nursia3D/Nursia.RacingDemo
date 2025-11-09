@@ -1,0 +1,1327 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0,
+    "Sky": {
+      "DiffuseColor": "White",
+      "DiffuseTexturePath": "../Textures/SkyCubeMap.dds"
+    }
+  },
+  "Root": {
+    "Scale": "1, 1, 1",
+    "Children": [
+      {
+        "$type": "Nursia.SceneGraph.Landscape.TerrainNode, Nursia",
+        "HeightFieldPath": "LandscapeHeights.hf",
+        "TerrainSize": "2560, 300, 2560",
+        "DetailLevels": 3,
+        "PatchSize": 32,
+        "VerticalSkirtScale": 0.1,
+        "Material": {
+          "$type": "Nursia.SceneGraph.Landscape.TerrainMaterial, Nursia",
+          "AmbientLightColor": "#585858FF",
+          "DiffuseColor": "#EAEAEAFF",
+          "SpecularColor": "#212121FF",
+          "SpecularPower": 250.0,
+          "EmissiveColor": "Black",
+          "DetailTiling": "1, 1",
+          "WeightMap1Path": "../Textures/LandscapeHeights.png",
+          "DetailMap1Path": "../Textures/Landscape.tga"
+        },
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building.scene",
+        "Translation": "727.9181, 44.840828, -150.57349",
+        "Scale": "1.54, 1.54, 1.54",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building2.scene",
+        "Translation": "743.7185, 50.777386, -185.18713",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building3.scene",
+        "Translation": "757.8645, 43.480835, -160.52502",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building4.scene",
+        "Translation": "757.8645, 46.93528, -140.52502",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building5.scene",
+        "Translation": "687.8645, 42.978943, -160.52502",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building.scene",
+        "Translation": "687.8645, 49.8615, -190.52502",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 270, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building2.scene",
+        "Translation": "707.8645, 48.437946, -120.525024",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 180, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building3.scene",
+        "Translation": "757.8645, 49.839264, -120.525024",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 90, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "594.4474, 71.07383, -197.43347",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "644.4474, 61.966084, -197.43347",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "624.4474, 66.28303, -197.43347",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 180, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "574.4474, 74.91693, -197.43347",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 180, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-242.9049, 28.235296, -963.0242",
+        "Scale": "1.2709, 1.2709, 1.2709",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-245.89429, 28.235294, -965.4265",
+        "Scale": "1.05805, 1.05805, 1.05805",
+        "Rotation": "0, 321.63403, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-245.29333, 28.235296, -963.0157",
+        "Scale": "1, 1.0000001, 1",
+        "Rotation": "10.091471, 239.97147, 2.0762181",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-241.70044, 28.235294, -964.52734",
+        "Scale": "0.911785, 0.911785, 0.911785",
+        "Rotation": "0, 295.65326, 342.5",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-240.76062, 28.235294, -959.90405",
+        "Scale": "0.99999994, 1, 1",
+        "Rotation": "349.061, 294.48926, 6.1114655",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Ruin.scene",
+        "Translation": "88.43347, 86.66636, -743.9481",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Ruin.scene",
+        "Translation": "96.71692, 96.0456, -736.7924",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 25.653353, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Ruin.scene",
+        "Translation": "88.07202, 91.353455, -724.05035",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 115.65309, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone4.scene",
+        "Translation": "82.538086, 86.138695, -732.47943",
+        "Scale": "1.3, 1.3, 1.3",
+        "Rotation": "0, 320.6533, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "80.24512, 83.53328, -735.77057",
+        "Scale": "0.9, 0.9, 0.9",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "86.08008, 88.87103, -732.744",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 75.65309, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "82.321045, 86.61731, -727.4851",
+        "Scale": "1.2, 1.2, 1.2",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "93.5293, 89.46924, -744.75256",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "97.225464, 100.319756, -728.40045",
+        "Scale": "0.9, 0.9, 0.9",
+        "Rotation": "0, 355.65332, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "94.45349, 95.0221, -735.1644",
+        "Scale": "1.222525, 1.222525, 1.222525",
+        "Rotation": "0, 74.90274, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "78.12256, 83.378426, -729.95",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "-817.4468, 37.64706, 344.09033",
+        "Scale": "3.2826283, 3.282628, 3.2826283",
+        "Rotation": "0, 153.81061, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-823.56104, 37.64706, 343.19446",
+        "Scale": "0.775044, 0.775044, 0.775044",
+        "Rotation": "0, 153.81062, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "-818.53156, 37.64706, 339.21265",
+        "Scale": "1.241875, 1.241875, 1.241875",
+        "Rotation": "0, 12.146361, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-817.2968, 37.64706, 350.46814",
+        "Scale": "1.1935, 1.1935, 1.1935",
+        "Rotation": "0, 98.4936, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-812.56885, 37.647064, 341.13367",
+        "Scale": "1.356682, 1.356682, 1.356682",
+        "Rotation": "0, 201.87508, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "-820.1346, 37.647057, 349.39478",
+        "Scale": "0.865951, 0.865951, 0.865951",
+        "Rotation": "0, 153.81062, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "-813.0534, 37.64706, 346.7881",
+        "Scale": "1.577745, 1.577745, 1.577745",
+        "Rotation": "0, 253.48572, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock2.scene",
+        "Translation": "622.0751, 51.357933, -140.87378",
+        "Scale": "3.22525, 3.22525, 3.22525",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "620.1477, 52.946438, -150.2439",
+        "Scale": "1.774, 1.774, 1.774",
+        "Rotation": "0, 223.7763, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "613.92725, 53.81645, -139.51575",
+        "Scale": "1.25155, 1.25155, 1.25155",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "630.7064, 49.28501, -142.37476",
+        "Scale": "0.8959771, 0.895977, 0.8959771",
+        "Rotation": "0, 92.49889, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone4.scene",
+        "Translation": "625.86316, 49.790024, -134.94153",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "617.86816, 53.485985, -148.23547",
+        "Scale": "0.542969, 0.542969, 0.542969",
+        "Rotation": "0, 306.29797, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "625.3629, 51.12093, -150.30823",
+        "Scale": "0.8516799, 0.85168, 0.8516799",
+        "Rotation": "0, 24.248734, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "613.71277, 53.32946, -136.58545",
+        "Scale": "0.56064, 0.56064, 0.56064",
+        "Rotation": "0, 224.2114, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "612.35486, 54.792835, -142.80371",
+        "Scale": "0.582768, 0.582768, 0.582768",
+        "Rotation": "0, 91.23179, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "631.20544, 49.258213, -144.5863",
+        "Scale": "0.44291902, 0.442919, 0.44291902",
+        "Rotation": "0, 48.236366, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "630.70605, 49.223953, -139.80164",
+        "Scale": "0.632711, 0.632711, 0.632711",
+        "Rotation": "0, 297.29565, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "624.7196, 49.882526, -133.44055",
+        "Scale": "0.534545, 0.534545, 0.534545",
+        "Rotation": "0, 125.03857, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "618.71594, 51.24657, -132.68323",
+        "Scale": "0.576269, 0.576269, 0.576269",
+        "Rotation": "0, 135.61162, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "613.2125, 55.028236, -147.3778",
+        "Scale": "0.47334504, 0.473345, 0.47334504",
+        "Rotation": "0, 310.5378, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "630.9879, 49.405228, -149.71863",
+        "Scale": "0.551011, 0.551011, 0.551011",
+        "Rotation": "0, 110.00113, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "629.479, 48.698643, -132.8966",
+        "Scale": "0.364625, 0.364625, 0.364625",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "906.16455, 22.094349, -50.212524",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "956.16455, 17.245842, -50.212524",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "936.16455, 18.123295, -50.212524",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 180, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "886.16455, 25.598751, -50.212524",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 180, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-201.84412, 28.235296, -764.1775",
+        "Scale": "1.2709, 1.2709, 1.2709",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-204.8335, 28.235294, -766.5798",
+        "Scale": "1.05805, 1.05805, 1.05805",
+        "Rotation": "0, 321.63403, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-204.23254, 28.235294, -764.16895",
+        "Scale": "1, 1.0000001, 1",
+        "Rotation": "10.091471, 239.97147, 2.0762181",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-200.63965, 28.235294, -765.6806",
+        "Scale": "0.911785, 0.911785, 0.911785",
+        "Rotation": "0, 295.65326, 342.5",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-199.69983, 28.235294, -761.0573",
+        "Scale": "0.99999994, 1, 1",
+        "Rotation": "349.061, 294.48926, 6.1114655",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-5.636841, 150.50218, 2938.8328",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-126.47156, 142.83887, 2902.0366",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaTrain.scene",
+        "Translation": "746.66064, 250.18042, 3691.6929",
+        "Scale": "0.99999994, 1, 0.99999994",
+        "Rotation": "0, 271.55817, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Hotel01.scene",
+        "Translation": "-422.35236, 186.1591, 2929.9163",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 90, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Hotel02.scene",
+        "Translation": "-206.3534, 165.5639, 3212.7966",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 304.46252, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Hotel01.scene",
+        "Translation": "-226.65332, 173.32547, 2963.1013",
+        "Scale": "0.99999994, 1, 0.99999994",
+        "Rotation": "0, 234.56253, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Kaktus2.scene",
+        "Translation": "-98.006836, 118.81952, 3017.2888",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Kaktus.scene",
+        "Translation": "-119.99243, 132.93318, 3025.0083",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "KaktusBenny.scene",
+        "Translation": "-184.76074, 170.53195, 2906.531",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "KaktusSeg.scene",
+        "Translation": "-107.64795, 121.24609, 3028.906",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Trashcan.scene",
+        "Translation": "-142.87598, 147.89696, 3091.6885",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Windmill.scene",
+        "Translation": "114.40637, 144.70589, 3051.2703",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 60.133957, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Windmill.scene",
+        "Translation": "82.993286, 170.0118, 3017.8103",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 66.165115, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Windmill.scene",
+        "Translation": "94.541626, 153.37259, 3089.0337",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 61.466007, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Roadsign2.scene",
+        "Translation": "755.8069, 263.60568, 3792.279",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 44.368195, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "753.4949, 261.70166, 3782.4856",
+        "Scale": "0.99999994, 1, 0.99999994",
+        "Rotation": "0, 24.970892, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock2.scene",
+        "Translation": "723.72095, 222.79071, 3781.1912",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 303.9768, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock2.scene",
+        "Translation": "737.9607, 231.02179, 3764.3623",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 106.20469, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaDeadTree.scene",
+        "Translation": "719.8374, 222.10419, 3765.6567",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 106.80141, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaDeadTree.scene",
+        "Translation": "756.084, 263.8339, 3757.8896",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 64.56856, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaDeadTree.scene",
+        "Translation": "740.54956, 234.36374, 3742.355",
+        "Scale": "1, 1, 1",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building3.scene",
+        "Translation": "688.91016, 167.46605, 3742.463",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 324.02695, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Casino01.scene",
+        "Translation": "-283.76532, 184.70589, 3153.3125",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 232.37492, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Windmill.scene",
+        "Translation": "514.25977, 155.16264, 4234.755",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 308.2799, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Windmill.scene",
+        "Translation": "457.98645, 219.04448, 4309.6978",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 308.2799, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Windmill.scene",
+        "Translation": "505.4143, 166.57144, 4399.3633",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 308.2799, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Windmill.scene",
+        "Translation": "474.1725, 216.07292, 4493.5557",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 308.2799, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Windmill.scene",
+        "Translation": "437.31238, 190.86736, 4618.2373",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 308.2799, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Windmill.scene",
+        "Translation": "421.12024, 172.55551, 4707.3154",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 308.2799, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Casino01.scene",
+        "Translation": "447.24756, 206.37871, 4557.7456",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 171.5387, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "430.9347, 74.05356, -175.82764",
+        "Scale": "0.99999994, 1, 0.99999994",
+        "Rotation": "0, 129.8645, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "398.886, 71.798134, -137.44946",
+        "Scale": "0.99999994, 1, 0.99999994",
+        "Rotation": "0, 129.8645, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "411.70544, 72.15039, -152.80078",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 309.86435, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "OilTanks.scene",
+        "Translation": "443.75415, 72.94118, -191.17883",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 309.86435, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-743.1055, 37.64706, 267.7157",
+        "Scale": "1.2709, 1.2709, 1.2709",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-746.09485, 37.64706, 265.31348",
+        "Scale": "1.05805, 1.05805, 1.05805",
+        "Rotation": "0, 321.63403, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-745.4939, 37.64706, 267.72424",
+        "Scale": "1, 1.0000001, 1",
+        "Rotation": "10.091471, 239.97147, 2.0762181",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-741.9011, 37.64706, 266.21252",
+        "Scale": "0.911785, 0.911785, 0.911785",
+        "Rotation": "0, 295.65326, 342.5",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-740.96124, 37.64706, 270.83594",
+        "Scale": "0.99999994, 1, 1",
+        "Rotation": "349.061, 294.48926, 6.1114655",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-873.6499, 50.061546, 267.7837",
+        "Scale": "1.2709, 1.2709, 1.2709",
+        "Rotation": "0, 171.57454, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-873.9646, 49.47957, 271.6057",
+        "Scale": "1.0580502, 1.05805, 1.0580502",
+        "Rotation": "0, 197.55533, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-872.30457, 48.736095, 269.7572",
+        "Scale": "1, 1, 1",
+        "Rotation": "10.091473, 115.89278, 2.0762146",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-875.5698, 51.39308, 267.62842",
+        "Scale": "0.911785, 0.911785, 0.911785",
+        "Rotation": "0, 171.57454, 342.5",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-872.2671, 49.856743, 264.2594",
+        "Scale": "0.99999994, 0.99999994, 0.99999994",
+        "Rotation": "349.061, 170.41055, 6.1114616",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SandCastle.scene",
+        "Translation": "-953.8115, 211.59595, 4321.47",
+        "Scale": "0.99999994, 1, 0.99999994",
+        "Rotation": "0, 261.93002, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-450.53796, 41.17647, -952.8733",
+        "Scale": "1.2709, 1.2709, 1.2709",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-453.52728, 41.17647, -955.2755",
+        "Scale": "1.05805, 1.05805, 1.05805",
+        "Rotation": "0, 321.63403, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-452.92633, 41.17647, -952.86475",
+        "Scale": "1, 1.0000001, 1",
+        "Rotation": "10.091471, 239.97147, 2.0762181",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-449.33356, 41.176476, -954.3764",
+        "Scale": "0.911785, 0.911785, 0.911785",
+        "Rotation": "0, 295.65326, 342.5",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-448.39368, 41.200855, -949.7531",
+        "Scale": "0.99999994, 1, 1",
+        "Rotation": "349.061, 294.48926, 6.1114655",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-370.5426, 203.68452, 3089.9878",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 352.68976, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "KaktusBenny.scene",
+        "Translation": "-393.19452, 176.4216, 3007.473",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 352.68976, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-201.06775, 166.8076, 2922.6057",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SandCastle.scene",
+        "Translation": "-1011.8596, 262.40652, 4245.949",
+        "Scale": "0.99999994, 1, 0.99999994",
+        "Rotation": "0, 261.93002, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "-752.4363, 37.64706, 351.93506",
+        "Scale": "3.2826283, 3.282628, 3.2826283",
+        "Rotation": "0, 2.9520276, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-747.5323, 37.64706, 355.69495",
+        "Scale": "0.775044, 0.775044, 0.775044",
+        "Rotation": "0, 2.9520278, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "-753.86414, 37.64706, 356.72363",
+        "Scale": "1.2418749, 1.241875, 1.2418749",
+        "Rotation": "0, 221.28777, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-749.4615, 37.64706, 346.2915",
+        "Scale": "1.1935, 1.1935, 1.1935",
+        "Rotation": "0, 307.635, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "SharpRock.scene",
+        "Translation": "-758.13666, 37.64706, 352.1421",
+        "Scale": "1.3566821, 1.356682, 1.3566821",
+        "Rotation": "0, 51.016476, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "-747.5056, 37.64706, 348.61096",
+        "Scale": "0.865951, 0.865951, 0.865951",
+        "Rotation": "0, 2.9520278, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Stone5.scene",
+        "Translation": "-754.95984, 37.64706, 347.43933",
+        "Scale": "1.577745, 1.577745, 1.577745",
+        "Rotation": "0, 102.62711, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Kaktus.scene",
+        "Translation": "-182.05237, 169.8947, 4521.6436",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building.scene",
+        "Translation": "-197.0055, 37.64706, 675.4302",
+        "Scale": "1.54, 1.54, 1.54",
+        "Rotation": "0, 267.22272, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building2.scene",
+        "Translation": "-232.34424, 37.647064, 661.32544",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 267.22272, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building3.scene",
+        "Translation": "-208.39648, 39.48264, 646.0011",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 267.22272, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building4.scene",
+        "Translation": "-188.41992, 44.570465, 645.032",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 267.22272, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building5.scene",
+        "Translation": "-205.00464, 37.64706, 715.9188",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 267.22272, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building.scene",
+        "Translation": "-234.96948, 37.64706, 717.37256",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 177.22261, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building2.scene",
+        "Translation": "-166.02075, 38.3959, 694.00415",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 87.22254, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Building3.scene",
+        "Translation": "-168.44348, 52.537598, 644.063",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 357.22278, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-304.96484, 94.46768, 533.61096",
+        "Scale": "1.2709, 1.2709, 1.2709",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-307.95416, 95.92739, 531.20874",
+        "Scale": "1.05805, 1.05805, 1.05805",
+        "Rotation": "0, 321.63403, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-307.3532, 93.999855, 533.6195",
+        "Scale": "1, 1.0000001, 1",
+        "Rotation": "10.091471, 239.97147, 2.0762181",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-303.76044, 96.04812, 532.1078",
+        "Scale": "0.911785, 0.911785, 0.911785",
+        "Rotation": "0, 295.65326, 342.5",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-302.82056, 92.04792, 536.7312",
+        "Scale": "0.99999994, 1, 1",
+        "Rotation": "349.061, 294.48926, 6.1114655",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-216.61597, 37.64706, 670.88904",
+        "Scale": "1.2709, 1.2709, 1.2709",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-219.60535, 37.64706, 668.4868",
+        "Scale": "1.05805, 1.05805, 1.05805",
+        "Rotation": "0, 321.63403, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-219.0044, 37.64706, 670.8976",
+        "Scale": "1, 1.0000001, 1",
+        "Rotation": "10.091471, 239.97147, 2.0762181",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-215.4115, 37.64706, 669.38586",
+        "Scale": "0.911785, 0.911785, 0.911785",
+        "Rotation": "0, 295.65326, 342.5",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-214.47168, 37.64706, 674.0093",
+        "Scale": "0.99999994, 1, 1",
+        "Rotation": "349.061, 294.48926, 6.1114655",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-188.5315, 171.41917, 4398.672",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Hotel01.scene",
+        "Translation": "-288.7132, 184.70589, 4459.7363",
+        "Scale": "0.99999994, 1, 0.99999994",
+        "Rotation": "0, 234.56253, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Kaktus2.scene",
+        "Translation": "-160.06677, 154.20406, 4513.924",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-263.12762, 187.86736, 4419.2407",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "KaktusBenny.scene",
+        "Translation": "-246.82068, 183.95782, 4403.166",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "KaktusSeg.scene",
+        "Translation": "-169.70789, 166.68079, 4525.541",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Trashcan.scene",
+        "Translation": "-171.68164, 167.45451, 4549.256",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-479.3437, 37.64706, 542.5272",
+        "Scale": "1.2709, 1.2709, 1.2709",
+        "Rotation": "0, 295.65326, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-482.333, 37.64706, 540.125",
+        "Scale": "1.05805, 1.05805, 1.05805",
+        "Rotation": "0, 321.63403, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-481.73206, 37.647064, 542.53577",
+        "Scale": "1, 1.0000001, 1",
+        "Rotation": "10.091471, 239.97147, 2.0762181",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-478.13928, 37.64706, 541.02405",
+        "Scale": "0.911785, 0.911785, 0.911785",
+        "Rotation": "0, 295.65326, 342.5",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-477.1994, 37.64706, 545.64746",
+        "Scale": "0.99999994, 1, 1",
+        "Rotation": "349.061, 294.48926, 6.1114655",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-384.06335, 181.58, 4570.384",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 352.68976, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "KaktusBenny.scene",
+        "Translation": "-422.00024, 186.11768, 4465.04",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 352.68976, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Hotel02.scene",
+        "Translation": "-131.38574, 148.23529, 3308.1072",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 304.46252, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Hotel01.scene",
+        "Translation": "-146.56958, 147.4624, 3065.282",
+        "Scale": "0.99999994, 1, 0.99999994",
+        "Rotation": "0, 113.40345, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Trashcan.scene",
+        "Translation": "-384.20703, 181.42789, 4653.2993",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 115.37981, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "Hotel01.scene",
+        "Translation": "-380.38733, 185.47223, 4679.688",
+        "Scale": "1, 1, 1",
+        "Rotation": "0, 293.12967, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-325.16376, 51.48228, 828.8838",
+        "Scale": "1.2709, 1.2709, 1.2709",
+        "Rotation": "0, 115.37983, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-322.16302, 53.616714, 831.2717",
+        "Scale": "1.05805, 1.05805, 1.05805",
+        "Rotation": "0, 141.3606, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "-322.7755, 51.71608, 828.8638",
+        "Scale": "1, 1, 1",
+        "Rotation": "10.09147, 59.698017, 2.0762138",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-326.36102, 52.499344, 830.3926",
+        "Scale": "0.911785, 0.911785, 0.911785",
+        "Rotation": "0, 115.379814, 342.49997",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-327.32294, 48.963444, 825.7739",
+        "Scale": "0.99999994, 0.99999994, 1",
+        "Rotation": "349.061, 114.215805, 6.1114607",
+        "Children": []
+      }
+    ]
+  }
+}

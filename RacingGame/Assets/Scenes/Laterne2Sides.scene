@@ -1,0 +1,27 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#313131FF",
+          "DiffuseColor": "#DFDFDFFF",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/streetlamp.tga",
+          "NormalTexturePath": "../Textures/streetlampNormal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/Laterne2Sides.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

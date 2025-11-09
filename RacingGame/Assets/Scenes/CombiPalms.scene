@@ -1,0 +1,36 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "Scale": "1, 1, 1",
+    "Children": [
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm.scene",
+        "Translation": "-0.098986, 0, 1.380652",
+        "Scale": "0.945135, 0.945135, 0.945135",
+        "Rotation": "11.500009, 0, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm2.scene",
+        "Translation": "1.508872, 0, -1.558112",
+        "Scale": "1.125775, 1.125775, 1.125775",
+        "Rotation": "0, 138.2924, 0",
+        "Children": []
+      },
+      {
+        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
+        "NodePath": "AlphaPalm3.scene",
+        "Translation": "-1.789457, 0, -1.584176",
+        "Scale": "1.2225251, 1.2225252, 1.2225252",
+        "Rotation": "345.27582, 79.05037, 352.1312",
+        "Children": []
+      }
+    ]
+  }
+}

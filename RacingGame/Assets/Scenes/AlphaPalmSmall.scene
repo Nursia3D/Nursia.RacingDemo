@@ -1,0 +1,39 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#363636FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Palm2_stamm.tga",
+          "NormalTexturePath": "../Textures/Palm2_stammNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#3B3B3BFF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/PalmLeave2.tga",
+          "NormalTexturePath": "../Textures/PalmLeave2Normal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/AlphaPalmSmall.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

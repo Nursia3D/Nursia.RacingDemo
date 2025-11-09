@@ -1,0 +1,27 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#606060FF",
+          "DiffuseColor": "#B8B8B8FF",
+          "SpecularColor": "#8C8C8CFF",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Kaktus.tga",
+          "NormalTexturePath": "../Textures/KaktusNormal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/Kaktus2.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

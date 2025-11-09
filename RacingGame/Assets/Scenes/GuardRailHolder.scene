@@ -1,0 +1,27 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientLightColor": "#505050FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/Leitplanke.tga",
+          "NormalTexturePath": "../Textures/LeitplankeNormal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/GuardRailHolder.glb",
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}
