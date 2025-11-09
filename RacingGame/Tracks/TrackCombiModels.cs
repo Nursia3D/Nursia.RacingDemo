@@ -156,8 +156,9 @@ namespace RacingGame.Tracks
 		{
 			// Just add all models in our combi
 			foreach (CombiObject obj in objects)
-				landscape.AddObjectToRender(obj.modelName,
-					obj.matrix * parentMatrix, false);
+			{
+				landscape.AddObjectToRender(obj.modelName, obj.matrix * parentMatrix);
+			}
 		}
 		#endregion
 	}

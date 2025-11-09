@@ -683,7 +683,7 @@ namespace RacingGame.Tracks
 				for (int num = 0; num < neutralObjects.Count; num++)
 				{
 					TrackData.NeutralObject obj = neutralObjects[num];
-					landscape.AddObjectToRender(obj.modelName, obj.matrix, false);
+					landscape.AddObjectToRender(obj.modelName, obj.matrix);
 				}
 			}
 			#endregion

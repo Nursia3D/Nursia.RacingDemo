@@ -305,10 +305,7 @@ namespace RacingGame.Tracks
 							pointSpace *
 							// at least we calculate to correct position where the pile
 							// reaches exactly the holder gap
-							Matrix.CreateTranslation(holderPoint),
-							// Optimize performance: Set this to false,
-							// but then we won't have shadows for the holder piles.
-							false);//true);
+							Matrix.CreateTranslation(holderPoint));
 
 					// We have just set a pile, the next pile will be set after
 					// reaching the next holder gap.

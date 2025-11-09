@@ -1,6 +1,8 @@
 ﻿using DigitalRiseModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Nursia;
+using Nursia.SceneGraph;
 using RacingGame.Graphics;
 using System;
 using System.Collections.Generic;
@@ -86,6 +88,27 @@ namespace RacingGame.Utilities
 		public static BoundingBox CalculateBoundingBox(this IEnumerable<TangentVertex> vertices)
 		{
 			return BoundingBox.CreateFromPoints(from v in vertices select v.pos);
+		}
+
+		public static float CalculateSize(this DrModel model)
+		{
+			var transforms = new Matrix[model.Bones.Length];
+			model.CopyAbsoluteBoneTransformsTo(transforms);
+
+			var realScaling = 1.0f;
+
+			// Calculate scaling for this object, used for distance comparisons.
+			if (model.Meshes.Length > 0)
+			{
+				realScaling = model.Meshes[0].BoundingBox.Radius() * transforms[0].Right.Length();
+			}
+
+			return realScaling;
+		}
+
+		public static NursiaModelNode LoadModel(string name)
+		{
+			return (NursiaModelNode)BaseGame.Content.LoadSceneNode($"Scenes/{name}.scene");
 		}
 	}
 }

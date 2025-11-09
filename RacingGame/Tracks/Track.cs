@@ -740,9 +740,7 @@ namespace RacingGame.Tracks
 									* Matrix.CreateTranslation(new Vector3(0, 0, -50)) *
 									// And finally we calculate to correct position where
 									// the palm reaches exactly the holder gap
-									Matrix.CreateTranslation(objPoint),
-									// Enable this for shadow map generation
-									true);
+									Matrix.CreateTranslation(objPoint));
 							}
 						}
 						else
@@ -763,9 +761,7 @@ namespace RacingGame.Tracks
 									pointSpace *
 									// At last we calculate to correct position where the
 									// latern reaches exactly the holder gap
-									Matrix.CreateTranslation(objPoint),
-									// Enable this for shadow map generation
-									true);
+									Matrix.CreateTranslation(objPoint));
 						}
 					}
 
@@ -803,9 +799,7 @@ namespace RacingGame.Tracks
 					// the ordinary transformation to the current point space
 					startPointSpace *
 					// Add the correct position where the goal is
-					Matrix.CreateTranslation(points[0].pos),
-					// Enable this for shadow map generation
-					true);
+					Matrix.CreateTranslation(points[0].pos));
 				landscape.AddObjectToRender(
 					// All 3 modes are handled and updated in BasePlayer class
 					"StartLight3",
@@ -817,9 +811,7 @@ namespace RacingGame.Tracks
 					// the ordinary transformation to the current point space
 					startPointSpace *
 					// Add the correct position where the goal is
-					Matrix.CreateTranslation(points[0].pos),
-					// Enable this for shadow map generation
-					true);
+					Matrix.CreateTranslation(points[0].pos));
 			}
 
 			// Make sure we don't reuse any of the old checkpoint positions.
@@ -885,9 +877,7 @@ namespace RacingGame.Tracks
 						pointSpace *
 						// And finally we calculate to correct position where the palm
 						// reaches exactly the holder gap
-						Matrix.CreateTranslation(objPoint),
-						// Enable this for shadow map generation
-						true);
+						Matrix.CreateTranslation(objPoint));
 
 					// Remember this segment for easier checking later.
 					checkpointSegmentPositions.Add(num);
@@ -932,9 +922,7 @@ namespace RacingGame.Tracks
 							pointSpace *
 							// And finally we calculate to correct position where the obj
 							// reaches exactly the holder gap
-							Matrix.CreateTranslation(objPoint),
-							// Enable this for shadow map generation
-							true);
+							Matrix.CreateTranslation(objPoint));
 					}
 					// Else check if the angle less than -24 degrees (pi/7.5)
 					else if (roadAngle < -MathHelper.Pi / 7.5f)
@@ -951,9 +939,7 @@ namespace RacingGame.Tracks
 							pointSpace *
 							// And finally we calculate to correct position where the obj
 							// reaches exactly the holder gap
-							Matrix.CreateTranslation(objPoint),
-							// Enable this for shadow map generation
-							true);
+							Matrix.CreateTranslation(objPoint));
 					}
 					// Same for other side
 					else if (roadAngle > MathHelper.Pi / 7.5f)
@@ -970,9 +956,7 @@ namespace RacingGame.Tracks
 							pointSpace *
 							// And finally we calculate to correct position where the obj
 							// reaches exactly the holder gap
-							Matrix.CreateTranslation(objPoint),
-							// Enable this for shadow map generation
-							true);
+							Matrix.CreateTranslation(objPoint));
 					}
 					// Also generate banner signs if roadAngle is at least 18 degrees
 					else if (roadAngle < -MathHelper.Pi / 10.0f ||
@@ -1007,9 +991,7 @@ namespace RacingGame.Tracks
 							pointSpace *
 							// And finally we calculate to correct position where the obj
 							// reaches exactly the holder gap
-							Matrix.CreateTranslation(objPoint),
-							// Enable this for shadow map generation
-							true);
+							Matrix.CreateTranslation(objPoint));
 					}
 
 					// We have just set a sign (or not), check for next sign after gap.
