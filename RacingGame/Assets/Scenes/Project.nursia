@@ -4,7 +4,11 @@
   "LeftSplitterPosition": 0.5,
   "OpenFiles": [
     "D:\\Projects\\Nursia.RacingGame\\RacingGame\\Assets\\Scenes\\TrackBeginner.scene",
-    "D:\\Projects\\Nursia.RacingGame\\RacingGame\\Assets\\Scenes\\TrackAdvanced.scene"
+    "D:\\Projects\\Nursia.RacingGame\\RacingGame\\Assets\\Scenes\\TrackAdvanced.scene",
+    "D:\\Projects\\Nursia.RacingGame\\RacingGame\\Assets\\Scenes\\StartLight.scene",
+    "D:\\Projects\\Nursia.RacingGame\\RacingGame\\Assets\\Scenes\\StartLight2.scene",
+    "D:\\Projects\\Nursia.RacingGame\\RacingGame\\Assets\\Scenes\\StartLight3.scene",
+    "D:\\Projects\\Nursia.RacingGame\\RacingGame\\Assets\\Scenes\\TrackExpert.scene"
   ],
   "ShowCameraPosition": true,
   "GraphicsSettings": {

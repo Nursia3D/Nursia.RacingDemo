@@ -26,6 +26,7 @@ using Model = RacingGame.Graphics.Model;
 using Texture = RacingGame.Graphics.Texture;
 using RacingGame.Properties;
 using RacingGame.Shaders;
+using Nursia;
 
 #endregion
 
@@ -371,6 +372,10 @@ namespace RacingGame
 		/// </summary>
 		private void LoadResources()
 		{
+			// Nursia Initialization
+			Nrs.Game = this;
+
+
 			LoadEvent("Models...", null);
 			// Load models
 			carModel = new Model("Car");

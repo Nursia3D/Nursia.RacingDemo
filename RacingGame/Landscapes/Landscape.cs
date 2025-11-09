@@ -10,19 +10,24 @@
 #region Using directives
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Nursia;
+using Nursia.SceneGraph;
+using Nursia.SceneGraph.Cameras;
+using Nursia.SceneGraph.Lights;
+using RacingGame.GameLogic;
+using RacingGame.GameScreens;
+using RacingGame.Graphics;
+using RacingGame.Helpers;
+using RacingGame.Shaders;
+using RacingGame.Sounds;
+using RacingGame.Tracks;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using RacingGame.Graphics;
-using RacingGame.Helpers;
-using RacingGame.Shaders;
-using RacingGame.Tracks;
-using Model = RacingGame.Graphics.Model;
-using RacingGame.GameLogic;
-using RacingGame.GameScreens;
-using RacingGame.Sounds;
 using System.Threading;
+using Model = RacingGame.Graphics.Model;
+
 #endregion
 
 namespace RacingGame.Landscapes
@@ -32,6 +37,19 @@ namespace RacingGame.Landscapes
 	/// </summary>
 	public class Landscape : IDisposable
 	{
+		private Renderer renderer = new Renderer();
+		private DirectLight _directLight = new DirectLight
+		{
+			MaxShadowDistance = 500
+		};
+
+		private PerspectiveCamera _camera = new PerspectiveCamera
+		{
+			ViewAngle = 90,
+			NearPlaneDistance = 0.5f,
+			FarPlaneDistance = 1750.0f
+		};
+
 		#region Constants
 		/// <summary>
 		/// Grid width and height
@@ -223,56 +241,6 @@ namespace RacingGame.Landscapes
 				new Model("StartLight"),
 				new Model("StartLight2"),
 				new Model("StartLight3"),
-				new Model("Blockade"),
-				new Model("Blockade2"),
-				new Model("Hydrant"),
-				new Model("Kaktus"),
-				new Model("Kaktus2"),
-				new Model("KaktusBenny"),
-				new Model("KaktusSeg"),
-				new Model("AlphaDeadTree"),
-				new Model("AlphaPalm"),
-				new Model("AlphaPalm2"),
-				new Model("AlphaPalm3"),
-				new Model("AlphaPalmSmall"),
-				new Model("Laterne"),
-				new Model("Laterne2Sides"),
-				new Model("Trashcan"),
-				new Model("Roadsign"),
-				new Model("Roadsign2"),
-				new Model("Goal"),
-				new Model("Building"),
-				new Model("Building2"),
-				new Model("Building3"),
-				new Model("Building4"),
-				new Model("Building5"),
-				new Model("OilPump"),
-				new Model("OilTanks"),
-				new Model("RoadColumnSegment"),
-				new Model("Windmill"),
-				new Model("Ruin"),
-				new Model("RuinHouse"),
-				new Model("SandCastle"),
-				new Model("Banner"),
-				new Model("Banner2"),
-				new Model("Banner3"),
-				new Model("Banner4"),
-				new Model("Banner5"),
-				new Model("Banner6"),
-				new Model("Sign"),
-				new Model("Sign2"),
-				new Model("SignWarning"),
-				new Model("SignCurveLeft"),
-				new Model("SignCurveRight"),
-				new Model("SharpRock"),
-				new Model("SharpRock2"),
-				new Model("Stone4"),
-				new Model("Stone5"),
-				new Model("AlphaTrain"),
-				new Model("GuardRailHolder"),
-				new Model("Hotel01"),
-				new Model("Hotel02"),
-				new Model("Casino01"),
 			};
 
 		/// <summary>
@@ -1111,11 +1079,24 @@ namespace RacingGame.Landscapes
 			BaseGame.WorldMatrix = Matrix.Identity;
 
 			// Render landscape (pretty easy with all the data we got here)
-			ShaderEffect.landscapeNormalMapping.Render(
-				mat, "DiffuseWithDetail20",
-				new BaseGame.RenderHandler(RenderLandscapeVertices));
+			/*			ShaderEffect.landscapeNormalMapping.Render(
+							mat, "DiffuseWithDetail20",
+							new BaseGame.RenderHandler(RenderLandscapeVertices));*/
 
-			cityPlane.Render();
+			//cityPlane.Render();
+
+			_directLight.Direction = -BaseGame.LightDirection;
+
+			renderer.Add(_directLight);
+
+			renderer.Add(track.Scene);
+
+			_camera.SetViewport(Nrs.GraphicsDevice.Viewport.Width, Nrs.GraphicsDevice.Viewport.Height);
+
+			_camera.View = RacingGameManager.ViewMatrix;
+
+			renderer.Process(_camera);
+
 
 			// Render track
 			track.Render();

@@ -20,6 +20,7 @@
     ],
     "ModelPath": "../Models/Cube.glb",
     "Scale": "1, 1, 1",
+    "Rotation": "90, 0, 0",
     "Children": []
   }
 }

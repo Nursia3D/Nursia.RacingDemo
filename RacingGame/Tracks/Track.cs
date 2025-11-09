@@ -19,6 +19,9 @@ using RacingGame.Landscapes;
 using RacingGame.Shaders;
 using Model = RacingGame.Graphics.Model;
 using RacingGame.GameLogic;
+using Nursia.SceneGraph;
+using Nursia;
+using Nursia.SceneGraph.Cameras;
 #endregion
 
 namespace RacingGame.Tracks
@@ -76,6 +79,9 @@ namespace RacingGame.Tracks
 		#endregion
 
 		#region Variables
+
+		private SceneNode _scene;
+
 		/// <summary>
 		/// Road material for the top of the road.
 		/// </summary>
@@ -181,6 +187,9 @@ namespace RacingGame.Tracks
 		#endregion
 
 		#region Properties
+
+		public SceneNode Scene => _scene;
+
 		/// <summary>
 		/// Start position
 		/// </summary>
@@ -262,6 +271,10 @@ namespace RacingGame.Tracks
 		public Track(string setTrackName, Landscape landscape)
 			: base(TrackData.Load(setTrackName), landscape)
 		{
+			var storedScene = BaseGame.Content.LoadStoredScene($"Scenes/{setTrackName}.scene");
+
+			_scene = storedScene.Root;
+
 			GenerateVerticesAndObjects(landscape);
 		}
 

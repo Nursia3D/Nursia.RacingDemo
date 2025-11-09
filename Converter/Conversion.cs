@@ -50,6 +50,8 @@ namespace Converter
 				ModelPath = Utility.TryToMakePathRelativeTo(file, Utility.OutputFolder)
 			};
 
+			result.SetTransform(objectMatrix);
+
 			var materialFile = Path.ChangeExtension(file, "material");
 			var data = File.ReadAllText(materialFile);
 
@@ -153,7 +155,7 @@ namespace Converter
 			var heightFile = Path.Combine(folder, "LandscapeHeights.data");
 			using (var stream = File.OpenRead(heightFile))
 			{
-				hf = HeightField.FromStreamR8(stream, GridWidth, GridHeight);
+				hf = HeightField.FromStreamR8(stream, GridWidth, GridHeight, revertZ: true);
 			}
 
 			using (var stream = File.Create(Path.Combine(folder, "Scenes/LandscapeHeights.hf")))
@@ -177,7 +179,9 @@ namespace Converter
 				HeightFieldPath = "LandscapeHeights.hf",
 				TerrainSize = new Vector3(2560, 300, 2560),
 				Material = material,
-				HeightField = hf
+				HeightField = hf,
+				Rotation = new Vector3(90, 0, 0),
+				Translation = new Vector3(1280, 1280, 0),
 			};
 			
 			result.Children.Add(terrainNode);
@@ -217,23 +221,14 @@ namespace Converter
 							NodePath = $"{combiObj.modelName}.scene"
 						};
 
-						// Original game had Y axis pointed forward and Z pointed up
-						// We need to transform it into Nursia system, where Y pointed up and Z pointed backwards(to viewer)
-						// Also original terrain spanned from 0 to 2560 on both axies
-						// Nursia spans from -1280 to 1280
-						// We need to correctly map it all
-						transform = objectMatrix * combiObj.matrix * obj.matrix * Matrix.Invert(objectMatrix);
+						transform = combiObj.matrix * obj.matrix;
 
 						var pos = transform.Translation;
 
-						pos.X -= 1280;
-						pos.Z = -1280 - pos.Z;
-
-						var height = terrainNode.GetHeight(new Vector2(pos.X, pos.Z));
-
-						if (pos.Y < height)
+						var height = terrainNode.GetHeight(pos);
+						if (pos.Z < height)
 						{
-							pos.Y = height;
+							pos.Z = height;
 						}
 						
 						transform.Translation = pos;
@@ -257,23 +252,14 @@ namespace Converter
 						NodePath = $"{obj.modelName}.scene"
 					};
 
-					// Original game had Y axis pointed forward and Z pointed up
-					// We need to transform it into Nursia system, where Y pointed up and Z pointed backwards(to viewer)
-					// Also original terrain spanned from 0 to 2560 on both axies
-					// Nursia spans from -1280 to 1280
-					// We need to correctly map it all
-					transform = objectMatrix * obj.matrix * Matrix.Invert(objectMatrix);
+					transform = obj.matrix;
 
 					var pos = transform.Translation;
 
-					pos.X -= 1280;
-					pos.Z = 2560 - pos.Z;
-
-					var height = terrainNode.GetHeight(new Vector2(pos.X, pos.Z));
-
-					if (pos.Y < height)
+					var height = terrainNode.GetHeight(pos);
+					if (pos.Z < height)
 					{
-						pos.Y = height;
+						pos.Z = height;
 					}
 
 					transform.Translation = pos;

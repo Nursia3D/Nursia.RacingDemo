@@ -58,6 +58,7 @@
     ],
     "ModelPath": "../Models/Building2.glb",
     "Scale": "1, 1, 1",
+    "Rotation": "90, 0, 0",
     "Children": []
   }
 }
