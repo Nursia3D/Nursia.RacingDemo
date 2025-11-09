@@ -185,9 +185,6 @@ namespace Converter
 			};
 
 			terrainSubsceneNode.Load(assetManager);
-
-			result.Children.Add(terrainSubsceneNode);
-
 			var terrainNode = terrainSubsceneNode.QueryFirstByType<TerrainNode>();
 
 			var trackData = TrackData.Load(file);

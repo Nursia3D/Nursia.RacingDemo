@@ -230,7 +230,6 @@ namespace RacingGame.Graphics
 			alreadyCheckedGraphicsOptions = true;
 
 			usePostScreenShaders = GameSettings.Default.PostScreenEffects;
-			allowShadowMapping = GameSettings.Default.ShadowMapping;
 			highDetail = GameSettings.Default.HighDetail;
 		}
 
@@ -259,22 +258,6 @@ namespace RacingGame.Graphics
 					CheckOptionsAndPSVersion();
 
 				return highDetail;
-			}
-		}
-
-		private static bool allowShadowMapping = true;
-		/// <summary>
-		/// Allow shadow mapping
-		/// </summary>
-		/// <returns>Bool</returns>
-		public static bool AllowShadowMapping
-		{
-			get
-			{
-				if (alreadyCheckedGraphicsOptions == false)
-					CheckOptionsAndPSVersion();
-
-				return allowShadowMapping;
 			}
 		}
 

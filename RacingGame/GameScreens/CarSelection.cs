@@ -89,67 +89,6 @@ namespace RacingGame.GameScreens
 		/// <returns>Bool</returns>
 		public bool Render()
 		{
-			if (BaseGame.AllowShadowMapping)
-			{
-				// Let camera point directly at the center, around 10 units away.
-				BaseGame.ViewMatrix = Matrix.CreateLookAt(
-					new Vector3(0, 10.45f, 2.75f),
-					new Vector3(0, 0, -1),
-					new Vector3(0, 0, 1));
-
-				// Let the light come from the front!
-				Vector3 lightDir = -LensFlare.DefaultLightPos;
-				lightDir = new Vector3(lightDir.X, lightDir.Y, -lightDir.Z);
-				// LightDirection will normalize
-				BaseGame.LightDirection = lightDir;
-
-				// Show 3d cars
-				// Rotate all 3 cars depending on the current selection
-				float perCarRot = MathHelper.Pi * 2.0f / 3.0f;
-				float newCarSelectionRotationZ =
-					RacingGameManager.currentCarNumber * perCarRot;
-				carSelectionRotationZ = InterpolateRotation(
-					carSelectionRotationZ, newCarSelectionRotationZ,
-					BaseGame.MoveFactorPerSecond * 5.0f);
-				// Prebuild all render matrices, we will use them for several times
-				// here.
-				Matrix[] renderMatrices = new Matrix[3];
-				for (int carNum = 0; carNum < 3; carNum++)
-					renderMatrices[carNum] =
-						Matrix.CreateRotationZ(BaseGame.TotalTime / 3.9f) *
-						Matrix.CreateTranslation(new Vector3(0, 5.0f, 0)) *
-						Matrix.CreateRotationZ(-carSelectionRotationZ + carNum * perCarRot) *
-						Matrix.CreateTranslation(new Vector3(1.5f, 0.0f, 1.0f));
-				// Last translation translates the position of the cars in the UI;
-
-				// For shadows make sure the car position is the origin
-				RacingGameManager.Player.SetCarPosition(Vector3.Zero,
-					new Vector3(0, 1, 0), new Vector3(0, 0, 1));
-
-				// Generate shadows
-				ShaderEffect.shadowMapping.GenerateShadows(
-					delegate
-					{
-						for (int carNum = 0; carNum < 3; carNum++)
-							// Only the car throws shadows
-							RacingGameManager.CarModel.GenerateShadow(
-								renderMatrices[carNum]);
-					});
-
-				// Render shadows
-				ShaderEffect.shadowMapping.RenderShadows(
-					delegate
-					{
-						for (int carNum = 0; carNum < 3; carNum++)
-						{
-							// Both the car and the selection plate receive shadows
-							RacingGameManager.CarSelectionPlate.UseShadow(
-								renderMatrices[carNum]);
-							RacingGameManager.CarModel.UseShadow(renderMatrices[carNum]);
-						}
-					});
-			}
-
 			// This starts both menu and in game post screen shader!
 			// It will render into the sceneMap texture which we will use
 			// later then.
@@ -490,12 +429,6 @@ namespace RacingGame.GameScreens
 			// Render all models we remembered this frame (we are in PostUIRender,
 			// and we changed our view matrix, render directly here).
 			BaseGame.MeshRenderManager.Render();
-
-			// And finally add shadows to the scene
-			if (BaseGame.AllowShadowMapping)
-			{
-				ShaderEffect.shadowMapping.ShowShadows();
-			}
 
 			// Reset stuff
 			BaseGame.WorldMatrix = Matrix.Identity;

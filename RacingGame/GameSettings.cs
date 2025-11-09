@@ -222,7 +222,6 @@ namespace RacingGame.Properties
 		{
 			GameSettings.Default.ResolutionWidth = GameSettings.MinimumResolutionWidth;
 			GameSettings.Default.ResolutionHeight = GameSettings.MinimumResolutionHeight;
-			GameSettings.Default.ShadowMapping = false;
 			GameSettings.Default.HighDetail = false;
 			GameSettings.Default.PostScreenEffects = false;
 
@@ -363,25 +362,6 @@ namespace RacingGame.Properties
 				if (postScreenEffects != value)
 					needSave = true;
 				postScreenEffects = value;
-			}
-		}
-
-		bool shadowMapping = true;
-		/// <summary>
-		/// ShadowMapping
-		/// </summary>
-		/// <returns>Bool</returns>
-		public bool ShadowMapping
-		{
-			get
-			{
-				return shadowMapping;
-			}
-			set
-			{
-				if (shadowMapping != value)
-					needSave = true;
-				shadowMapping = value;
 			}
 		}
 

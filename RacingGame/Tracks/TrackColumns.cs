@@ -328,7 +328,7 @@ namespace RacingGame.Tracks
 			{
 				DiffuseColor = Material.DefaultDiffuseColor,
 				SpecularColor = Material.DefaultSpecularColor,
-				AmbientLightColor = Material.DefaultAmbientColor,
+				AmbientColor = Material.DefaultAmbientColor,
 				DiffuseTexturePath = "Textures/Leitplanke.tga",
 				NormalTexturePath = "Textures/LeitplankeNormal.tga"
 			};

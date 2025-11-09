@@ -63,7 +63,6 @@ namespace RacingGame.GameScreens
 		int currentResolution = 4;
 		bool fullscreen = true;
 		bool usePostScreenShaders = true;
-		bool useShadowMapping = true;
 		bool useHighDetail = true;
 		float currentMusicVolume = 1.0f;
 		float currentSoundVolume = 1.0f;
@@ -87,7 +86,6 @@ namespace RacingGame.GameScreens
 			// Get graphics detail settings
 			fullscreen = BaseGame.Fullscreen;
 			usePostScreenShaders = BaseGame.UsePostScreenShaders;
-			useShadowMapping = BaseGame.AllowShadowMapping;
 			useHighDetail = BaseGame.HighDetail;
 
 			// Get music and sound volume
@@ -255,20 +253,6 @@ namespace RacingGame.GameScreens
 			{
 				Sound.Play(Sound.Sounds.ButtonClick);
 				usePostScreenShaders = !usePostScreenShaders;
-			}
-
-			Rectangle smRect = BaseGame.CalcRectangleKeep4To3(
-				ShadowsGfxRect);
-			smRect.Y += BaseGame.YToRes768(125);
-			bool inSmRect = Input.MouseInBox(smRect);
-			if (useShadowMapping)
-				BaseGame.UI.OptionsScreen.RenderOnScreen(
-					smRect, ShadowsGfxRect,
-					selColor, BlendState.AlphaBlend);
-			if (inSmRect && Input.MouseLeftButtonJustPressed)
-			{
-				Sound.Play(Sound.Sounds.ButtonClick);
-				useShadowMapping = !useShadowMapping;
 			}
 
 			Rectangle hdRect = BaseGame.CalcRectangleKeep4To3(
@@ -500,7 +484,6 @@ namespace RacingGame.GameScreens
 				}
 				GameSettings.Default.Fullscreen = fullscreen;
 				GameSettings.Default.PostScreenEffects = usePostScreenShaders;
-				GameSettings.Default.ShadowMapping = useShadowMapping;
 				GameSettings.Default.HighDetail = useHighDetail;
 				GameSettings.Default.MusicVolume = currentMusicVolume;
 				GameSettings.Default.SoundVolume = currentSoundVolume;

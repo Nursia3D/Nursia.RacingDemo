@@ -72,8 +72,6 @@ namespace RacingGame.GameScreens
 		/// </summary>
 		public bool Render()
 		{
-			ShadowMapShader.PrepareGameShadows();
-
 			// This starts both menu and in game post screen shader!
 			BaseGame.UI.PostScreenGlowShader.Start();
 
@@ -108,10 +106,6 @@ namespace RacingGame.GameScreens
 				RacingGameManager.CarModel.RenderCar(
 					0, RacingGameManager.CarColor,
 					true, bestReplayCarMatrix);
-
-			// Show shadows we calculated above
-			if (BaseGame.AllowShadowMapping)
-				ShaderEffect.shadowMapping.ShowShadows();
 
 			// Apply post screen shader here before doing the UI
 			BaseGame.UI.PostScreenGlowShader.Show();

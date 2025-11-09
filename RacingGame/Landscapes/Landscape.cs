@@ -14,6 +14,7 @@ using Nursia;
 using Nursia.Materials;
 using Nursia.SceneGraph;
 using Nursia.SceneGraph.Cameras;
+using Nursia.SceneGraph.Landscape;
 using Nursia.SceneGraph.Lights;
 using RacingGame.GameLogic;
 using RacingGame.GameScreens;
@@ -137,30 +138,6 @@ namespace RacingGame.Landscapes
 				// Faster and looks better!
 				isBanner = model.Name.ToLower().Contains("banner")
 					|| model.Name.ToLower().Contains("sign");
-			}
-
-			/// <summary>
-			/// Render
-			/// </summary>
-			public void Render()
-			{
-				model.Render(matrix);
-			}
-
-			/// <summary>
-			/// Generate shadows
-			/// </summary>
-			public void GenerateShadows()
-			{
-				model.GenerateShadow(matrix);
-			}
-
-			/// <summary>
-			/// Use shadows
-			/// </summary>
-			public void UseShadows()
-			{
-				model.UseShadow(matrix);
 			}
 		}
 
@@ -286,6 +263,11 @@ namespace RacingGame.Landscapes
 				"Stone5",
 				"Casino01",
 			};
+
+		public float GetMapHeight(float x, float y)
+		{
+			return _terrainNode.GetHeight(new Vector3(x, y, 0));
+		}
 
 		/// <summary>
 		/// Add object to render
@@ -466,7 +448,8 @@ namespace RacingGame.Landscapes
 
 		#region Variables
 
-		private RenderCallbackNode _brakesNode;
+		private readonly RenderCallbackNode _brakesNode;
+		private readonly TerrainNode _terrainNode;
 
 		/// <summary>
 		/// Currently loaded level
@@ -503,11 +486,6 @@ namespace RacingGame.Landscapes
 		/// fast and easy stuff.
 		/// </summary>
 		PlaneRenderer cityPlane = null;
-
-		/// <summary>
-		/// Vertex buffer for our landscape
-		/// </summary>
-		VertexBuffer vertexBuffer;
 
 		/// <summary>
 		/// Track for our landscape, can be TrackBeginner, TrackAdvanced and
@@ -672,149 +650,10 @@ namespace RacingGame.Landscapes
 		/// <param name="setLevel">Level we want to load</param>
 		internal Landscape(RacingGameManager.Level setLevel)
 		{
-			#region Load map height data
-			Stream file = TitleContainer.OpenStream(
-				"Assets\\LandscapeHeights.data");
-			byte[] heights = new byte[GridWidth * GridHeight];
-			file.Read(heights, 0, GridWidth * GridHeight);
-			file.Close();
+			_terrainNode = (TerrainNode)BaseGame.Content.LoadSceneNode("Scenes/Landscape.scene");
 
-			mapHeights = new float[GridWidth, GridHeight];
-			#endregion
-
-			#region Build tangent vertices
-			// Build our tangent vertices
-			for (int x = 0; x < GridWidth; x++)
-				for (int y = 0; y < GridHeight; y++)
-				{
-					// Step 1: Calculate position
-					int index = x + y * GridWidth;
-					Vector3 pos = CalcLandscapePos(x, y, heights);//texData);
-					mapHeights[x, y] = pos.Z;
-					vertices[index].pos = pos;
-
-					//if (x == 0)
-					//    Log.Write("vertices " + y + ": " + pos);
-
-					// Step 2: Calculate all edge vectors (for normals and tangents)
-					// This involves quite complicated optimizations and mathematics,
-					// hard to explain with just a comment. Read my book :D
-					Vector3 edge1 = pos - CalcLandscapePos(x, y + 1, heights);
-					Vector3 edge2 = pos - CalcLandscapePos(x + 1, y, heights);
-					Vector3 edge3 = pos - CalcLandscapePos(x - 1, y + 1, heights);
-					Vector3 edge4 = pos - CalcLandscapePos(x + 1, y + 1, heights);
-					Vector3 edge5 = pos - CalcLandscapePos(x - 1, y - 1, heights);
-
-					// Step 3: Calculate normal based on the edges (interpolate
-					// from 3 cross products we build from our edges).
-					vertices[index].normal = Vector3.Normalize(
-						Vector3.Cross(edge2, edge1) +
-						Vector3.Cross(edge4, edge3) +
-						Vector3.Cross(edge3, edge5));
-
-					// Step 4: Set tangent data, just use edge1
-					vertices[index].tangent = Vector3.Normalize(edge1);
-
-					// Step 5: Set texture coordinates, use full 0.0f to 1.0f range!
-					vertices[index].uv = new Vector2(
-						//x / (float)(GridWidth - 1),
-						//y / (float)(GridHeight - 1));
-						y / (float)(GridHeight - 1),
-						x / (float)(GridWidth - 1));
-				}
-			#endregion
-
-			#region Smooth normals
-			// Smooth all normals, first copy them over, then smooth everything
-			Vector3[,] normalsForSmoothing = new Vector3[GridWidth, GridHeight];
-			for (int x = 0; x < GridWidth; x++)
-				for (int y = 0; y < GridHeight; y++)
-				{
-					int index = x + y * GridWidth;
-					normalsForSmoothing[x, y] = vertices[index].normal;
-				}
-
-			// Time to smooth to normals we just saved
-			for (int x = 1; x < GridWidth - 1; x++)
-				for (int y = 1; y < GridHeight - 1; y++)
-				{
-					int index = x + y * GridWidth;
-
-					// Smooth 3x3 normals, but still use old normal to 40% (5 of 13)
-					Vector3 normal = vertices[index].normal * 4;
-					for (int xAdd = -1; xAdd <= 1; xAdd++)
-						for (int yAdd = -1; yAdd <= 1; yAdd++)
-							normal += normalsForSmoothing[x + xAdd, y + yAdd];
-					vertices[index].normal = Vector3.Normalize(normal);
-
-					// Also recalculate tangent to let it stay 90 degrees on the normal
-					Vector3 helperVector = Vector3.Cross(
-						vertices[index].normal,
-						vertices[index].tangent);
-					vertices[index].tangent = Vector3.Cross(
-						helperVector,
-						vertices[index].normal);
-				}
-			#endregion
-
-			#region Set vertex buffer
-			// Set vertex buffer
-			// fix
-			//vertexBuffer = new VertexBuffer(
-			//    BaseGame.Device,
-			//    typeof(TangentVertex),
-			//    vertices.Length,
-			//    ResourceUsage.WriteOnly,
-			//    ResourceManagementMode.Automatic);
-			//vertexBuffer.SetData(vertices);
-			vertexBuffer = new VertexBuffer(
-				BaseGame.Device,
-				typeof(TangentVertex),
-				vertices.Length,
-				BufferUsage.WriteOnly);
-			vertexBuffer.SetData(vertices);
-			#endregion
-
-			#region Calc index buffer
-			// Calc index buffer (Note: have to use uint, ushort is not sufficiant
-			// in our case because we have MANY vertices ^^)
-			uint[] indices = new uint[(GridWidth - 1) * (GridHeight - 1) * 6];
-			int currentIndex = 0;
-			for (int x = 0; x < GridWidth - 1; x++)
-				for (int y = 0; y < GridHeight - 1; y++)
-				{
-					// Set landscape data (Note: Right handed)
-					indices[currentIndex + 0] = (uint)(x * GridHeight + y);
-					indices[currentIndex + 2] =
-						(uint)((x + 1) * GridHeight + (y + 1));
-					indices[currentIndex + 1] = (uint)((x + 1) * GridHeight + y);
-					indices[currentIndex + 3] =
-						(uint)((x + 1) * GridHeight + (y + 1));
-					indices[currentIndex + 5] = (uint)(x * GridHeight + y);
-					indices[currentIndex + 4] = (uint)(x * GridHeight + (y + 1));
-
-					// Add indices
-					currentIndex += 6;
-				}
-			#endregion
-
-			#region Set index buffer
-			// fix
-			//indexBuffer = new IndexBuffer(
-			//    BaseGame.Device,
-			//    typeof(uint),
-			//    (GridWidth - 1) * (GridHeight - 1) * 6,
-			//    ResourceUsage.WriteOnly,
-			//    ResourceManagementMode.Automatic);
-
-			indexBuffer = new IndexBuffer(
-				BaseGame.Device,
-				typeof(uint),
-				(GridWidth - 1) * (GridHeight - 1) * 6,
-				BufferUsage.WriteOnly);
-
-			indexBuffer.SetData(indices);
-			#endregion
+			_terrainNode.Translation = new Vector3(1280, 1280, 0);
+			_terrainNode.Rotation = new Vector3(90, 0, 0);
 
 			#region Load track (and replay inside ReloadLevel method)
 			// Load track based on the level selection and set car pos with
@@ -839,7 +678,7 @@ namespace RacingGame.Landscapes
 			{
 				DiffuseColor = Material.DefaultDiffuseColor,
 				SpecularColor = Material.DefaultSpecularColor,
-				AmbientLightColor = Material.DefaultAmbientColor,
+				AmbientColor = Material.DefaultAmbientColor,
 				DiffuseTexturePath = "Textures/track.tga",
 				CastsShadows = false
 			};
@@ -885,29 +724,6 @@ namespace RacingGame.Landscapes
 		}
 		#endregion
 
-		#region Calc landscape position
-		/// <summary>
-		/// Calc landscape position
-		/// </summary>
-		/// <param name="x">X</param>
-		/// <param name="y">Y</param>
-		/// <returns>Vector 3</returns>
-		private static Vector3 CalcLandscapePos(int x, int y, byte[] heights)
-		{
-			// Make sure we stay on the valid map data
-			int mapX = x < 0 ? 0 : x >= GridWidth ? GridWidth - 1 : x;
-			int mapY = y < 0 ? 0 : y >= GridHeight ? GridHeight - 1 : y;
-
-			// Get height
-			float heightPercent = heights[mapX + mapY * GridWidth] / 255.0f;
-
-			// Build landscape position vector
-			return new Vector3(
-				x * MapWidthFactor,
-				y * MapHeightFactor,
-				heightPercent * MapZScale);
-		}
-		#endregion
 		#endregion
 
 		#region Dispose
@@ -931,10 +747,7 @@ namespace RacingGame.Landscapes
 				for (int num = 0; num < landscapeModels.Length; num++)
 					landscapeModels[num].Dispose();
 
-				mat.Dispose();
 				cityMat.Dispose();
-				vertexBuffer.Dispose();
-				indexBuffer.Dispose();
 				track.Dispose();
 			}
 		}
@@ -968,6 +781,8 @@ namespace RacingGame.Landscapes
 			_directLight.Direction = -BaseGame.LightDirection;
 
 			GameCommon.AddToRender(_directLight);
+
+			GameCommon.AddToRender(_terrainNode);
 			GameCommon.AddToRender(track.Scene);
 			GameCommon.AddToRender(track.RoadMesh);
 			GameCommon.AddToRender(track.RoadBackmesh);
@@ -991,62 +806,6 @@ namespace RacingGame.Landscapes
 			GameCommon.AddToRender(_brakesNode);
 		}
 
-		#region RenderLandscapeVertices
-		/// <summary>
-		/// Render landscape vertices
-		/// </summary>
-		private void RenderLandscapeVertices()
-		{
-			BaseGame.Device.SetVertexBuffer(vertexBuffer);
-			BaseGame.Device.Indices = indexBuffer;
-			BaseGame.Device.DrawIndexedPrimitives(PrimitiveType.TriangleList,
-				0, 0, GridWidth * GridHeight,
-				0, (GridWidth - 1) * (GridHeight - 1) * 2);
-		}
-		#endregion
-		#endregion
-
-		#region Generate and use shadow for the landscape
-		/// <summary>
-		/// Generate shadow
-		/// </summary>
-		public void GenerateShadow()
-		{
-			// Don't generate shadow for the landscape, it only receives shadow!
-
-			// Render shadow all landscape objects that near our road
-			for (int num = 0; num < nearTrackObjects.Count; num++)
-			{
-				nearTrackObjects[num].GenerateShadows();
-			}
-		}
-
-		/// <summary>
-		/// Use shadow
-		/// </summary>
-		public void UseShadow()
-		{
-			// Receive shadow on the landscape, just render it out.
-			ShaderEffect.shadowMapping.UpdateCalcShadowWorldMatrix(Matrix.Identity);
-
-			// Render shadows for palms and other objects near the road.
-			RenderLandscapeVertices();
-
-			// Also receive shadows for all landscape objects that near our road.
-			// This is not really required (still looks good without it), but
-			// sometimes objects may have lookthrough-shadows or windmills
-			// are usually a problem. This fixes this or makes it at least less
-			// noticable.
-			if (BaseGame.HighDetail)
-			{
-				for (int num = 0; num < nearTrackObjects.Count; num++)
-					// Don't receive shadows on signs, looks weird.
-					if (nearTrackObjects[num].IsBanner == false)
-					{
-						nearTrackObjects[num].UseShadows();
-					}
-			}
-		}
 		#endregion
 
 		#region GetTrackPositionMatrix and UpdateCarTrackPosition

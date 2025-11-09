@@ -325,7 +325,7 @@ namespace RacingGame.Tracks
 			{
 				DiffuseColor = Material.DefaultDiffuseColor,
 				SpecularColor = Material.DefaultSpecularColor,
-				AmbientLightColor = Material.DefaultAmbientColor,
+				AmbientColor = Material.DefaultAmbientColor,
 				DiffuseTexturePath = "Textures/Road.tga",
 				NormalTexturePath = "Textures/RoadNormal.tga",
 			};
@@ -444,7 +444,7 @@ namespace RacingGame.Tracks
 			{
 				DiffuseColor = Material.DefaultDiffuseColor,
 				SpecularColor = Material.DefaultSpecularColor,
-				AmbientLightColor = Material.DefaultAmbientColor,
+				AmbientColor = Material.DefaultAmbientColor,
 				DiffuseTexturePath = "Textures/RoadBack.tga",
 				NormalTexturePath = "Textures/RoadBackNormal.tga",
 			};
@@ -604,7 +604,7 @@ namespace RacingGame.Tracks
 			{
 				DiffuseColor = new Color(80, 80, 80),
 				SpecularColor = new Color(64, 64, 64),
-				AmbientLightColor = new Color(182, 182, 182),
+				AmbientColor = new Color(182, 182, 182),
 				DiffuseTexturePath = "Textures/RoadBack.tga",
 				NormalTexturePath = "Textures/RoadBackNormal.tga",
 				RasterizerState = RasterizerState.CullNone

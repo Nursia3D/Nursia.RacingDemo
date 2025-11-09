@@ -57,11 +57,6 @@ namespace RacingGame.Shaders
 		public static ShaderEffect landscapeNormalMapping =
 			new ShaderEffect("LandscapeNormalMapping.fx");
 
-		/// <summary>
-		/// Shadow mapping shader
-		/// </summary>
-		public static ShadowMapShader shadowMapping =
-			new ShadowMapShader();
 		#endregion
 
 		#region Variables

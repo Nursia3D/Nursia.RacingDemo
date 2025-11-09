@@ -13,14 +13,6 @@
     "Children": [
       {
         "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
-        "NodePath": "Landscape.scene",
-        "Translation": "1280, 1280, 0",
-        "Scale": "1, 1, 1",
-        "Rotation": "90, 0, 0",
-        "Children": []
-      },
-      {
-        "$type": "Nursia.SceneGraph.SubsceneNode, Nursia",
         "NodePath": "Building.scene",
         "Translation": "2007.9181, 1129.4265, 44.84081",
         "Scale": "1.54, 1.54, 1.54",
