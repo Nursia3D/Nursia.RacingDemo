@@ -2,6 +2,7 @@
 using DigitalRiseModel;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Nursia;
 using Nursia.Materials;
 using Nursia.SceneGraph;
 using Nursia.SceneGraph.Landscape;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Transactions;
 
 namespace Converter
 {
@@ -47,10 +49,9 @@ namespace Converter
 			var result = new NursiaModelNode
 			{
 				Model = model,
-				ModelPath = Utility.TryToMakePathRelativeTo(file, Utility.OutputFolder)
+				ModelPath = Utility.TryToMakePathRelativeTo(file, Utility.OutputFolder),
+				Rotation = new Vector3(90, 0, 0)
 			};
-
-			result.SetTransform(objectMatrix);
 
 			var materialFile = Path.ChangeExtension(file, "material");
 			var data = File.ReadAllText(materialFile);
@@ -85,7 +86,7 @@ namespace Converter
 							break;
 
 						case "ambientColor":
-							material.AmbientLightColor = val.ToColor();
+							material.AmbientColor = val.ToColor();
 							break;
 
 						case "diffuseColor":
@@ -144,47 +145,43 @@ namespace Converter
 			return result;
 		}
 
+		private static float CalculateSize(DrModel model)
+		{
+			var transforms = new Matrix[model.Bones.Length];
+			model.CopyAbsoluteBoneTransformsTo(transforms);
+
+			var realScaling = 1.0f;
+
+			// Calculate scaling for this object, used for distance comparisons.
+			if (model.Meshes.Length > 0)
+			{
+				realScaling = model.Meshes[0].BoundingBox.Radius() * transforms[0].Right.Length();
+			}
+
+			return realScaling;
+		}
+
 
 		public static SceneNode FromTrackData(string file)
 		{
 			var result = new SceneNode();
 
-			HeightField hf;
-
 			var folder = Path.GetDirectoryName(file);
-			var heightFile = Path.Combine(folder, "LandscapeHeights.data");
-			using (var stream = File.OpenRead(heightFile))
-			{
-				hf = HeightField.FromStreamR8(stream, GridWidth, GridHeight, revertZ: true);
-			}
-
-			using (var stream = File.Create(Path.Combine(folder, "Scenes/LandscapeHeights.hf")))
-			{
-				hf.SaveToHf(stream);
-			}
+			var assetManager = AssetManager.CreateFileAssetManager(Path.Combine(folder, "Scenes"));
 
 			// Terrain
-			var material = new TerrainMaterial
+			var terrainSubsceneNode = new SubsceneNode
 			{
-				AmbientLightColor = new Color(88, 88, 88),
-				DiffuseColor = new Color(234, 234, 234),
-				SpecularColor = new Color(33, 33, 33),
-				DetailMap1Path = "../Textures/Landscape.tga",
-				WeightMap1Path = "../Textures/LandscapeHeights.png",
-				DetailTiling = new Vector2(1, 1)
-			};
-
-			var terrainNode = new TerrainNode
-			{
-				HeightFieldPath = "LandscapeHeights.hf",
-				TerrainSize = new Vector3(2560, 300, 2560),
-				Material = material,
-				HeightField = hf,
+				NodePath = "Landscape.scene",
 				Rotation = new Vector3(90, 0, 0),
 				Translation = new Vector3(1280, 1280, 0),
 			};
-			
-			result.Children.Add(terrainNode);
+
+			terrainSubsceneNode.Load(assetManager);
+
+			result.Children.Add(terrainSubsceneNode);
+
+			var terrainNode = terrainSubsceneNode.QueryFirstByType<TerrainNode>();
 
 			var trackData = TrackData.Load(file);
 
@@ -201,20 +198,13 @@ namespace Converter
 				if (obj.modelName.StartsWith("Combi"))
 				{
 					var combiPath = Path.Combine(folder, $"{obj.modelName}.CombiModel");
-					if (!File.Exists(combiPath))
-					{
-						continue;
-					}
-
 					var combiModels = new TrackCombiModels(combiPath);
 					foreach (var combiObj in combiModels.Objects)
 					{
 						var subscenePath = Path.Combine(folder, $"Scenes/{combiObj.modelName}.scene");
-						if (!File.Exists(subscenePath))
-						{
-							Console.WriteLine($"Skipping non-existance scene '{subscenePath}'");
-							continue;
-						}
+
+						var modelNode = (NursiaModelNode)assetManager.LoadSceneNode(subscenePath);
+						var size = CalculateSize(modelNode.Model);
 
 						subscene = new SubsceneNode
 						{
@@ -241,11 +231,9 @@ namespace Converter
 				else
 				{
 					var subscenePath = Path.Combine(folder, $"Scenes/{obj.modelName}.scene");
-					if (!File.Exists(subscenePath))
-					{
-						Console.WriteLine($"Skipping non-existance scene '{subscenePath}'");
-						continue;
-					}
+
+					var modelNode = (NursiaModelNode)assetManager.LoadSceneNode(subscenePath);
+					var size = CalculateSize(modelNode.Model);
 
 					subscene = new SubsceneNode
 					{

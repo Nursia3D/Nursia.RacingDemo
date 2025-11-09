@@ -119,5 +119,12 @@ namespace Converter
 			}
 			node.Translation = tr;
 		}
+
+		public static float Radius(this BoundingBox b)
+		{
+			var m = (float)Math.Max(b.Max.X - b.Min.X, Math.Min(b.Max.Y - b.Min.Y, b.Max.Z - b.Min.Z));
+
+			return m / 2;
+		}
 	}
 }

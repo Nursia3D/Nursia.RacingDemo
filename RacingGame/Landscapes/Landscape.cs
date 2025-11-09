@@ -11,6 +11,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Nursia;
+using Nursia.Materials;
 using Nursia.SceneGraph;
 using Nursia.SceneGraph.Cameras;
 using Nursia.SceneGraph.Lights;
@@ -37,30 +38,10 @@ namespace RacingGame.Landscapes
 	/// </summary>
 	public class Landscape : IDisposable
 	{
-		private Renderer renderer = new Renderer();
 		private DirectLight _directLight = new DirectLight
 		{
 			MaxShadowDistance = 500
 		};
-
-		private PerspectiveCamera _camera = new PerspectiveCamera
-		{
-			ViewAngle = 90,
-			NearPlaneDistance = 0.5f,
-			FarPlaneDistance = 1750.0f
-		};
-
-		#region Constants
-		/// <summary>
-		/// Grid width and height
-		/// </summary>
-		const int GridWidth = 257,
-			GridHeight = 257;
-
-		const float MapWidthFactor = 10,
-			MapHeightFactor = 10,
-			MapZScale = 300.0f;
-		#endregion
 
 		#region Objects to render on this landscape
 		/// <summary>
@@ -201,6 +182,11 @@ namespace RacingGame.Landscapes
 		/// as the time goes down.
 		/// </summary>
 		LandscapeObject startLightObject = null;
+
+		public Landscape()
+		{
+
+		}
 
 		/// <summary>
 		/// Replace start light object, 0=red, 1=yellow, 2=green.
@@ -479,29 +465,13 @@ namespace RacingGame.Landscapes
 		#endregion
 
 		#region Variables
+
+		private RenderCallbackNode _brakesNode;
+
 		/// <summary>
 		/// Currently loaded level
 		/// </summary>
 		RacingGameManager.Level level = RacingGameManager.Level.Beginner;
-
-		/// <summary>
-		/// Vertices
-		/// </summary>
-		TangentVertex[] vertices = new TangentVertex[GridWidth * GridHeight];
-		/// <summary>
-		/// Matrix
-		/// </summary>
-		Material mat = new Material(
-			//new Color(62, 62, 62), // ambient
-			//new Color(240, 240, 240), // diffuse
-			//new Color(24, 24, 24), // specular
-			new Color(88, 88, 88), // ambient (bright day)
-			new Color(234, 234, 234), // diffuse (also bright)
-			new Color(33, 33, 33), // specular (unused anyway)
-			"Landscape.tga",
-			"LandscapeNormal.tga",
-			"",
-			"LandscapeDetail.tga");
 
 		/// <summary>
 		/// City material for displaying an extra material whereever the ground
@@ -538,15 +508,6 @@ namespace RacingGame.Landscapes
 		/// Vertex buffer for our landscape
 		/// </summary>
 		VertexBuffer vertexBuffer;
-		/// <summary>
-		/// Index buffer for our landscape
-		/// </summary>
-		IndexBuffer indexBuffer;
-
-		/// <summary>
-		/// Map heights
-		/// </summary>
-		float[,] mapHeights = null;
 
 		/// <summary>
 		/// Track for our landscape, can be TrackBeginner, TrackAdvanced and
@@ -628,7 +589,7 @@ namespace RacingGame.Landscapes
 		private void SaveReplay(object replay)
 		{
 #if FNA
-            ((Replay)replay).Save();
+			((Replay)replay).Save();
 #endif
 		}
 
@@ -699,99 +660,6 @@ namespace RacingGame.Landscapes
 			{
 				return bestReplay;
 			}
-		}
-		#endregion
-
-		#region Get map height
-		/// <summary>
-		/// Get map height at a specific point, int based and not as percise as
-		/// the float version, which interpolates between our grid points.
-		/// </summary>
-		/// <param name="x">X</param>
-		/// <param name="y">Y</param>
-		/// <returns>Float</returns>
-		public float GetMapHeight(int x, int y)
-		{
-			if (x < 0)
-				x = 0;
-			if (y < 0)
-				y = 0;
-			if (x >= GridWidth)
-				x = GridWidth - 1;
-			if (y >= GridHeight)
-				y = GridHeight - 1;
-
-			return mapHeights[x, y];
-		}
-
-		/// <summary>
-		/// This functions keeps sure we keep in 0-max range,
-		/// simple modulate (%) will do this only correctly for positiv values!
-		/// </summary>
-		private static int ModulateValueInRange(float val, int max)
-		{
-			if (val < 0.0f)
-				return (max - 1) - ((int)(-val) % max);
-			else
-				return (int)val % max;
-		}
-
-		/// <summary>
-		/// Get map height at a specific point
-		/// </summary>
-		/// <param name="x">X</param>
-		/// <param name="y">Y</param>
-		/// <returns>Float</returns>
-		public float GetMapHeight(float x, float y)
-		{
-			// Rescale to our current dimensions
-			x /= MapWidthFactor;
-			y /= MapHeightFactor;
-
-			// Interpolate the current position
-			int
-				// size-1 is because we need +1 for interpolating
-				ix = ModulateValueInRange(x, GridWidth - 1),
-				iy = ModulateValueInRange(y, GridHeight - 1);
-
-			// Get the position ON the current tile (0.0-1.0)!!!
-			float
-				fX = x - ((float)((int)x)),
-				fY = y - ((float)((int)y));
-
-			int ix2 = (ix + 1) % (GridWidth - 1);
-			int iy2 = (iy + 1) % (GridHeight - 1);
-
-			if (fX + fY < 1) // opt. version
-			{
-				// we are on triangle 1 !!
-				//     ------- (f_tile_width-mx)/f_tile_width
-				//  0__v___1
-				//  |     /
-				//  |    /
-				//  |---/--- (f_tile_height-my)/f_tile_height
-				//  |  /
-				//  | /
-				//  3/
-				return
-					mapHeights[ix, iy] + // 0
-					fX * (mapHeights[ix2, iy] - mapHeights[ix, iy]) + // 1
-					fY * (mapHeights[ix, iy2] - mapHeights[ix, iy]); // 3
-			}
-			// we are on triangle 1 !!
-			// calc height (as above, but a bit more difficult for triangle 1)
-			//        1
-			//       /|
-			//      / |
-			//     /  |  my/f_tile_height (fX)
-			//    /   |
-			//   /    |
-			//  3_____2
-			//     ^---  mx/f_tile_width  (fY)
-			return
-				mapHeights[ix2, iy2] + // 2
-				(1.0f - fY) * (mapHeights[ix2, iy] - mapHeights[ix2, iy2]) +    // 1
-				(1.0f - fX) * (mapHeights[ix, iy2] - mapHeights[ix2, iy2]); // 3
 		}
 		#endregion
 
@@ -966,6 +834,23 @@ namespace RacingGame.Landscapes
 					break;
 				}
 			#endregion
+
+			var material = new LitSolidMaterial
+			{
+				DiffuseColor = Material.DefaultDiffuseColor,
+				SpecularColor = Material.DefaultSpecularColor,
+				AmbientLightColor = Material.DefaultAmbientColor,
+				DiffuseTexturePath = "Textures/track.tga",
+				CastsShadows = false
+			};
+
+			material.Load(BaseGame.Content);
+
+			_brakesNode = new RenderCallbackNode
+			{
+				Material = material,
+				RenderCallback = RenderBrakeTracks
+			};
 		}
 
 		#region Reload level
@@ -1073,11 +958,6 @@ namespace RacingGame.Landscapes
 		/// </summary>
 		public void Render()
 		{
-			// Make sure z buffer is on
-			BaseGame.Device.DepthStencilState = DepthStencilState.Default;
-
-			BaseGame.WorldMatrix = Matrix.Identity;
-
 			// Render landscape (pretty easy with all the data we got here)
 			/*			ShaderEffect.landscapeNormalMapping.Render(
 							mat, "DiffuseWithDetail20",
@@ -1087,25 +967,19 @@ namespace RacingGame.Landscapes
 
 			_directLight.Direction = -BaseGame.LightDirection;
 
-			renderer.Add(_directLight);
-			renderer.Add(track.Scene);
-			renderer.Add(track.RoadMesh);
-			renderer.Add(track.RoadBackmesh);
+			GameCommon.AddToRender(_directLight);
+			GameCommon.AddToRender(track.Scene);
+			GameCommon.AddToRender(track.RoadMesh);
+			GameCommon.AddToRender(track.RoadBackmesh);
 
 			if (track.RoadTunnelMesh != null)
 			{
-				renderer.Add(track.RoadTunnelMesh);
+				GameCommon.AddToRender(track.RoadTunnelMesh);
 			}
 
-			renderer.Add(track.LeftRailMesh);
-			renderer.Add(track.RightRailMesh);
-			renderer.Add(track.ColumnsMesh);
-
-			_camera.SetViewport(Nrs.GraphicsDevice.Viewport.Width, Nrs.GraphicsDevice.Viewport.Height);
-
-			_camera.View = RacingGameManager.ViewMatrix;
-
-			renderer.Process(_camera);
+			GameCommon.AddToRender(track.LeftRailMesh);
+			GameCommon.AddToRender(track.RightRailMesh);
+			GameCommon.AddToRender(track.ColumnsMesh);
 
 			// Render all landscape objects
 			for (int num = 0; num < landscapeObjects.Count; num++)
@@ -1114,7 +988,7 @@ namespace RacingGame.Landscapes
 			}
 
 			// Render all brake tracks
-			RenderBrakeTracks();
+			GameCommon.AddToRender(_brakesNode);
 		}
 
 		#region RenderLandscapeVertices
@@ -1312,18 +1186,9 @@ namespace RacingGame.Landscapes
 			if (brakeTracksVerticesArray == null)
 				return;
 
-			BaseGame.SetAlphaBlendingEnabled(true);
-			BaseGame.WorldMatrix = Matrix.Identity;
-			ShaderEffect.lighting.Render(
-				RacingGameManager.BrakeTrackMaterial,
-				"Diffuse20",
-				delegate
-				{
-					// Draw the vertices
-					BaseGame.Device.DrawUserPrimitives(
-						PrimitiveType.TriangleList,
-						brakeTracksVerticesArray, 0, brakeTracksVerticesArray.Length / 3);
-				});
+			// Draw the vertices
+			BaseGame.Device.DrawUserPrimitives(PrimitiveType.TriangleList,
+				brakeTracksVerticesArray, 0, brakeTracksVerticesArray.Length / 3);
 		}
 		#endregion
 	}

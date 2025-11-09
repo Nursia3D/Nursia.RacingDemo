@@ -53,7 +53,7 @@ namespace RacingGame.Graphics
 		/// <summary>
 		/// Default object matrix to fix models from 3ds max to our engine!
 		/// </summary>
-		static readonly Matrix objectMatrix =
+		public static readonly Matrix objectMatrix =
 			//right handed models: Matrix.CreateRotationX(MathHelper.Pi);// *
 			//Matrix.CreateScale(MaxModelScaling);
 			// left handed models (else everything is mirrored with x files)

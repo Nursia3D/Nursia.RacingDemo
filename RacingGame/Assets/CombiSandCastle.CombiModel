@@ -169,7 +169,7 @@
     </matrix>
   </CombiObject>
   <CombiObject>
-    <modelName>AlphaPalm4</modelName>
+    <modelName>AlphaPalmSmall</modelName>
     <matrix>
       <M11>0.768058</M11>
       <M12>-0.4613694</M12>

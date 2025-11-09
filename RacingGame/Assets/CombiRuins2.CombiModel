@@ -225,7 +225,7 @@
     </matrix>
   </CombiObject>
   <CombiObject>
-    <modelName>PalmSmall</modelName>
+    <modelName>AlphaPalmSmall</modelName>
     <matrix>
       <M11>1</M11>
       <M12>0</M12>
@@ -281,7 +281,7 @@
     </matrix>
   </CombiObject>
   <CombiObject>
-    <modelName>PalmSmall</modelName>
+    <modelName>AlphaPalmSmall</modelName>
     <matrix>
       <M11>1.15791833</M11>
       <M12>-0.566087365</M12>
@@ -337,7 +337,7 @@
     </matrix>
   </CombiObject>
   <CombiObject>
-    <modelName>PalmSmall</modelName>
+    <modelName>AlphaPalmSmall</modelName>
     <matrix>
       <M11>0.716038167</M11>
       <M12>0.5031492</M12>
@@ -393,7 +393,7 @@
     </matrix>
   </CombiObject>
   <CombiObject>
-    <modelName>PalmSmall</modelName>
+    <modelName>AlphaPalmSmall</modelName>
     <matrix>
       <M11>0.9085764</M11>
       <M12>0.0268511754</M12>

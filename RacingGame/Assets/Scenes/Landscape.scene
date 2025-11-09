@@ -1,0 +1,39 @@
+{
+  "Camera": {
+    "$type": "Nursia.SceneGraph.Cameras.PerspectiveCamera, Nursia",
+    "ViewAngle": 90.0,
+    "AspectRatio": 1.1703932,
+    "NearPlaneDistance": 0.1,
+    "FarPlaneDistance": 1000.0,
+    "Translation": "610.7826, 270.49393, -815.6527",
+    "Scale": "1, 1, 1",
+    "Rotation": "338.16226, 185.35194, 0",
+    "Children": []
+  },
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.Landscape.TerrainNode, Nursia",
+    "HeightFieldPath": "LandscapeHeights.hf",
+    "TerrainSize": "2560, 300, 2560",
+    "DetailLevels": 3,
+    "PatchSize": 32,
+    "VerticalSkirtScale": 0.1,
+    "Material": {
+      "$type": "Nursia.SceneGraph.Landscape.TerrainMaterial, Nursia",
+      "AmbientColor": "#585858FF",
+      "DiffuseColor": "#EAEAEAFF",
+      "SpecularColor": "#212121FF",
+      "SpecularPower": 250.0,
+      "EmissiveColor": "Black",
+      "DetailTiling": "1, 1",
+      "WeightMap1Path": "../Textures/LandscapeWeights.png",
+      "DetailMap1Path": "../Textures/Landscape.tga"
+    },
+    "Scale": "1, 1, 1",
+    "Children": []
+  }
+}

@@ -84,11 +84,6 @@ namespace RacingGame
 		public static Texture colorSelectionTexture = null;
 
 		/// <summary>
-		/// Material for brake tracks on the road.
-		/// </summary>
-		private static Material brakeTrackMaterial = null;
-
-		/// <summary>
 		/// Car colors for the car selection screen.
 		/// </summary>
 		public static List<Color> CarColors = new List<Color>(
@@ -270,18 +265,6 @@ namespace RacingGame
 		}
 
 		/// <summary>
-		/// Brake track material
-		/// </summary>
-		/// <returns>Material</returns>
-		public static Material BrakeTrackMaterial
-		{
-			get
-			{
-				return brakeTrackMaterial;
-			}
-		}
-
-		/// <summary>
 		/// Car selection plate
 		/// </summary>
 		/// <returns>Model</returns>
@@ -393,7 +376,6 @@ namespace RacingGame
 			carTextures[1] = new Texture("RacerCar2.tga", false);
 			carTextures[2] = new Texture("RacerCar3.tga", false);
 			colorSelectionTexture = new Texture("ColorSelection.png");
-			brakeTrackMaterial = new Material("track.tga");
 
 			LoadEvent("All systems go!", null);
 			Thread.Sleep(1000);

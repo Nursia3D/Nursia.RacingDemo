@@ -225,7 +225,7 @@
     </matrix>
   </CombiObject>
   <CombiObject>
-    <modelName>OilWell</modelName>
+    <modelName>OilPump</modelName>
     <matrix>
       <M11>1</M11>
       <M12>0</M12>

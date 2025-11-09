@@ -10,7 +10,7 @@
       [
         {
           "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
-          "AmbientLightColor": "#313131FF",
+          "AmbientColor": "#313131FF",
           "DiffuseColor": "#D1D1D1FF",
           "SpecularColor": "#A19E8CFF",
           "SpecularPower": 16.0,

@@ -11,15 +11,17 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Nursia.SceneGraph.Cameras;
+using RacingGame.GameLogic;
+using RacingGame.GameScreens;
+using RacingGame.Helpers;
+using RacingGame.Shaders;
+using RacingGame.Tracks;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using RacingGame.GameLogic;
-using RacingGame.Helpers;
-using RacingGame.Shaders;
-using RacingGame.Tracks;
-using RacingGame.GameScreens;
+
 #endregion
 
 namespace RacingGame.Graphics
@@ -152,6 +154,13 @@ namespace RacingGame.Graphics
 		/// Trophies
 		/// </summary>
 		Texture[] trophies = new Texture[3];
+
+		private PerspectiveCamera _camera = new PerspectiveCamera
+		{
+			ViewAngle = 90,
+			NearPlaneDistance = 0.5f,
+			FarPlaneDistance = 1750.0f
+		};
 		#endregion
 
 		#region Properties
@@ -475,11 +484,17 @@ namespace RacingGame.Graphics
 			{
 				RacingGameManager.Landscape.Render();
 
-				RacingGameManager.CarModel.RenderCar(
-					randomCarNumber,
-					randomCarColor,
-					false,
-					RacingGameManager.Player.CarRenderMatrix);
+				/*				RacingGameManager.CarModel.RenderCar(
+									randomCarNumber,
+									randomCarColor,
+									false,
+									RacingGameManager.Player.CarRenderMatrix);*/
+
+				GameCommon.CarModel.GlobalTransform = Model.objectMatrix * RacingGameManager.Player.CarRenderMatrix;
+				GameCommon.AddToRender(GameCommon.CarModel);
+
+				_camera.View = BaseGame.ViewMatrix;
+				GameCommon.DoRender(_camera);
 			}
 		}
 

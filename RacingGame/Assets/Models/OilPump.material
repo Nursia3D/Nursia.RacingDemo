@@ -26,8 +26,8 @@
         "shininess": [
           16
         ],
-        "diffuseTexture": "../textures/OilWell.tga",
-        "normalTexture": "../textures/OilWellNormal.tga",
+        "diffuseTexture": "../textures/OilPump.tga",
+        "normalTexture": "../textures/OilPumpNormal.tga",
         "reflectionCubeTexture": "../textures/SkyCubeMap.dds",
         "NormalizeCubeTexture": "../textures/NormalizeCubeMap.dds",
         "shadowCarColor": [
@@ -43,7 +43,7 @@
     }
   },
   "MeshesMaterials": {
-    "OilWell": [
+    "OilPump": [
       "PDX07_-_Default"
     ]
   }
