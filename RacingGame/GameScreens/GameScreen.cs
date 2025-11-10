@@ -79,7 +79,6 @@ namespace RacingGame.GameScreens
 			BaseGame.UI.RenderGameBackground();
 
 			// Render landscape with track and all objects
-			RacingGameManager.Landscape.Update();
 
 			// Render car with matrix we got from Player
 /*			RacingGameManager.CarModel.RenderCar(

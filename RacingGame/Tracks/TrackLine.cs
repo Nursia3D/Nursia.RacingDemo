@@ -212,7 +212,7 @@ namespace RacingGame.Tracks
 				for (int num = 0; num < inputPoints.Length; num++)
 				{
 					// Get landscape height here
-					float landscapeHeight = landscape.GetMapHeight(
+					float landscapeHeight = Landscape.GetMapHeight(
 						inputPoints[num].X, inputPoints[num].Y) +
 						// add little to fix ground errors
 						MinimumLandscapeDistance * 2.25f;
@@ -237,7 +237,7 @@ namespace RacingGame.Tracks
 							for (int y = 0; y < 2; y++)
 							{
 								// Also get height at middle to next pos
-								float landscapeHeight = landscape.GetMapHeight(
+								float landscapeHeight = Landscape.GetMapHeight(
 									-5.0f + 10.0f * x +
 									inputPoints[num].X * (1 - iterPercent) +
 									inputPoints[(num + 1) % inputPoints.Length].X
@@ -465,8 +465,7 @@ namespace RacingGame.Tracks
 					landscape != null)
 				{
 					// Get landscape height here
-					float landscapeHeight = landscape.GetMapHeight(
-						points[num].pos.X, points[num].pos.Y);
+					float landscapeHeight = Landscape.GetMapHeight(points[num].pos.X, points[num].pos.Y);
 
 					// If point is close to the landscape, let everything point up more
 					if (points[num].pos.Z - landscapeHeight <

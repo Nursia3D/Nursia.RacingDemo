@@ -12,21 +12,11 @@ namespace RacingGame
 	public class RacingGame : Game
 	{
 		private readonly GraphicsDeviceManager _graphics;
-		private RenderSystem _renderSystem;
 		private SpriteBatch _spriteBatch;
 		private readonly FramesPerSecondCounter _fpsCounter = new FramesPerSecondCounter();
-		private AssetManager _assets = null;
-
-		public IGameScreen2 CurrentScreen { get; set; }
-
-		public static RacingGame Instance { get; private set; }
-		public static AssetManager Assets => Instance._assets;
-		public static bool InGame => false;
 
 		public RacingGame()
 		{
-			Instance = this;
-
 			_graphics = new GraphicsDeviceManager(this)
 			{
 				PreferredBackBufferWidth = 1600,
@@ -45,24 +35,17 @@ namespace RacingGame
 			// Required to work with Nursia
 			Nrs.Game = this;
 
-			var contentPath = Path.Combine(PathUtils.ExecutingAssemblyDirectory, "Assets");
-			_assets = AssetManager.CreateFileAssetManager(contentPath);
-
-			_renderSystem = new RenderSystem();
+			RG.Initialize();
 
 			// SpriteBatch
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
-
-			Highscores.Initialize();
-
-			CurrentScreen = new SplashScreen2();
 		}
 
 		protected override void Update(GameTime gameTime)
 		{
 			base.Update(gameTime);
 
-			CurrentScreen?.Update(gameTime);
+			RG.CurrentScreen?.Update(gameTime);
 		}
 
 		protected override void Draw(GameTime gameTime)
@@ -71,12 +54,12 @@ namespace RacingGame
 
 			GraphicsDevice.Clear(Color.Black);
 
-			CurrentScreen?.Render(_renderSystem);
+			RG.CurrentScreen?.Render();
 
 			_spriteBatch.Begin();
 
 			var font = Nrs.DebugFont;
-			var statistics = _renderSystem.Renderer3D.Statistics;
+			var statistics = RG.Statistics;
 			_spriteBatch.DrawString(font, $"FPS: {_fpsCounter.FramesPerSecond}", new Vector2(0, 0), Color.White);
 			_spriteBatch.DrawString(font, $"Effect Switches: {statistics.EffectsSwitches}", new Vector2(0, 24), Color.White);
 			_spriteBatch.DrawString(font, $"Draw Calls: {statistics.DrawCalls}", new Vector2(0, 48), Color.White);

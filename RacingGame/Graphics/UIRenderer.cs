@@ -485,8 +485,6 @@ namespace RacingGame.Graphics
 			// Only render track if we are not doing any 3d data on the screen
 			if (RacingGameManager.InCarSelectionScreen == false)
 			{
-				RacingGameManager.Landscape.Update();
-
 				if (_car == null)
 				{
 					_car = CarFactory.CreateCar(randomCarNumber);

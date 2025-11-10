@@ -749,7 +749,7 @@ namespace RacingGame.GameLogic
 			// Was the track segment changed?
 			if (trackSegmentNumber != oldTrackSegmentNumber &&
 				// And we in game?
-				RacingGame.InGame && !GameOver)
+				RG.InGame && !GameOver)
 			{
 				// Was this the start? Did we finish a lap?
 				if (trackSegmentNumber == 0 &&
@@ -853,7 +853,7 @@ namespace RacingGame.GameLogic
 		public void ApplyGravityAndCheckForCollisions()
 		{
 			// Don't do it in the menu
-			if (!RacingGame.InGame)
+			if (!RG.InGame)
 			{
 				return;
 			}
@@ -1160,7 +1160,7 @@ namespace RacingGame.GameLogic
 			// Change distance based on our speed
 			float chaseCamDistance =
 				(4.25f + 9.75f * speed / maxSpeed) * viewDistance;
-			if (RacingGame.InGame && ZoomInTime > 1500)
+			if (RG.InGame && ZoomInTime > 1500)
 			{
 				// Calculate zooming in camera position
 				Vector3 camPos =
@@ -1184,7 +1184,7 @@ namespace RacingGame.GameLogic
 					carMatrix.Forward * chaseCamDistance -
 					carMatrix.Up * chaseCamDistance / (viewDistance + 6.0f) -
 					carMatrix.Up * 1.0f);
-			else if (!RacingGame.InGame && (float)gameTime.TotalGameTime.TotalMilliseconds < 100)
+			else if (!RG.InGame && (float)gameTime.TotalGameTime.TotalMilliseconds < 100)
 				// No interpolation in menu, just set it (at least for the first ms)
 				SetCameraPosition(
 					carPos + carUp * CarHeight +

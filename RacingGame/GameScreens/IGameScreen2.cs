@@ -6,6 +6,6 @@ namespace RacingGame.GameScreens
 	public interface IGameScreen2
 	{
 		void Update(GameTime gameTime);
-		void Render(RenderSystem renderSystem);
+		void Render();
 	}
 }

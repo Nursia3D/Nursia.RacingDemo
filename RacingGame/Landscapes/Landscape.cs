@@ -182,9 +182,9 @@ namespace RacingGame.Landscapes
 				"Casino01",
 			};
 
-		public float GetMapHeight(float x, float y)
+		public static float GetMapHeight(float x, float y)
 		{
-			return _terrainNode.GetHeight(new Vector3(x, y, 0));
+			return RG.Terrain.GetHeight(new Vector3(x, y, 0));
 		}
 
 		/// <summary>
@@ -311,13 +311,8 @@ namespace RacingGame.Landscapes
 
 		#region Variables
 
-		private readonly DirectLight _directLight = new DirectLight
-		{
-			MaxShadowDistance = 500
-		};
 
 		private readonly RenderCallbackNode _brakesNode;
-		private readonly TerrainNode _terrainNode;
 		private readonly SceneNode _scene = new SceneNode();
 
 		/// <summary>
@@ -345,9 +340,7 @@ namespace RacingGame.Landscapes
 			{
 				if (_scene.Children.Count == 0)
 				{
-					_scene.Children.Add(_directLight);
-
-					_scene.Children.Add(_terrainNode);
+					_scene.Children.Add(RG.Terrain);
 
 					_scene.Children.Add(track.Scene);
 
@@ -527,11 +520,6 @@ namespace RacingGame.Landscapes
 		/// <param name="setLevel">Level we want to load</param>
 		public Landscape(RacingGameManager.Level setLevel)
 		{
-			_terrainNode = (TerrainNode)RacingGame.Assets.LoadSceneNode("Scenes/Landscape.scene");
-
-			_terrainNode.Translation = new Vector3(1280, 1280, 0);
-			_terrainNode.Rotation = new Vector3(90, 0, 0);
-
 			#region Load track (and replay inside ReloadLevel method)
 			// Load track based on the level selection and set car pos with
 			// help of the ReloadLevel method.
@@ -547,7 +535,7 @@ namespace RacingGame.Landscapes
 				CastsShadows = false
 			};
 
-			material.Load(RacingGame.Assets);
+			material.Load(RG.Assets);
 
 			_brakesNode = new RenderCallbackNode
 			{
@@ -620,17 +608,6 @@ namespace RacingGame.Landscapes
 				track.StartPosition, track.StartDirection, track.StartUpVector);
 			// Camera is set in zooming in method of the Player class.
 		}
-		#endregion
-
-		#region Render
-		/// <summary>
-		/// Render landscape (just at the origin)
-		/// </summary>
-		public void Update()
-		{
-			_directLight.Direction = -BaseGame.LightDirection;
-		}
-
 		#endregion
 
 		#region GetTrackPositionMatrix and UpdateCarTrackPosition

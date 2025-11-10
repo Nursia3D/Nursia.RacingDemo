@@ -188,7 +188,7 @@ namespace RacingGame.Graphics
 			string fullFilename = $"textures/{setFilename}";
 
 			// Try loading as 2d texture
-			internalXnaTexture = RacingGame.Assets.LoadTexture2D(Nrs.GraphicsDevice, fullFilename, premultiplyAlpha);
+			internalXnaTexture = RG.Assets.LoadTexture2D(Nrs.GraphicsDevice, fullFilename, premultiplyAlpha);
 
 			// Get info from the texture directly.
 			texWidth = internalXnaTexture.Width;

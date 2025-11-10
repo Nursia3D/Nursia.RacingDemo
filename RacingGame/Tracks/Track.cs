@@ -317,7 +317,7 @@ namespace RacingGame.Tracks
 				NormalTexturePath = "Textures/RoadNormal.tga",
 			};
 
-			material.Load(RacingGame.Assets);
+			material.Load(RG.Assets);
 
 			var meshPart = new DrMeshPart(roadVb, roadIb, roadVertices.CalculateBoundingBox());
 
@@ -436,7 +436,7 @@ namespace RacingGame.Tracks
 				NormalTexturePath = "Textures/RoadBackNormal.tga",
 			};
 
-			material.Load(RacingGame.Assets);
+			material.Load(RG.Assets);
 
 			var meshPart = new DrMeshPart(roadBackVb, roadBackIb, roadBackVertices.CalculateBoundingBox());
 
@@ -588,7 +588,7 @@ namespace RacingGame.Tracks
 				RasterizerState = RasterizerState.CullNone
 			};
 
-			material.Load(RacingGame.Assets);
+			material.Load(RG.Assets);
 
 			var meshPart = new DrMeshPart(roadTunnelVb, roadTunnelIb, roadTunnelVertices.CalculateBoundingBox());
 
@@ -693,7 +693,7 @@ namespace RacingGame.Tracks
 							// Check height,
 							// skip palm generation if height is more than 11m
 							if (objPoint.Z -
-								landscape.GetMapHeight(objPoint.X, objPoint.Y) < 11)
+								Landscape.GetMapHeight(objPoint.X, objPoint.Y) < 11)
 							{
 								int randomNum = RandomHelper.GetRandomInt(4);
 								// Less propability for small palm
@@ -989,16 +989,12 @@ namespace RacingGame.Tracks
 			// or the track!
 			for (int num = 0; num < points.Count; num += 2)
 			{
-				if (landscape != null)
-				{
-					// Get landscape height here
-					float landscapeHeight =
-						landscape.GetMapHeight(points[num].pos.X, points[num].pos.Y);
+				// Get landscape height here
+				float landscapeHeight =	Landscape.GetMapHeight(points[num].pos.X, points[num].pos.Y);
 
-					// Skip object generation at great heights!
-					if (points[num].pos.Z - landscapeHeight > 60.0f)
-						continue;
-				}
+				// Skip object generation at great heights!
+				if (points[num].pos.Z - landscapeHeight > 60.0f)
+					continue;
 
 				// The unit vectors for our local point space
 				Vector3 right = points[num].right;

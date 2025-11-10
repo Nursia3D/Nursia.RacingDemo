@@ -109,7 +109,7 @@ namespace RacingGame.Utilities
 
 		public static SceneNode LoadScene(string name)
 		{
-			var result = RacingGame.Assets.LoadSceneNode($"Scenes/{name}.scene");
+			var result = RG.Assets.LoadSceneNode($"Scenes/{name}.scene");
 
 			// Setup animations
 			result.Iterate(n =>

@@ -355,7 +355,7 @@ namespace RacingGame.GameLogic
 		public void Update(GameTime gameTime)
 		{
 			// Don't handle any more game logic if game is over.
-			if (RacingGame.InGame && ZoomInTime <= 0)
+			if (RG.InGame && ZoomInTime <= 0)
 			{
 				// Game over? Then show end screen!
 				if (isGameOver)
@@ -461,7 +461,7 @@ namespace RacingGame.GameLogic
 			else
 			{
 				// Handle zoomInTime at the beginning of a game
-				if (RacingGame.InGame && zoomInTime > 0)
+				if (RG.InGame && zoomInTime > 0)
 				{
 					float lastZoomInTime = zoomInTime;
 					zoomInTime -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;

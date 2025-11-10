@@ -75,7 +75,7 @@ namespace RacingGame.Shaders
 		public PreScreenSkyCubeMapping()
 			: base(Filename)
 		{
-			cube = RacingGame.Assets.LoadModel(Nrs.GraphicsDevice, @"Models\Cube.glb");
+			cube = RG.Assets.LoadModel(Nrs.GraphicsDevice, @"Models\Cube.glb");
 		}
 		#endregion
 
@@ -88,7 +88,7 @@ namespace RacingGame.Shaders
 			base.GetParameters();
 
 			// Load and set cube map texture
-			skyCubeMapTexture = RacingGame.Assets.LoadTextureCube(
+			skyCubeMapTexture = RG.Assets.LoadTextureCube(
 				Nrs.GraphicsDevice,
 				$"textures/{SkyCubeMapFilename}.dds");
 			diffuseTexture.SetValue(skyCubeMapTexture);

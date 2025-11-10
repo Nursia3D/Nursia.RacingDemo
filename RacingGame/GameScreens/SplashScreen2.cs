@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
+using Nursia.Env;
 using Nursia.SceneGraph;
 using Nursia.SceneGraph.Cameras;
+using Nursia.SceneGraph.Lights;
 using RacingGame.GameLogic;
 using RacingGame.Graphics;
 using RacingGame.Helpers;
@@ -10,6 +12,11 @@ namespace RacingGame.GameScreens
 {
 	public class SplashScreen2 : IGameScreen2
 	{
+		private readonly DirectLight _directLight = new DirectLight
+		{
+			MaxShadowDistance = 500,
+			Direction = -LensFlare.DefaultLightPos
+		};
 		private readonly Landscape _landscape = new Landscape(RacingGameManager.Level.Beginner);
 		private readonly NursiaModelNode _car;
 		private PerspectiveCamera _camera = new PerspectiveCamera
@@ -34,8 +41,6 @@ namespace RacingGame.GameScreens
 
 		public void Update(GameTime gameTime)
 		{
-			_landscape.Update();
-
 			// Advance menu car preview time
 			_carMenuTime += (float)gameTime.ElapsedGameTime.TotalMilliseconds / 1000.0f;
 			if (_carMenuTime > _landscape.BestReplay.LapTime)
@@ -73,11 +78,12 @@ namespace RacingGame.GameScreens
 			_car.GlobalTransform = Constants.objectMatrix * _player.CarRenderMatrix;
 		}
 
-		public void Render(RenderSystem renderSystem)
+		public void Render()
 		{
-			renderSystem.Renderer3D.AddToRender(_landscape.Scene);
-			renderSystem.Renderer3D.AddToRender(_car);
-			renderSystem.Renderer3D.DoRender(_camera);
+			RG.AddToRender(_directLight);
+			RG.AddToRender(_landscape.Scene);
+			RG.AddToRender(_car);
+			RG.DoRender(_camera, RenderEnvironment.Default);
 		}
 	}
 }

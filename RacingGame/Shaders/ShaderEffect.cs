@@ -602,7 +602,7 @@ namespace RacingGame.Shaders
 		public void Reload()
 		{
 			// Load shader
-			effect = RacingGame.Assets.LoadEffect2($"Shaders/{shaderContentName}.efb");
+			effect = RG.Assets.LoadEffect2($"Shaders/{shaderContentName}.efb");
 
 			// Reset and get all avialable parameters.
 			// This is especially important for derived classes.

@@ -140,7 +140,7 @@ namespace RacingGame.Tracks
 					float draft = Vector3.Dot(points[num].up, new Vector3(0, 0, 1));
 					// And don't add if height is too small!
 					float columnHeight = holderPoint.Z -
-						landscape.GetMapHeight(holderPoint.X, holderPoint.Y);
+						Landscape.GetMapHeight(holderPoint.X, holderPoint.Y);
 
 					// Store the position for this holder
 					if (draft > 0.3f &&//< 0 MaxColumnGenerationAngel &&
@@ -206,7 +206,7 @@ namespace RacingGame.Tracks
 
 				// Find out the current landscape height here
 				Vector3 bottomPos = new Vector3(pos.X, pos.Y,
-					landscape.GetMapHeight(pos.X, pos.Y) +
+					Landscape.GetMapHeight(pos.X, pos.Y) +
 					ColumnGroundHeight);
 				Vector3 topPos = new Vector3(pos.X, pos.Y,
 					pos.Z - TopColumnSubHeight);
