@@ -24,10 +24,4 @@ namespace RacingGame
 			}
 		}
 	}
-
-	public class MaterialInfo
-	{
-		public Dictionary<string, EffectInfo> Effects { get; } = new Dictionary<string, EffectInfo>();
-		public Dictionary<string, EffectInfo[]> MeshesEffects { get; } = new Dictionary<string, EffectInfo[]>();
-	}
 }

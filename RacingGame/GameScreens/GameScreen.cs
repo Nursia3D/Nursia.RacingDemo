@@ -79,17 +79,17 @@ namespace RacingGame.GameScreens
 			BaseGame.UI.RenderGameBackground();
 
 			// Render landscape with track and all objects
-			RacingGameManager.Landscape.Render();
+			RacingGameManager.Landscape.Update();
 
 			// Render car with matrix we got from CarPhysics
-			RacingGameManager.CarModel.RenderCar(
+/*			RacingGameManager.CarModel.RenderCar(
 				RacingGameManager.currentCarNumber,
 				RacingGameManager.CarColor,
 				false,
-				RacingGameManager.Player.CarRenderMatrix);
+				RacingGameManager.Player.CarRenderMatrix);*/
 
 			// And flush all models to be rendered
-			BaseGame.MeshRenderManager.Render();
+			// BaseGame.MeshRenderManager.Render();
 
 			// Use data from best replay for the shadow car
 			Matrix bestReplayCarMatrix =
@@ -102,10 +102,10 @@ namespace RacingGame.GameScreens
 				bestReplayCarMatrix;
 
 			// Also render the shadow car (if the game has started)!
-			if (RacingGameManager.Player.GameTimeMilliseconds > 0)
+/*			if (RacingGameManager.Player.GameTimeMilliseconds > 0)
 				RacingGameManager.CarModel.RenderCar(
 					0, RacingGameManager.CarColor,
-					true, bestReplayCarMatrix);
+					true, bestReplayCarMatrix);*/
 
 			// Apply post screen shader here before doing the UI
 			BaseGame.UI.PostScreenGlowShader.Show();

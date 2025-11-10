@@ -11,6 +11,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Nursia.SceneGraph;
 using Nursia.SceneGraph.Cameras;
 using RacingGame.GameLogic;
 using RacingGame.GameScreens;
@@ -477,12 +478,12 @@ namespace RacingGame.Graphics
 		/// <summary>
 		/// Render menu track background
 		/// </summary>
-		public void RenderMenuTrackBackground()
+		public void RenderMenuTrackBackground(RenderQueue renderQueue)
 		{
 			// Only render track if we are not doing any 3d data on the screen
 			if (RacingGameManager.InCarSelectionScreen == false)
 			{
-				RacingGameManager.Landscape.Render();
+				RacingGameManager.Landscape.Update();
 
 				/*				RacingGameManager.CarModel.RenderCar(
 									randomCarNumber,
@@ -490,11 +491,14 @@ namespace RacingGame.Graphics
 									false,
 									RacingGameManager.Player.CarRenderMatrix);*/
 
-				GameCommon.CarModel.GlobalTransform = Model.objectMatrix * RacingGameManager.Player.CarRenderMatrix;
-				GameCommon.AddToRender(GameCommon.CarModel);
+				renderQueue.AddToRender(RacingGameManager.Landscape.Scene);
+				var car = BaseGame.CarWrapper.GetCar(randomCarNumber);
+
+				car.GlobalTransform = Constants.objectMatrix * RacingGameManager.Player.CarRenderMatrix;
+				renderQueue.AddToRender(car);
 
 				_camera.View = BaseGame.ViewMatrix;
-				GameCommon.DoRender(_camera);
+				renderQueue.DoRender(_camera);
 			}
 		}
 

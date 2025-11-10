@@ -16,7 +16,6 @@ using Microsoft.Xna.Framework;
 using RacingGame.Helpers;
 using RacingGame.Graphics;
 using RacingGame.GameLogic;
-using Material = RacingGame.Graphics.Material;
 using Microsoft.Xna.Framework.Graphics;
 #endregion
 

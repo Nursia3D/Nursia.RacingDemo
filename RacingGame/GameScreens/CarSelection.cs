@@ -123,7 +123,7 @@ namespace RacingGame.GameScreens
 			// Allow selecting the car color
 			TextureFont.WriteText(BaseGame.XToRes(85), BaseGame.YToRes(512),
 				"Car Color: ");
-			for (int num = 0; num < RacingGameManager.CarColors.Count; num++)
+			for (int num = 0; num < CarWrapper.CarColors.Length; num++)
 			{
 				Rectangle rect =
 					RacingGameManager.currentCarColor == num ?
@@ -131,7 +131,7 @@ namespace RacingGame.GameScreens
 					BaseGame.CalcRectangle(250 + num * 50, 500, 46, 46);
 				RacingGameManager.colorSelectionTexture.RenderOnScreen(
 					rect, RacingGameManager.colorSelectionTexture.GfxRectangle,
-					RacingGameManager.CarColors[num]);
+					CarWrapper.CarColors[num]);
 
 				if (Input.MouseInBox(rect) &&
 					Input.MouseLeftButtonPressed)
@@ -418,17 +418,17 @@ namespace RacingGame.GameScreens
 			// Now do the real rendering:
 			for (int carNum = 0; carNum < 3; carNum++)
 			{
-				RacingGameManager.CarSelectionPlate.Render(renderMatrices[carNum]);
+/*				RacingGameManager.CarSelectionPlate.Render(renderMatrices[carNum]);
 				RacingGameManager.CarModel.RenderCar(
 					carNum,
 					RacingGameManager.CarColor,
 					false,
-					renderMatrices[carNum]);
+					renderMatrices[carNum]);*/
 			}
 
 			// Render all models we remembered this frame (we are in PostUIRender,
 			// and we changed our view matrix, render directly here).
-			BaseGame.MeshRenderManager.Render();
+			// BaseGame.MeshRenderManager.Render();
 
 			// Reset stuff
 			BaseGame.WorldMatrix = Matrix.Identity;

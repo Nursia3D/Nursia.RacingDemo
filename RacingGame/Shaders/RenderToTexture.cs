@@ -10,16 +10,10 @@
 #region Using directives
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections;
-using System.Text;
 using RacingGame.Graphics;
-using RacingGame.Helpers;
 using Texture = RacingGame.Graphics.Texture;
-using Model = RacingGame.Graphics.Model;
 using XnaTexture = Microsoft.Xna.Framework.Graphics.Texture2D;
 using Microsoft.Xna.Framework;
-using RacingGame.GameLogic;
-using Microsoft.Xna.Framework.Input;
 #endregion
 
 namespace RacingGame.Shaders

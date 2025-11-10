@@ -11,6 +11,8 @@
 using System;
 using RacingGame.Properties;
 using AssetManagementBase;
+using Nursia;
+
 
 
 #if !XBOX360
@@ -53,6 +55,7 @@ namespace RacingGame
 			{
 #endif
 				AMBConfiguration.Logger = s => Console.WriteLine(s);
+				// Nrs.DebugSettings.DrawBoundingBoxes = true;
 				using (RacingGameManager game = new RacingGameManager())
 				{
 					game.Run();

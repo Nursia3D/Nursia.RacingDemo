@@ -15,12 +15,9 @@ using Nursia.Materials;
 using Nursia.SceneGraph;
 using RacingGame.Graphics;
 using RacingGame.Landscapes;
-using RacingGame.Shaders;
 using RacingGame.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Model = RacingGame.Graphics.Model;
 
 #endregion
 
@@ -326,9 +323,9 @@ namespace RacingGame.Tracks
 			// Road cement material, used for the columns the road is staying on.
 			var material = new LitSolidMaterial
 			{
-				DiffuseColor = Material.DefaultDiffuseColor,
-				SpecularColor = Material.DefaultSpecularColor,
-				AmbientColor = Material.DefaultAmbientColor,
+				DiffuseColor = Constants.DefaultDiffuseColor,
+				SpecularColor = Constants.DefaultSpecularColor,
+				AmbientColor = Constants.DefaultAmbientColor,
 				DiffuseTexturePath = "Textures/Leitplanke.tga",
 				NormalTexturePath = "Textures/LeitplankeNormal.tga"
 			};

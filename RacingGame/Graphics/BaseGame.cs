@@ -111,15 +111,6 @@ namespace RacingGame.Graphics
 		private static LineManager3D lineManager3D = null;
 
 		/// <summary>
-		/// Mesh render manager to render meshes of models in a highly
-		/// optimized manner. We don't really have anything stored in here
-		/// except for a sorted list on how to render everything based on the
-		/// techniques and the materials and links to the renderable meshes.
-		/// </summary>
-		private static MeshRenderManager meshRenderManager =
-			new MeshRenderManager();
-
-		/// <summary>
 		/// Matrices for shaders. Used in a similar way than in Rocket Commander,
 		/// but since we don't have a fixed function pipeline here we just use
 		/// these values in the shader. Make sure to set all matrices before
@@ -175,6 +166,8 @@ namespace RacingGame.Graphics
 			frameCountThisSecond = 0,
 			totalFrameCount = 0,
 			fpsLastSecond = 60;
+
+		public static readonly CarWrapper CarWrapper = new CarWrapper();
 
 		/// <summary>
 		/// Return true every checkMilliseconds.
@@ -335,21 +328,6 @@ namespace RacingGame.Graphics
 			get
 			{
 				return ui;
-			}
-		}
-		#endregion
-
-		#region MeshRenderManager
-		/// <summary>
-		/// Mesh render manager to render meshes of models in a highly
-		/// optimized manner.
-		/// </summary>
-		/// <returns>Mesh render manager</returns>
-		public static MeshRenderManager MeshRenderManager
-		{
-			get
-			{
-				return meshRenderManager;
 			}
 		}
 		#endregion
@@ -1334,22 +1312,6 @@ namespace RacingGame.Graphics
 
 				fpsInterpolated =
 					MathHelper.Lerp(fpsInterpolated, fpsLastSecond, 0.1f);
-
-				// Check out if our framerate is running very low. Then we can improve
-				// rendering by reducing the number of objects we draw.
-				if (fpsInterpolated < 5)
-					Model.MaxViewDistance = 50;
-				else if (fpsInterpolated < 12)
-					Model.MaxViewDistance = 70;
-				else if (fpsInterpolated < 16)
-					Model.MaxViewDistance = 90;
-				else if (fpsInterpolated < 20)
-					Model.MaxViewDistance = 120;
-				else if (fpsInterpolated < 25)
-					Model.MaxViewDistance = 150;
-				else if (fpsInterpolated < 30 ||
-					HighDetail == false)
-					Model.MaxViewDistance = 175;
 			}
 
 			// Update sound and music
@@ -1418,9 +1380,6 @@ namespace RacingGame.Graphics
 
 				// Handle custom user render code
 				Render();
-
-				// Render all models we remembered this frame.
-				meshRenderManager.Render();
 
 				// Render all 3d lines
 				lineManager3D.Render();

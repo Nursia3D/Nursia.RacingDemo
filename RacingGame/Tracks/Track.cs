@@ -12,16 +12,11 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using RacingGame.Graphics;
 using RacingGame.Helpers;
 using RacingGame.Landscapes;
-using RacingGame.Shaders;
-using Model = RacingGame.Graphics.Model;
-using RacingGame.GameLogic;
 using Nursia.SceneGraph;
 using Nursia;
-using Nursia.SceneGraph.Cameras;
 using Nursia.Materials;
 using DigitalRiseModel;
 using RacingGame.Utilities;
@@ -321,9 +316,9 @@ namespace RacingGame.Tracks
 
 			var material = new LitSolidMaterial
 			{
-				DiffuseColor = Material.DefaultDiffuseColor,
-				SpecularColor = Material.DefaultSpecularColor,
-				AmbientColor = Material.DefaultAmbientColor,
+				DiffuseColor = Constants.DefaultDiffuseColor,
+				SpecularColor = Constants.DefaultSpecularColor,
+				AmbientColor = Constants.DefaultAmbientColor,
 				DiffuseTexturePath = "Textures/Road.tga",
 				NormalTexturePath = "Textures/RoadNormal.tga",
 			};
@@ -440,9 +435,9 @@ namespace RacingGame.Tracks
 
 			var material = new LitSolidMaterial
 			{
-				DiffuseColor = Material.DefaultDiffuseColor,
-				SpecularColor = Material.DefaultSpecularColor,
-				AmbientColor = Material.DefaultAmbientColor,
+				DiffuseColor = Constants.DefaultDiffuseColor,
+				SpecularColor = Constants.DefaultSpecularColor,
+				AmbientColor = Constants.DefaultAmbientColor,
 				DiffuseTexturePath = "Textures/RoadBack.tga",
 				NormalTexturePath = "Textures/RoadBackNormal.tga",
 			};
@@ -588,16 +583,7 @@ namespace RacingGame.Tracks
 				BufferUsage.WriteOnly);
 			roadTunnelIb.SetData(roadTunnelIndices);
 
-			/// <summary>
 			/// Road tunnel material, used whereever we got tunnels.
-			/// </summary>
-			Material roadTunnelMaterial = new Material(
-				// Use mainly ambient color (tunnel uses lightmaps)
-				new Color(182, 182, 182),
-				new Color(80, 80, 80),
-				new Color(64, 64, 64),
-				"RoadTunnel.tga", "RoadTunnelNormal.tga", "", "");
-
 			var material = new LitSolidMaterial
 			{
 				DiffuseColor = new Color(80, 80, 80),

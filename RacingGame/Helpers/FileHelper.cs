@@ -45,38 +45,38 @@ namespace RacingGame.Helpers
 		#region StorageDevice
 
 #if FNA
-        public static ManualResetEvent StorageContainerMRE = new ManualResetEvent(true);
+		public static ManualResetEvent StorageContainerMRE = new ManualResetEvent(true);
 
-        /// <summary>
-        /// XNA user device, asks for the saving location on the Xbox360,
-        /// theirfore remember this device for the time we run the game.
-        /// </summary>
-        static StorageDevice xnaUserDevice = null;
+		/// <summary>
+		/// XNA user device, asks for the saving location on the Xbox360,
+		/// theirfore remember this device for the time we run the game.
+		/// </summary>
+		static StorageDevice xnaUserDevice = null;
 
-        /// <summary>
-        /// Xna user device
-        /// </summary>
-        /// <returns>Storage device</returns>
-        public static StorageDevice XnaUserDevice
-        {
-            get
-            {
-                if ((xnaUserDevice != null) && !xnaUserDevice.IsConnected)
-                {
-                    xnaUserDevice = null;
-                }
-                // Create if not created yet.
-                if (xnaUserDevice == null)
-                {
-                    IAsyncResult async = StorageDevice.BeginShowSelector(PlayerIndex.One, null, null);
+		/// <summary>
+		/// Xna user device
+		/// </summary>
+		/// <returns>Storage device</returns>
+		public static StorageDevice XnaUserDevice
+		{
+			get
+			{
+				if ((xnaUserDevice != null) && !xnaUserDevice.IsConnected)
+				{
+					xnaUserDevice = null;
+				}
+				// Create if not created yet.
+				if (xnaUserDevice == null)
+				{
+					IAsyncResult async = StorageDevice.BeginShowSelector(PlayerIndex.One, null, null);
 
-                    async.AsyncWaitHandle.WaitOne();
+					async.AsyncWaitHandle.WaitOne();
 
-                    xnaUserDevice = StorageDevice.EndShowSelector(async);
-                }
-                return xnaUserDevice;
-            }
-        }
+					xnaUserDevice = StorageDevice.EndShowSelector(async);
+				}
+				return xnaUserDevice;
+			}
+		}
 #endif
 
 		#endregion

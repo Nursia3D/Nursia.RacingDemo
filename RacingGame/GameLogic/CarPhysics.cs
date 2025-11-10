@@ -20,7 +20,6 @@ using RacingGame.Graphics;
 using RacingGame.Helpers;
 using RacingGame.Shaders;
 using RacingGame.Sounds;
-using Model = RacingGame.Graphics.Model;
 using RacingGame.Tracks;
 using RacingGame.Properties;
 #endregion

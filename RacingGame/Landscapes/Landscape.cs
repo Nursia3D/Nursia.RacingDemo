@@ -24,7 +24,6 @@ using RacingGame.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Model = RacingGame.Graphics.Model;
 
 #endregion
 
@@ -35,9 +34,11 @@ namespace RacingGame.Landscapes
 	/// </summary>
 	public class Landscape : IDisposable
 	{
-		private DirectLight _directLight = new DirectLight
+		private static readonly string[] starLightsModels = new string[]
 		{
-			MaxShadowDistance = 500
+			"StartLight",
+			"StartLight2",
+			"StartLight3",
 		};
 
 		#region Objects to render on this landscape
@@ -46,40 +47,10 @@ namespace RacingGame.Landscapes
 		/// </summary>
 		public class LandscapeObject
 		{
-			/// <summary>
-			/// Is banner, sign or building?
-			/// Shadows are only generated for these objects, not received.
-			/// </summary>
-			bool isBanner = false;
-
 			public NursiaModelNode Model { get; private set; }
 
 			public string Name { get; private set; }
 			public float Size { get; private set; }
-
-			/// <summary>
-			/// Is big building
-			/// </summary>
-			/// <returns>Bool</returns>
-			public bool IsBigBuilding
-			{
-				get
-				{
-					return Name.ToLower().Contains("hotel") ||
-						   Name.ToLower().Contains("building");
-				}
-			}
-
-			/// <summary>
-			/// Is banner
-			/// </summary>
-			public bool IsBanner
-			{
-				get
-				{
-					return isBanner;
-				}
-			}
 
 			public Vector3 Position => Model.GlobalTransform.Translation;
 
@@ -108,10 +79,6 @@ namespace RacingGame.Landscapes
 				Name = name;
 				Model = model ?? throw new ArgumentNullException(nameof(model));
 				Size = Model.Model.CalculateSize();
-
-				// Also include signs no reason to receive shadows for them!
-				// Faster and looks better!
-				isBanner = Name.ToLower().Contains("banner") || Name.ToLower().Contains("sign");
 			}
 		}
 
@@ -161,16 +128,6 @@ namespace RacingGame.Landscapes
 			landscapeObjects.Clear();
 			startLightObject = null;
 		}
-
-		/// <summary>
-		/// All landscape models are preloaded and then used in AddObjectToRender.
-		/// </summary>
-		string[] starLightsModels = new string[]
-		{
-			"StartLight",
-			"StartLight2",
-			"StartLight3",
-		};
 
 		/// <summary>
 		/// Combos, which are used in the level file and for the automatic
@@ -287,7 +244,7 @@ namespace RacingGame.Landscapes
 			}
 
 			// Scale all objects up a little (else world is not filled enough)
-			model.GlobalTransform = Model.objectMatrix * Matrix.CreateScale(1.2f) * renderMatrix;
+			model.GlobalTransform = Constants.objectMatrix * Matrix.CreateScale(1.2f) * renderMatrix;
 
 			var newObject = new LandscapeObject(modelName, model);
 
@@ -359,44 +316,19 @@ namespace RacingGame.Landscapes
 
 		#region Variables
 
+		private readonly DirectLight _directLight = new DirectLight
+		{
+			MaxShadowDistance = 500
+		};
+
 		private readonly RenderCallbackNode _brakesNode;
 		private readonly TerrainNode _terrainNode;
+		private readonly SceneNode _scene = new SceneNode();
 
 		/// <summary>
 		/// Currently loaded level
 		/// </summary>
 		RacingGameManager.Level level = RacingGameManager.Level.Beginner;
-
-		/// <summary>
-		/// City material for displaying an extra material whereever the ground
-		/// is flat. This makes the ground look much better at such locations,
-		/// especially where the city is at.
-		/// </summary>
-		Material cityMat = new Material(
-			new Color(32, 32, 32),
-			new Color(200, 200, 200),
-			new Color(128, 128, 128),
-			"CityGround.tga",
-			"CityGroundNormal.tga", "", "");
-
-		/// <summary>
-		/// City material
-		/// </summary>
-		/// <returns>Material</returns>
-		public Material CityMaterial
-		{
-			get
-			{
-				return cityMat;
-			}
-		}
-
-		/// <summary>
-		/// City planes we render additionally to the landscape.
-		/// Each city plane is just 2 triangles and the cityMat material, very
-		/// fast and easy stuff.
-		/// </summary>
-		PlaneRenderer cityPlane = null;
 
 		/// <summary>
 		/// Track for our landscape, can be TrackBeginner, TrackAdvanced and
@@ -411,6 +343,45 @@ namespace RacingGame.Landscapes
 		/// </summary>
 		Replay bestReplay = null,
 			newReplay = null;
+
+		public SceneNode Scene
+		{
+			get
+			{
+				if (_scene.Children.Count == 0)
+				{
+					_scene.Children.Add(_directLight);
+
+					_scene.Children.Add(_terrainNode);
+
+					_scene.Children.Add(track.Scene);
+
+					_scene.Children.Add(track.RoadMesh);
+					_scene.Children.Add(track.RoadBackmesh);
+
+					if (track.RoadTunnelMesh != null)
+					{
+						_scene.Children.Add(track.RoadTunnelMesh);
+					}
+
+					_scene.Children.Add(track.LeftRailMesh);
+					_scene.Children.Add(track.RightRailMesh);
+					_scene.Children.Add(track.ColumnsMesh);
+
+					// Render all landscape objects
+					foreach (var landscapeObject in landscapeObjects)
+					{
+						_scene.Children.Add(landscapeObject.Model);
+					}
+
+					// Render all brake tracks
+					_scene.Children.Add(_brakesNode);
+				}
+
+				return _scene;
+			}
+		}
+
 
 		/// <summary>
 		/// Compare checkpoint time to the bestReplay times.
@@ -572,24 +543,11 @@ namespace RacingGame.Landscapes
 			ReloadLevel(setLevel);
 			#endregion
 
-			#region Add city planes
-			// Just set one giant plane for the whole city!
-			foreach (LandscapeObject obj in landscapeObjects)
-				if (obj.IsBigBuilding)
-				{
-					cityPlane = new PlaneRenderer(
-						obj.Position,
-						new Plane(new Vector3(0, 0, 1), 0.1f),
-						cityMat, Math.Min(obj.Position.X, obj.Position.Y));
-					break;
-				}
-			#endregion
-
 			var material = new LitSolidMaterial
 			{
-				DiffuseColor = Material.DefaultDiffuseColor,
-				SpecularColor = Material.DefaultSpecularColor,
-				AmbientColor = Material.DefaultAmbientColor,
+				DiffuseColor = Constants.DefaultDiffuseColor,
+				SpecularColor = Constants.DefaultSpecularColor,
+				AmbientColor = Constants.DefaultAmbientColor,
 				DiffuseTexturePath = "Textures/track.tga",
 				CastsShadows = false
 			};
@@ -655,7 +613,6 @@ namespace RacingGame.Landscapes
 		{
 			if (disposing)
 			{
-				cityMat.Dispose();
 				track.Dispose();
 			}
 		}
@@ -677,41 +634,9 @@ namespace RacingGame.Landscapes
 		/// <summary>
 		/// Render landscape (just at the origin)
 		/// </summary>
-		public void Render()
+		public void Update()
 		{
-			// Render landscape (pretty easy with all the data we got here)
-			/*			ShaderEffect.landscapeNormalMapping.Render(
-							mat, "DiffuseWithDetail20",
-							new BaseGame.RenderHandler(RenderLandscapeVertices));*/
-
-			//cityPlane.Render();
-
 			_directLight.Direction = -BaseGame.LightDirection;
-
-			GameCommon.AddToRender(_directLight);
-
-			GameCommon.AddToRender(_terrainNode);
-			GameCommon.AddToRender(track.Scene);
-			GameCommon.AddToRender(track.RoadMesh);
-			GameCommon.AddToRender(track.RoadBackmesh);
-
-			if (track.RoadTunnelMesh != null)
-			{
-				GameCommon.AddToRender(track.RoadTunnelMesh);
-			}
-
-			GameCommon.AddToRender(track.LeftRailMesh);
-			GameCommon.AddToRender(track.RightRailMesh);
-			GameCommon.AddToRender(track.ColumnsMesh);
-
-			// Render all landscape objects
-			foreach (var landscapeObject in landscapeObjects)
-			{
-				GameCommon.AddToRender(landscapeObject.Model);
-			}
-
-			// Render all brake tracks
-			GameCommon.AddToRender(_brakesNode);
 		}
 
 		#endregion

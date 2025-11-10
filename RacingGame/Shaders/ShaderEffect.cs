@@ -38,25 +38,6 @@ namespace RacingGame.Shaders
 		public static ShaderEffect lineRendering =
 			new ShaderEffect("LineRendering.fx");
 
-		/// <summary>
-		/// Simple shader with just per pixel lighting for testing.
-		/// </summary>
-		public static ShaderEffect lighting =
-			new ShaderEffect("LightingShader.fx");
-
-		/// <summary>
-		/// Normal mapping shader for simple objects and the landscape rendering.
-		/// </summary>
-		public static ShaderEffect normalMapping =
-			new ShaderEffect("NormalMapping.fx");
-
-		/// <summary>
-		/// Landscape normal mapping shader for the landscape rendering with
-		/// detail texture support, everything else should use normalMapping.
-		/// </summary>
-		public static ShaderEffect landscapeNormalMapping =
-			new ShaderEffect("LandscapeNormalMapping.fx");
-
 		#endregion
 
 		#region Variables
@@ -671,110 +652,6 @@ namespace RacingGame.Shaders
 		}
 		#endregion
 
-		#region SetParameters
-		/// <summary>
-		/// Set parameters, this overload sets all material parameters too.
-		/// </summary>
-		public virtual void SetParameters(Material setMat)
-		{
-			if (worldViewProj != null)
-				worldViewProj.SetValue(BaseGame.WorldViewProjectionMatrix);
-			if (viewProj != null)
-				viewProj.SetValue(BaseGame.ViewProjectionMatrix);
-			if (world != null)
-				world.SetValue(BaseGame.WorldMatrix);
-			if (viewInverse != null)
-				viewInverse.SetValue(BaseGame.InverseViewMatrix);
-			if (lightDir != null)
-				lightDir.SetValue(BaseGame.LightDirection);
-
-			// Set the reflection cube texture only once
-			if (lastUsedReflectionCubeTexture == null &&
-				reflectionCubeTexture != null)
-			{
-				ReflectionCubeTexture = BaseGame.UI.SkyCubeMapTexture;
-			}
-
-			// Set all material properties
-			if (setMat != null)
-			{
-				AmbientColor = setMat.ambientColor;
-				DiffuseColor = setMat.diffuseColor;
-				SpecularColor = setMat.specularColor;
-				SpecularPower = setMat.specularPower;
-				DiffuseTexture = setMat.diffuseTexture;
-				NormalTexture = setMat.normalTexture;
-				HeightTexture = setMat.heightTexture;
-				ParallaxAmount = setMat.parallaxAmount;
-				DetailTexture = setMat.detailTexture;
-			}
-		}
-
-		/// <summary>
-		/// Set parameters, override to set more
-		/// </summary>
-		public virtual void SetParameters()
-		{
-			SetParameters(null);
-		}
-
-		/// <summary>
-		/// Set parameters, this overload sets all material parameters too.
-		/// </summary>
-		public virtual void SetParametersOptimizedGeneral()
-		{
-			if (worldViewProj != null)
-				worldViewProj.SetValue(BaseGame.WorldViewProjectionMatrix);
-			if (viewProj != null)
-				viewProj.SetValue(BaseGame.ViewProjectionMatrix);
-			if (world != null)
-				world.SetValue(BaseGame.WorldMatrix);
-			if (viewInverse != null)
-				viewInverse.SetValue(BaseGame.InverseViewMatrix);
-			if (lightDir != null)
-				lightDir.SetValue(BaseGame.LightDirection);
-
-			// Set the reflection cube texture only once
-			if (lastUsedReflectionCubeTexture == null &&
-				reflectionCubeTexture != null)
-			{
-				ReflectionCubeTexture = BaseGame.UI.SkyCubeMapTexture;
-			}
-
-			// lastUsed parameters for colors and textures are not used,
-			// but we overwrite the values in SetParametersOptimized.
-			// We fix this by clearing all lastUsed values we will use later.
-			lastUsedAmbientColor = ColorHelper.Empty;
-			lastUsedDiffuseColor = ColorHelper.Empty;
-			lastUsedSpecularColor = ColorHelper.Empty;
-			lastUsedDiffuseTexture = null;
-			lastUsedNormalTexture = null;
-		}
-
-		/// <summary>
-		/// Set parameters, this overload sets all material parameters too.
-		/// </summary>
-		public virtual void SetParametersOptimized(Material setMat)
-		{
-			if (setMat == null)
-				throw new ArgumentNullException("setMat");
-
-			// No need to set world matrix, will be done later in mesh rendering
-			// in the MeshRenderManager. All the rest is set with help of the
-			// SetParametersOptimizedGeneral above.
-
-			// Only update ambient, diffuse, specular and the textures, the rest
-			// will not change for a material change in MeshRenderManager.
-			ambientColor.SetValue(setMat.ambientColor.ToVector4());
-			diffuseColor.SetValue(setMat.diffuseColor.ToVector4());
-			specularColor.SetValue(setMat.specularColor.ToVector4());
-			if (setMat.diffuseTexture != null)
-				diffuseTexture.SetValue(setMat.diffuseTexture.XnaTexture);
-			if (setMat.normalTexture != null)
-				normalTexture.SetValue(setMat.normalTexture.XnaTexture);
-		}
-		#endregion
-
 		#region Update
 		/// <summary>
 		/// Update
@@ -792,23 +669,17 @@ namespace RacingGame.Shaders
 		/// <summary>
 		/// Render
 		/// </summary>
-		/// <param name="setMat">Set matrix</param>
 		/// <param name="passName">Pass name</param>
 		/// <param name="renderDelegate">Render delegate</param>
-		public void Render(Material setMat,
-			string techniqueName,
-			BaseGame.RenderHandler renderCode)
+		public void Render(string techniqueName, BaseGame.RenderHandler renderCode)
 		{
 			if (techniqueName == null)
 				throw new ArgumentNullException("techniqueName");
 			if (renderCode == null)
 				throw new ArgumentNullException("renderCode");
 
-			SetParameters(setMat);
-
 			// Start shader
 			effect.CurrentTechnique = effect.Techniques[techniqueName];
-
 
 			// Render all passes (usually just one)
 			//foreach (EffectPass pass in effect.CurrentTechnique.Passes)
@@ -821,16 +692,6 @@ namespace RacingGame.Shaders
 			}
 		}
 
-		/// <summary>
-		/// Render
-		/// </summary>
-		/// <param name="techniqueName">Technique name</param>
-		/// <param name="renderDelegate">Render delegate</param>
-		public void Render(string techniqueName,
-			BaseGame.RenderHandler renderDelegate)
-		{
-			Render(null, techniqueName, renderDelegate);
-		}
 		#endregion
 
 		#region Render single pass shader

@@ -11,13 +11,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using RacingGame.GameLogic;
 using RacingGame.Graphics;
 using RacingGame.Helpers;
-using RacingGame.Properties;
-using Color = Microsoft.Xna.Framework.Color;
-using Model = RacingGame.Graphics.Model;
 #endregion
 
 namespace RacingGame.GameLogic

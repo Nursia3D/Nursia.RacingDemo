@@ -9,20 +9,15 @@
 
 #region Using directives
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using RacingGame.GameLogic;
 using RacingGame.GameScreens;
 using RacingGame.Graphics;
-using RacingGame.Helpers;
 using RacingGame.Landscapes;
 using RacingGame.Sounds;
-using Model = RacingGame.Graphics.Model;
 using Texture = RacingGame.Graphics.Texture;
 using RacingGame.Properties;
 using RacingGame.Shaders;
@@ -56,51 +51,9 @@ namespace RacingGame
 		private static Player player = new Player(new Vector3(0, 0, 0));
 
 		/// <summary>
-		/// Car model and selection plate for the car selection screen.
-		/// </summary>
-		private static Model carModel = null,
-			carSelectionPlate = null;
-
-		/// <summary>
-		/// Car textures we exchange for our car model.
-		/// </summary>
-		private static Texture[] carTextures = null;
-
-		/// <summary>
-		/// The player can select between the 3 cars: 0 (white), 1 (red) and
-		/// 2 (yellow).
-		/// </summary>
-		public static int currentCarNumber = 0;
-
-		/// <summary>
-		/// The player can also select a car color, which will be used to
-		/// recolor the car. Looks best for the first car (white).
-		/// </summary>
-		public static int currentCarColor;// Color carColor = Color.White;
-
-		/// <summary>
 		/// Helper texture for color selection
 		/// </summary>
 		public static Texture colorSelectionTexture = null;
-
-		/// <summary>
-		/// Car colors for the car selection screen.
-		/// </summary>
-		public static List<Color> CarColors = new List<Color>(
-			new Color[]
-			{
-				Color.White,
-				Color.Yellow,
-				Color.Blue,
-				Color.Purple,
-				Color.Red,
-				Color.Green,
-				Color.Teal,
-				Color.Gray,
-				Color.Chocolate,
-				Color.Orange,
-				Color.SeaGreen,
-			});
 
 		/// <summary>
 		/// Landscape we are currently using.
@@ -207,76 +160,6 @@ namespace RacingGame
 		}
 
 		/// <summary>
-		/// Car model
-		/// </summary>
-		/// <returns>Model</returns>
-		public static Model CarModel
-		{
-			get
-			{
-				return carModel;
-			}
-		}
-
-		/// <summary>
-		/// Car color
-		/// </summary>
-		/// <returns>Color</returns>
-		public static Color CarColor
-		{
-			get
-			{
-				return CarColors[currentCarColor % CarColors.Count];
-			}
-		}
-
-		/// <summary>
-		/// Number of car colors
-		/// </summary>
-		/// <returns>Int</returns>
-		public static int NumberOfCarColors
-		{
-			get
-			{
-				return CarColors.Count;
-			}
-		}
-
-		/// <summary>
-		/// Number of car texture types
-		/// </summary>
-		/// <returns>Int</returns>
-		public static int NumberOfCarTextureTypes
-		{
-			get
-			{
-				return carTextures.Length;
-			}
-		}
-
-		/// <summary>
-		/// Car texture
-		/// </summary>
-		/// <param name="carNumber">Car number</param>
-		/// <returns>Texture</returns>
-		public static Texture CarTexture(int carNumber)
-		{
-			return carTextures[carNumber % carTextures.Length];
-		}
-
-		/// <summary>
-		/// Car selection plate
-		/// </summary>
-		/// <returns>Model</returns>
-		public static Model CarSelectionPlate
-		{
-			get
-			{
-				return carSelectionPlate;
-			}
-		}
-
-		/// <summary>
 		/// Landscape we are currently using, used for several things (menu
 		/// background, the game, some other classes outside the landscape class).
 		/// </summary>
@@ -360,9 +243,6 @@ namespace RacingGame
 
 
 			LoadEvent("Models...", null);
-			// Load models
-			carModel = new Model("Car");
-			carSelectionPlate = new Model("CarSelectionPlate");
 
 			LoadEvent("Landscape...", null);
 			// Load landscape
@@ -371,10 +251,6 @@ namespace RacingGame
 			LoadEvent("Textures...", null);
 			// Load textures, first one is grabbed from the imported one through
 			// the car.x model, the other two are loaded seperately.
-			carTextures = new Texture[3];
-			carTextures[0] = new Texture("RacerCar.tga", false);
-			carTextures[1] = new Texture("RacerCar2.tga", false);
-			carTextures[2] = new Texture("RacerCar3.tga", false);
 			colorSelectionTexture = new Texture("ColorSelection.png");
 
 			LoadEvent("All systems go!", null);
