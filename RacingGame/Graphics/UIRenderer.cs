@@ -486,12 +486,6 @@ namespace RacingGame.Graphics
 			{
 				RacingGameManager.Landscape.Update();
 
-				/*				RacingGameManager.CarModel.RenderCar(
-									randomCarNumber,
-									randomCarColor,
-									false,
-									RacingGameManager.Player.CarRenderMatrix);*/
-
 				if (_car == null)
 				{
 					_car = CarFactory.CreateCar(randomCarNumber);
