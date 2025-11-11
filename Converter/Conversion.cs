@@ -17,9 +17,6 @@ namespace Converter
 {
 	public class Conversion
 	{
-		const int GridWidth = 257, GridHeight = 257;
-
-		static readonly Matrix objectMatrix = Matrix.CreateRotationX(MathHelper.Pi / 2.0f);
 		private class MaterialData
 		{
 			public string Effect { get; set; }

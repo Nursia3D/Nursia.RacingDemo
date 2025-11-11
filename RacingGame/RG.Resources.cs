@@ -1,5 +1,6 @@
 ﻿using AssetManagementBase;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Nursia;
 using Nursia.Env;
 using Nursia.Env.Sky;
@@ -28,15 +29,6 @@ namespace RacingGame
 			public static int NumberOfCars => _textures.Length;
 
 			/// <summary>
-			/// We have one direct light for all scenes
-			/// </summary>
-			public static DirectLight DirectLight { get; } = new DirectLight
-			{
-				MaxShadowDistance = 500,
-				Direction = -LensFlare.DefaultLightPos
-			};
-
-			/// <summary>
 			/// And one render environment
 			/// </summary>
 			internal static RenderEnvironment RenderEnvironment { get; private set; }
@@ -60,8 +52,8 @@ namespace RacingGame
 
 				sky.Load(Assets);
 
-				// RenderEnvironment.Sky = sky;
-				RenderEnvironment.FogEnabled = true;
+				RenderEnvironment.Sky = sky;
+				// RenderEnvironment.FogEnabled = true;
 
 				// Terrain Node
 				Terrain = (TerrainNode)Assets.LoadSceneNode("Scenes/Landscape.scene");

@@ -124,7 +124,6 @@ namespace RacingGame
 				// Only if not in Game, not in splash screen!
 				return gameScreens.Count > 0 &&
 					gameScreens.Peek().GetType() != typeof(GameScreen) &&
-					gameScreens.Peek().GetType() != typeof(SplashScreen) &&
 					gameScreens.Peek().GetType() != typeof(LoadingScreen);
 			}
 		}
@@ -203,10 +202,6 @@ namespace RacingGame
 
 			// Create main menu at our main entry point
 			gameScreens.Push(new MainMenu());
-
-			// But start with splash screen, if user clicks or presses Start,
-			// we are back in the main menu.
-			gameScreens.Push(new SplashScreen());
 
 			//We want to initially show the loading screen while things start.
 			gameScreens.Push(new LoadingScreen());

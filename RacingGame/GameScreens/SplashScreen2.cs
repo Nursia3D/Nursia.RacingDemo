@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Nursia.SceneGraph;
 using Nursia.SceneGraph.Cameras;
+using Nursia.SceneGraph.Lights;
 using RacingGame.GameLogic;
+using RacingGame.Graphics;
 using RacingGame.Helpers;
 using RacingGame.Landscapes;
 
@@ -9,20 +11,31 @@ namespace RacingGame.GameScreens
 {
 	public class SplashScreen2 : IGameScreen2
 	{
-		private readonly Landscape _landscape = new Landscape(RacingGameManager.Level.Advanced);
-		private readonly NursiaModelNode _car;
+		private readonly DirectLight _directLight = new DirectLight
+		{
+			MaxShadowDistance = Constants.DefaultMaxShadowDistance,
+			Direction = -LensFlare.DefaultLightPos
+		};
+		private Landscape _landscape = new Landscape(RacingGameManager.Level.Advanced);
+		private NursiaModelNode _car;
 		private PerspectiveCamera _camera = new PerspectiveCamera
 		{
 			ViewAngle = Constants.FieldOfViewInDegrees,
 			NearPlaneDistance = Constants.NearPlane,
 			FarPlaneDistance = Constants.FarPlane
 		};
-		private readonly Player _player;
-		private readonly Replay _bestReplay;
+		private Player _player;
+		private Replay _bestReplay;
 		private float _carMenuTime;
 		private Vector3 _oldCarForward = Vector3.Zero, _oldCarUp = Vector3.Zero;
 
+		public bool IsMouseVisible => false;
+
 		public SplashScreen2()
+		{
+		}
+
+		public void OnSet()
 		{
 			_bestReplay = _landscape.BestReplay;
 			_player = new Player(_landscape, Vector3.Zero);
@@ -31,8 +44,19 @@ namespace RacingGame.GameScreens
 			_car = RG.Resources.CreateCar(randomCarNumber);
 		}
 
+		public void OnUnset()
+		{
+			// TODO: Dispose
+		}
+
 		public void Update()
 		{
+			if (Input.KeyboardEscapeJustPressed)
+			{
+				RG.CurrentScreen = new MainMenuScreen();
+				return;
+			}
+
 			// Advance menu car preview time
 			_carMenuTime += (float)RG.GameTime.ElapsedGameTime.TotalMilliseconds / 1000.0f;
 			if (_carMenuTime > _landscape.BestReplay.LapTime)
@@ -72,10 +96,10 @@ namespace RacingGame.GameScreens
 
 		public void Render()
 		{
-			RG.Graphics3D.AddToRender(RG.Resources.DirectLight);
-			RG.Graphics3D.AddToRender(_landscape.Scene);
-			RG.Graphics3D.AddToRender(_car);
-			RG.Graphics3D.DoRender(_camera);
+			RG.Graphics.AddToRender3D(_directLight);
+			RG.Graphics.AddToRender3D(_landscape.Scene);
+			RG.Graphics.AddToRender3D(_car);
+			RG.Graphics.DoRender3D(_camera);
 		}
 	}
 }

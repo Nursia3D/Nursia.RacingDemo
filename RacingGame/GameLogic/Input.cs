@@ -17,6 +17,7 @@ using System.Threading;
 using RacingGame.Graphics;
 using RacingGame.Helpers;
 using RacingGame.Sounds;
+using Nursia;
 #endregion
 
 namespace RacingGame.GameLogic
@@ -931,7 +932,7 @@ namespace RacingGame.GameLogic
 
 			// If we are in the game and don't show the mouse cursor anyway,
 			// reset it to the center to allow moving it around.
-			if (!RG.InGame && RG.IsAppActive)
+			if (!Nrs.Game.IsMouseVisible && RG.IsAppActive)
 			{
 				Mouse.SetPosition(
 					RG.Width / 2, RG.Height / 2);

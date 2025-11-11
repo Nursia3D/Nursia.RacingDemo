@@ -301,7 +301,6 @@ namespace RacingGame.GameScreens
 			if (idleTime > TimeOutMenu)
 			{
 				idleTime = 0.0f;
-				RacingGameManager.AddGameScreen(new SplashScreen());
 			}
 
 			return false;
