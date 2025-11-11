@@ -1,5 +1,6 @@
 ﻿using AssetManagementBase;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Nursia;
 using Nursia.Materials;
 using Nursia.SceneGraph;
@@ -62,9 +63,12 @@ namespace RacingGame
 			{
 				for (var j = 0; j < result.Materials[i].Length; ++j)
 				{
-					var mat = (LitSolidMaterial)result.Materials[i][j];
+					var litSolid = result.Materials[i][j] as LitSolidMaterial;
 
-					mat.DiffuseTexture = texture;
+					if (litSolid != null)
+					{
+						litSolid.DiffuseTexture = texture;
+					}
 				}
 			}
 
@@ -100,5 +104,16 @@ namespace RacingGame
 		}
 
 		public static NursiaModelNode LoadModel(string name) => (NursiaModelNode)LoadScene(name);
+
+		public static Effect LoadEffect(string name)
+		{
+#if FNA
+			var path = $"Shaders/FNA/{name}.efb";
+#else
+			var path = $"Shaders/MonoGame.DesktopGL/{name}.efb";
+#endif
+
+			return Manager.LoadEffect(Nrs.GraphicsDevice, path);
+		}
 	}
 }

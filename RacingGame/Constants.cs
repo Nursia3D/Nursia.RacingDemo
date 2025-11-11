@@ -43,7 +43,7 @@ namespace RacingGame
 		public const float FieldOfViewInDegrees = 90.0f;
 		public const float NearPlane = 0.5f;
 		public const float FarPlane = 1750.0f;
-		public const float DefaultMaxShadowDistance = 100.0f;
+		public const float DefaultMaxShadowDistance = 200.0f;
 
 		/// <summary>
 		/// Put light at a little different location because we want

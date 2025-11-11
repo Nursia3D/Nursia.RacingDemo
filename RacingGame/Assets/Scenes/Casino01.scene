@@ -21,12 +21,12 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "RacingGame.Materials.ReflectionSimpleGlass, RacingGame",
           "AmbientColor": "#262626FF",
           "DiffuseColor": "#3F3F3FFF",
           "SpecularColor": "White",
-          "SpecularPower": 14.0,
-          "EmissiveColor": "Black"
+          "Shininess": 14.0,
+          "AlphaFactor": 1.0
         }
       ]
     ],

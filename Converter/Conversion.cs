@@ -6,6 +6,7 @@ using Nursia;
 using Nursia.Materials;
 using Nursia.SceneGraph;
 using Nursia.SceneGraph.Landscape;
+using RacingGame.Materials;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -60,56 +61,109 @@ namespace Converter
 				return result;
 			}
 
-			var materials = new Dictionary<string, LitSolidMaterial>();
+			var materials = new Dictionary<string, IMaterial>();
 			foreach (var pair in materialData.Materials)
 			{
 				var md = pair.Value;
 
-				var material = new LitSolidMaterial();
-
-				// Set parameters
-				foreach (var pair2 in md.Parameters)
+				IMaterial material;
+				if (!string.IsNullOrEmpty(md.Effect) && md.Effect.Contains("ReflectionSimpleGlass"))
 				{
-					var val = pair2.Value;
+					var simpleGlass = new ReflectionSimpleGlass();
 
-					switch (pair2.Key)
+					// Set parameters
+					foreach (var pair2 in md.Parameters)
 					{
-						case "diffuseTexture":
-							material.DiffuseTexturePath = UpdatePath(val.GetString());
-							break;
+						var val = pair2.Value;
 
-						case "normalTexture":
-							material.NormalTexturePath = UpdatePath(val.GetString());
-							break;
+						switch (pair2.Key)
+						{
+							case "ambientColor":
+								simpleGlass.AmbientColor = val.ToColor();
+								break;
 
-						case "ambientColor":
-							material.AmbientColor = val.ToColor();
-							break;
+							case "diffuseColor":
+								simpleGlass.DiffuseColor = val.ToColor();
+								break;
 
-						case "diffuseColor":
-							material.DiffuseColor = val.ToColor();
-							break;
+							case "specularColor":
+								simpleGlass.SpecularColor = val.ToColor();
+								break;
 
-						case "specularColor":
-							material.SpecularColor = val.ToColor();
-							break;
+							case "shininess":
+								simpleGlass.Shininess = val.ToFloat();
+								break;
 
-						case "shininess":
-							material.SpecularPower = val.ToFloat();
-							break;
+							case "alphaFactor":
+								simpleGlass.AlphaFactor = val.ToFloat();
+								break;
 
-						case "lightDir":
-						case "reflectionCubeTexture":
-						case "NormalizeCubeTexture":
-						case "shadowCarColor":
-						case "carHueColorChange":
-							break;
+							case "lightDir":
+							case "reflectionCubeTexture":
+							case "NormalizeCubeTexture":
+							case "shadowCarColor":
+							case "carHueColorChange":
+								break;
 
-						default:
-							Console.WriteLine($"Skipped parameter {pair2.Key}");
-							break;
+							default:
+								Console.WriteLine($"Skipped parameter {pair2.Key}");
+								break;
+
+						}
 
 					}
+					material = simpleGlass;
+				}
+				else
+				{
+					var litSolid = new LitSolidMaterial();
+
+					// Set parameters
+					foreach (var pair2 in md.Parameters)
+					{
+						var val = pair2.Value;
+
+						switch (pair2.Key)
+						{
+							case "diffuseTexture":
+								litSolid.DiffuseTexturePath = UpdatePath(val.GetString());
+								break;
+
+							case "normalTexture":
+								litSolid.NormalTexturePath = UpdatePath(val.GetString());
+								break;
+
+							case "ambientColor":
+								litSolid.AmbientColor = val.ToColor();
+								break;
+
+							case "diffuseColor":
+								litSolid.DiffuseColor = val.ToColor();
+								break;
+
+							case "specularColor":
+								litSolid.SpecularColor = val.ToColor();
+								break;
+
+							case "shininess":
+								litSolid.SpecularPower = val.ToFloat();
+								break;
+
+							case "lightDir":
+							case "reflectionCubeTexture":
+							case "NormalizeCubeTexture":
+							case "shadowCarColor":
+							case "carHueColorChange":
+								break;
+
+							default:
+								Console.WriteLine($"Skipped parameter {pair2.Key}");
+								break;
+
+						}
+					}
+
+					material = litSolid;
 				}
 
 				materials[pair.Key] = material;
@@ -221,7 +275,7 @@ namespace Converter
 						{
 							pos.Z = height;
 						}
-						
+
 						transform.Translation = pos;
 
 						subscene.SetTransform(transform);

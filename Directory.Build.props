@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RootNamespace>RacingGame</RootNamespace>
+    <MonoGameTargetFramework>net8.0</MonoGameTargetFramework>
+    <FNATargetFramework>net8.0</FNATargetFramework>
+    <Version>0.6.0</Version>
+    <MonoGameVersion>3.8.4.1</MonoGameVersion>
+    <MyraVersion>1.5.9</MyraVersion>
+  </PropertyGroup>
+</Project>

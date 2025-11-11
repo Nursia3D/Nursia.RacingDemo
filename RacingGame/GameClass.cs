@@ -80,9 +80,11 @@ namespace RacingGame
 			// Render environment with skybox
 			_renderEnvironment = RenderEnvironment.Default.Clone();
 
-			var sky = new Skybox()
+			var cube = Assets.LoadModel("Cube");
+
+			var sky = new Skybox(cube.Model.Meshes[0].MeshParts[0])
 			{
-				LocalTransform = Constants.objectMatrix,
+				LocalTransform = Constants.objectMatrix * Matrix.CreateScale(100.0f),
 				DiffuseColor = new Color(232, 232, 232),
 				DiffuseTexturePath = "Textures/SkyCubeMap.dds",
 			};
@@ -103,7 +105,7 @@ namespace RacingGame
 				MaxShadowDistance = Constants.DefaultMaxShadowDistance,
 				Direction = -Constants.DefaultLightPos
 			};
-			_landscape = new Landscape(RacingGameLevel.Advanced);
+			_landscape = new Landscape(RacingGameLevel.Beginner);
 
 			// Camera
 			_camera = new PerspectiveCamera
@@ -126,8 +128,6 @@ namespace RacingGame
 			_root.Children.Add(_landscape.Scene);
 			_root.Children.Add(_car);
 
-			// Nrs.GraphicsSettings.ShadowType = Nursia.SceneGraph.Lights.ShadowType.None;
-			// Nrs.GraphicsSettings.MaxRenderJobs = 100;
 			Nrs.GraphicsSettings.ShadowCascadeSize = ShadowCascadeSize.Size2048;
 			Nrs.GraphicsSettings.ShadowType = ShadowType.Simple;
 

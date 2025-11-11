@@ -6,11 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.4.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Nursia\Nursia\Nursia.MonoGame.csproj" />
+    <ProjectReference Include="..\RacingGame\RacingGame.MonoGame.DesktopGL.csproj" />
   </ItemGroup>
 
 </Project>
