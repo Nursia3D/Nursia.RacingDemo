@@ -7,7 +7,7 @@ string description = "Reflection shader for glass materials in RacingGame";
 
 float4x4 cViewProj              : ViewProjection;
 float4x4 cModel                 : World;
-float4x4 cViewInverse           : ViewInverse;
+float3 cCameraPos;
 
 float3 cLightDir = {1.0f, -1.0f, 1.0f};
 
@@ -62,11 +62,6 @@ float3 GetWorldPos(float3 pos)
     return mul(float4(pos, 1), cModel).xyz;
 }
 
-float3 GetCameraPos()
-{
-    return cViewInverse[3].xyz;
-}
-
 float3 CalcNormalVector(float3 nor)
 {
     return normalize(mul(nor, (float3x3)cModel));
@@ -100,7 +95,7 @@ VertexOutput20 VS_ReflectionSpecular20(VertexInput In)
     VertexOutput20 Out;
     Out.pos = TransformPosition(In.pos);
     Out.normal = CalcNormalVector(In.normal);
-    Out.viewVec = normalize(GetCameraPos() - GetWorldPos(In.pos));
+    Out.viewVec = normalize(cCameraPos - GetWorldPos(In.pos));
     Out.halfVec = normalize(Out.viewVec + cLightDir);
     return Out;
 }
