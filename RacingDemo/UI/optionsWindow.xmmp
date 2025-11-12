@@ -8,6 +8,9 @@
       <TabItem Text="Debug">
         <PropertyGrid Id="_propertiesDebug" />
       </TabItem>
+      <TabItem Text="Environment">
+        <PropertyGrid Id="_propertiesEnvironment" />
+      </TabItem>
     </TabControl>
   </Window>
 </Project>

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Myra;
+using Myra.Graphics2D.UI;
 using Nursia;
 using Nursia.Env;
 using Nursia.Env.Sky;
@@ -11,13 +13,14 @@ using Nursia.SceneGraph.Landscape;
 using Nursia.SceneGraph.Lights;
 using RacingDemo.GameLogic;
 using RacingDemo.Landscapes;
+using RacingDemo.UI;
 using System;
 
 namespace RacingDemo
 {
-	public class GameClass : Game
+	public class RacingGame : Game
 	{
-		private static GameClass _instance;
+		private static RacingGame _instance;
 		private readonly GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
 		private readonly FramesPerSecondCounter _fpsCounter = new FramesPerSecondCounter();
@@ -35,10 +38,14 @@ namespace RacingDemo
 		private RenderEnvironment _renderEnvironment;
 		private TerrainNode _terrain;
 		private int _frameCount;
+		private Desktop _desktop;
+		private ToggleButton _optionsButton;
+		private OptionsWindow _optionsWindow;
 
 		public static TerrainNode Terrain => _instance._terrain;
 		public static Player Player => _instance._player;
 		public static Landscape Landscape => _instance._landscape;
+		public static RenderEnvironment RenderEnvironment => _instance._renderEnvironment;
 
 		public static GameTime GameTime => _instance._gameTime;
 
@@ -48,7 +55,7 @@ namespace RacingDemo
 		public static float ElapsedTime => ElapsedMs / 1000.0f;
 		public static int TotalFrames => _instance._frameCount;
 
-		public GameClass()
+		public RacingGame()
 		{
 			_instance = this;
 
@@ -60,7 +67,7 @@ namespace RacingDemo
 			};
 
 			Window.AllowUserResizing = true;
-			IsMouseVisible = false;
+			IsMouseVisible = true;
 		}
 
 		protected override void LoadContent()
@@ -131,8 +138,44 @@ namespace RacingDemo
 			Nrs.GraphicsSettings.ShadowCascadeSize = ShadowCascadeSize.Size2048;
 			Nrs.GraphicsSettings.ShadowType = ShadowType.Simple;
 
+			// Myra
+			MyraEnvironment.Game = this;
+			_desktop = new Desktop();
+
+			var panel = new Panel();
+
+			_optionsButton = new ToggleButton
+			{
+				Content = new Label
+				{
+					Text = "/c[red]Op/cdtions"
+				},
+				HorizontalAlignment = HorizontalAlignment.Right,
+				VerticalAlignment = VerticalAlignment.Top,
+				Left = -8,
+				Top = 8
+			};
+
+			_optionsButton.Click += _optionsButton_Click;
+			panel.Widgets.Add(_optionsButton);
+			_desktop.Root = panel;
+
 			// SpriteBatch
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
+		}
+
+		private void _optionsButton_Click(object sender, EventArgs e)
+		{
+			if (_optionsButton.IsToggled)
+			{
+				_optionsWindow = new OptionsWindow();
+				_optionsWindow.Closed += (s, a) => _optionsButton.IsToggled = false;
+				_optionsWindow.Show(_desktop);
+			} else if (_optionsWindow != null)
+			{
+				_optionsWindow.Close();
+				_optionsWindow = null;
+			}
 		}
 
 		protected override void Update(GameTime gameTime)
@@ -178,6 +221,15 @@ namespace RacingDemo
 
 			_camera.View = _player.ViewMatrix;
 			_car.LocalTransform = Constants.objectMatrix * _player.CarRenderMatrix;
+
+			KeyboardUtils.Begin();
+
+			if (KeyboardUtils.IsPressed(Keys.O))
+			{
+				_optionsButton.DoClick();
+			}
+
+			KeyboardUtils.End();
 		}
 
 		protected override void Draw(GameTime gameTime)
@@ -205,6 +257,8 @@ namespace RacingDemo
 			_spriteBatch.DrawString(font, $"Passes: {statistics.Passes}", new Vector2(0, 120), Color.White);
 
 			_spriteBatch.End();
+
+			_desktop.Render();
 
 			_fpsCounter.OnFrameDrawn();
 		}
