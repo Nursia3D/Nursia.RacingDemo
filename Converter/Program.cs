@@ -7,8 +7,8 @@ namespace Converter
 	{
 		static void Process()
 		{
-			var inputFolder = @"D:\Projects\Nursia.RacingGame\RacingGame\Assets\Models";
-			var outputFolder = @"D:\Projects\Nursia.RacingGame\RacingGame\Assets\Scenes";
+			var inputFolder = @"D:\Projects\Nursia.RacingDemo\RacingDemo\Assets\Models";
+			var outputFolder = @"D:\Projects\Nursia.RacingDemo\RacingDemo\Assets\Scenes";
 
 			var models = Directory.EnumerateFiles(inputFolder, "*.material");
 

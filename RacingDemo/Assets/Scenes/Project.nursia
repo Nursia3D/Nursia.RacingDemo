@@ -1,0 +1,16 @@
+{
+  "Size": "2560, 1369",
+  "TopSplitterPosition": 0.19858712,
+  "LeftSplitterPosition": 0.5,
+  "OpenFiles": [
+    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\Banner.scene",
+    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\Banner2.scene",
+    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\Banner3.scene",
+    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\Banner4.scene"
+  ],
+  "ShowCameraPosition": true,
+  "GraphicsSettings": {
+    "ShadowCascadeSize": "Size2048"
+  },
+  "DebugSettings": {}
+}

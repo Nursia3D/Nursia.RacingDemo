@@ -6,7 +6,7 @@ using Nursia;
 using Nursia.Materials;
 using Nursia.SceneGraph;
 using Nursia.SceneGraph.Landscape;
-using RacingGame.Materials;
+using RacingDemo.Materials;
 using System;
 using System.Collections.Generic;
 using System.IO;

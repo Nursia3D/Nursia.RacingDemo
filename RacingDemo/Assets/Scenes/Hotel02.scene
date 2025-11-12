@@ -1,0 +1,85 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "RacingDemo.Materials.SimpleGlassMaterial, RacingDemo",
+          "AmbientColor": "#262626FF",
+          "DiffuseColor": "#5DA1E6FF",
+          "SpecularColor": "#BCE2E4FF",
+          "AlphaFactor": 1.0
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#181818FF",
+          "DiffuseColor": "#BABABAFF",
+          "SpecularColor": "#7E7E7EFF",
+          "SpecularPower": 1.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/plazacasino.tga",
+          "NormalTexturePath": "../Textures/plazacasinoNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#191919FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/gelaender.tga",
+          "NormalTexturePath": "../Textures/gelaenderNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#191919FF",
+          "DiffuseColor": "#DDDDDDFF",
+          "SpecularColor": "#484848FF",
+          "SpecularPower": 1.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/plazacasino.tga",
+          "NormalTexturePath": "../Textures/plazacasinoNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#191919FF",
+          "DiffuseColor": "#DDDDDDFF",
+          "SpecularColor": "#484848FF",
+          "SpecularPower": 1.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/plazacasino.tga",
+          "NormalTexturePath": "../Textures/plazacasinoNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#191919FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/plazaschild.tga",
+          "NormalTexturePath": "../Textures/plazaschildNormal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/Hotel02.glb",
+    "Scale": "1, 1, 1",
+    "Rotation": "90, 0, 0",
+    "Children": []
+  }
+}

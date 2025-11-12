@@ -13,8 +13,8 @@ namespace Converter
 		/// </summary>
 		public const float ZeroTolerance = 1e-3f;
 
-		public const string InputFolder = @"D:\Projects\Nursia.RacingGame\RacingGame\Assets\Models";
-		public const string OutputFolder = @"D:\Projects\Nursia.RacingGame\RacingGame\Assets\Scenes";
+		public const string InputFolder = @"D:\Projects\Nursia.RacingDemo\RacingDemo\Assets\Models";
+		public const string OutputFolder = @"D:\Projects\Nursia.RacingDemo\RacingDemo\Assets\Scenes";
 
 		/// <summary>
 		/// Compares two floating point numbers based on an epsilon zero tolerance.

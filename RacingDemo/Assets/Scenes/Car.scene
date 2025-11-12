@@ -1,0 +1,145 @@
+{
+  "RenderEnvironment": {
+    "FogColor": "LightGray",
+    "FogStart": 100.0,
+    "FogEnd": 1000.0
+  },
+  "Root": {
+    "$type": "Nursia.SceneGraph.NursiaModelNode, Nursia",
+    "Materials": [
+      [
+        {
+          "$type": "RacingDemo.Materials.SimpleGlassMaterial, RacingDemo",
+          "AmbientColor": "#191919FF",
+          "DiffuseColor": "#0C0C0CFF",
+          "SpecularColor": "#E9E9FFFF",
+          "Shininess": 64.0
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#343434FF",
+          "DiffuseColor": "#CDCDCDFF",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        },
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#232323FF",
+          "DiffuseColor": "#646464FF",
+          "SpecularColor": "#3A3A3AFF",
+          "SpecularPower": 44.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        },
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#B6B6B6FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#232323FF",
+          "DiffuseColor": "#646464FF",
+          "SpecularColor": "#3A3A3AFF",
+          "SpecularPower": 44.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        },
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#B6B6B6FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#232323FF",
+          "DiffuseColor": "#646464FF",
+          "SpecularColor": "#3A3A3AFF",
+          "SpecularPower": 44.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        },
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#B6B6B6FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#232323FF",
+          "DiffuseColor": "#646464FF",
+          "SpecularColor": "#3A3A3AFF",
+          "SpecularPower": 44.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        },
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#B6B6B6FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        }
+      ],
+      [
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#232323FF",
+          "DiffuseColor": "#646464FF",
+          "SpecularColor": "#3A3A3AFF",
+          "SpecularPower": 44.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        },
+        {
+          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "AmbientColor": "#B6B6B6FF",
+          "DiffuseColor": "White",
+          "SpecularColor": "White",
+          "SpecularPower": 16.0,
+          "EmissiveColor": "Black",
+          "DiffuseTexturePath": "../Textures/RacerCar.tga",
+          "NormalTexturePath": "../Textures/RacerCarNormal.tga"
+        }
+      ]
+    ],
+    "ModelPath": "../Models/Car.glb",
+    "Scale": "1, 1, 1",
+    "Rotation": "90, 0, 0",
+    "Children": []
+  }
+}
