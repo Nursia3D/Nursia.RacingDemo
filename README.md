@@ -1,2 +1,2 @@
 # Nursia.RacingGame
-XNA RaciungGame Sample Adopted For Nursia
+XNA RacingGame Sample Adopted For Nursia
