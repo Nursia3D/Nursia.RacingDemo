@@ -88,14 +88,6 @@ namespace RacingDemo.GameLogic
 		Matrix carRenderMatrix = Matrix.Identity;
 
 		/// <summary>
-		/// Speed of our car, just in the direction of our car.
-		/// Sliding is a nice feature, but it overcomplicates too much and
-		/// for this game sliding would be really bad and make it much harder
-		/// to drive!
-		/// </summary>
-		float speed;
-
-		/// <summary>
 		/// View distance, which we can change with page up/down and the mouse
 		/// wheel, but it always moves back to 1. The real view distance is
 		/// also changed depending on how fast we drive (see UpdateCar stuff below)
@@ -243,12 +235,8 @@ namespace RacingDemo.GameLogic
 			carMatrix.Translation = carPos;
 
 			// Change distance based on our speed
-			float chaseCamDistance =
-				(4.25f + 9.75f * speed / maxSpeed) * viewDistance;
-
 			InterpolateCameraPosition(
 					carPos + carMatrix.Up * CarHeight +
-					carMatrix.Forward * chaseCamDistance / 1.125f -
 					carMatrix.Up * 0.8f);
 
 			// For rendering rotate car to stay correctly on the road
@@ -263,8 +251,6 @@ namespace RacingDemo.GameLogic
 		private void UpdatePlayer()
 		{
 			// Only allow control if zommed in, use carOnGround as helper
-			wheelPos += RacingGame.ElapsedTime * speed / WheelMovementSpeed;
-
 			float moveFactor = RacingGame.ElapsedTime;
 			// Make sure this is never below 0.001f and never above 0.5f
 			// Else our formulars below might mess up or carSpeed and carForce!

@@ -115,7 +115,8 @@ namespace RacingDemo
 			_directLight = new DirectLight
 			{
 				MaxShadowDistance = Constants.DefaultMaxShadowDistance,
-				Direction = -Constants.DefaultLightPos
+				Direction = -Constants.DefaultLightPos,
+				ShadowBias = 0.0f
 			};
 			_landscape = new Landscape(RacingDemoLevel.Beginner);
 
@@ -153,7 +154,7 @@ namespace RacingDemo
 			{
 				Content = new Label
 				{
-					Text = "/c[red]Op/cdtions"
+					Text = "/c[red]O/cdptions"
 				},
 				HorizontalAlignment = HorizontalAlignment.Right,
 				VerticalAlignment = VerticalAlignment.Top,
@@ -247,12 +248,17 @@ namespace RacingDemo
 				if (!_isPaused)
 				{
 					_isPaused = true;
+					// Add main camera to scene
+					// So it'll be debug visualized
+					_root.Children.Add(_camera);
+
 					_pauseCamera = (Camera)_camera.Clone();
 					_pauseCamera.View = _camera.View;
 					_cameraController = new CameraInputController(_pauseCamera);
 				}
 				else
 				{
+					_root.Children.Remove(_camera);
 					_isPaused = false;
 				}
 			}
@@ -268,10 +274,7 @@ namespace RacingDemo
 
 			GraphicsDevice.Clear(Color.Black);
 
-			var vp = Nrs.GraphicsDevice.Viewport;
-
 			var camera = _isPaused ? _pauseCamera : _camera;
-			camera.SetViewport(vp);
 			_renderer.Render(_root, camera, _renderEnvironment);
 
 			_spriteBatch.Begin();
