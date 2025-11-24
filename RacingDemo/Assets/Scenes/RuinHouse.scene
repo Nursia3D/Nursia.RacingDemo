@@ -9,7 +9,7 @@
     "Materials": [
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#212121FF",
           "DiffuseColor": "#EDEDEDFF",
           "SpecularColor": "#909090FF",

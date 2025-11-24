@@ -301,7 +301,7 @@ namespace RacingDemo.Tracks
 				BufferUsage.WriteOnly);
 			roadIb.SetData(indices);
 
-			var material = new LitSolidMaterial
+			var material = new BlinnPhongMaterial
 			{
 				DiffuseColor = Constants.DefaultDiffuseColor,
 				SpecularColor = Constants.DefaultSpecularColor,
@@ -420,7 +420,7 @@ namespace RacingDemo.Tracks
 				BufferUsage.WriteOnly);
 			roadBackIb.SetData(backIndices);
 
-			var material = new LitSolidMaterial
+			var material = new BlinnPhongMaterial
 			{
 				DiffuseColor = Constants.DefaultDiffuseColor,
 				SpecularColor = Constants.DefaultSpecularColor,
@@ -571,7 +571,7 @@ namespace RacingDemo.Tracks
 			roadTunnelIb.SetData(roadTunnelIndices);
 
 			/// Road tunnel material, used whereever we got tunnels.
-			var material = new LitSolidMaterial
+			var material = new BlinnPhongMaterial
 			{
 				DiffuseColor = new Color(80, 80, 80),
 				SpecularColor = new Color(64, 64, 64),

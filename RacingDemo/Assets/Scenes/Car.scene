@@ -18,7 +18,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#343434FF",
           "DiffuseColor": "#CDCDCDFF",
           "SpecularColor": "White",
@@ -28,7 +28,7 @@
           "NormalTexturePath": "../Textures/RacerCarNormal.tga"
         },
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#232323FF",
           "DiffuseColor": "#646464FF",
           "SpecularColor": "#3A3A3AFF",
@@ -38,7 +38,7 @@
           "NormalTexturePath": "../Textures/RacerCarNormal.tga"
         },
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#B6B6B6FF",
           "DiffuseColor": "White",
           "SpecularColor": "White",
@@ -50,7 +50,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#232323FF",
           "DiffuseColor": "#646464FF",
           "SpecularColor": "#3A3A3AFF",
@@ -60,7 +60,7 @@
           "NormalTexturePath": "../Textures/RacerCarNormal.tga"
         },
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#B6B6B6FF",
           "DiffuseColor": "White",
           "SpecularColor": "White",
@@ -72,7 +72,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#232323FF",
           "DiffuseColor": "#646464FF",
           "SpecularColor": "#3A3A3AFF",
@@ -82,7 +82,7 @@
           "NormalTexturePath": "../Textures/RacerCarNormal.tga"
         },
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#B6B6B6FF",
           "DiffuseColor": "White",
           "SpecularColor": "White",
@@ -94,7 +94,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#232323FF",
           "DiffuseColor": "#646464FF",
           "SpecularColor": "#3A3A3AFF",
@@ -104,7 +104,7 @@
           "NormalTexturePath": "../Textures/RacerCarNormal.tga"
         },
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#B6B6B6FF",
           "DiffuseColor": "White",
           "SpecularColor": "White",
@@ -116,7 +116,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#232323FF",
           "DiffuseColor": "#646464FF",
           "SpecularColor": "#3A3A3AFF",
@@ -126,7 +126,7 @@
           "NormalTexturePath": "../Textures/RacerCarNormal.tga"
         },
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#B6B6B6FF",
           "DiffuseColor": "White",
           "SpecularColor": "White",

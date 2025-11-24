@@ -322,7 +322,7 @@ namespace RacingDemo.Tracks
 			#endregion
 
 			// Road cement material, used for the columns the road is staying on.
-			var material = new LitSolidMaterial
+			var material = new BlinnPhongMaterial
 			{
 				DiffuseColor = Constants.DefaultDiffuseColor,
 				SpecularColor = Constants.DefaultSpecularColor,

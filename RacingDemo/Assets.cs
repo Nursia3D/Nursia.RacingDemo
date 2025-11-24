@@ -63,7 +63,7 @@ namespace RacingDemo
 			{
 				for (var j = 0; j < result.Materials[i].Length; ++j)
 				{
-					var litSolid = result.Materials[i][j] as LitSolidMaterial;
+					var litSolid = result.Materials[i][j] as BlinnPhongMaterial;
 
 					if (litSolid != null)
 					{

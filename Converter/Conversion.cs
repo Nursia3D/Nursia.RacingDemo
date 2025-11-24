@@ -116,7 +116,7 @@ namespace Converter
 				}
 				else
 				{
-					var litSolid = new LitSolidMaterial();
+					var litSolid = new BlinnPhongMaterial();
 
 					// Set parameters
 					foreach (var pair2 in md.Parameters)

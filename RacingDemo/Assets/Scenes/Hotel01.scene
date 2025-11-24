@@ -9,7 +9,7 @@
     "Materials": [
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#5B5B5BFF",
           "DiffuseColor": "#8E8E8EFF",
           "SpecularColor": "#363636FF",
@@ -31,7 +31,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#3F3F3FFF",
           "DiffuseColor": "#DFDFDFFF",
           "SpecularColor": "#CCCCCCFF",
@@ -43,7 +43,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#7E7E7EFF",
           "DiffuseColor": "#9C9C9CFF",
           "SpecularColor": "#C6C6C6FF",
@@ -55,7 +55,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#8A8A8AFF",
           "DiffuseColor": "#6E6E6EFF",
           "SpecularColor": "#FDFDFDFF",
@@ -67,7 +67,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#8A8A8AFF",
           "DiffuseColor": "#6E6E6EFF",
           "SpecularColor": "#FDFDFDFF",
@@ -79,7 +79,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#8A8A8AFF",
           "DiffuseColor": "#6E6E6EFF",
           "SpecularColor": "#FDFDFDFF",
@@ -91,7 +91,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#8A8A8AFF",
           "DiffuseColor": "#6E6E6EFF",
           "SpecularColor": "#FDFDFDFF",
@@ -103,7 +103,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#8A8A8AFF",
           "DiffuseColor": "#6E6E6EFF",
           "SpecularColor": "#FDFDFDFF",
@@ -115,7 +115,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#8A8A8AFF",
           "DiffuseColor": "#6E6E6EFF",
           "SpecularColor": "#FDFDFDFF",
@@ -127,7 +127,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#8A8A8AFF",
           "DiffuseColor": "#6E6E6EFF",
           "SpecularColor": "#FDFDFDFF",
@@ -139,7 +139,7 @@
       ],
       [
         {
-          "$type": "Nursia.Materials.LitSolidMaterial, Nursia",
+          "$type": "Nursia.Materials.BlinnPhongMaterial, Nursia",
           "AmbientColor": "#8A8A8AFF",
           "DiffuseColor": "#6E6E6EFF",
           "SpecularColor": "#FDFDFDFF",

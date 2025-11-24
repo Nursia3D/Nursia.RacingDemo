@@ -10,12 +10,9 @@
   <ItemGroup>
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="$(MonoGameVersion)" />
     <PackageReference Include="Myra" Version="$(MyraVersion)" />
+    <PackageReference Include="Nursia.MonoGame" Version="$(NursiaVersion)" />
   </ItemGroup>
   
-  <ItemGroup>
-    <ProjectReference Include="..\..\Nursia\Nursia\Nursia.MonoGame.csproj" />
-  </ItemGroup>
-
   <ItemGroup>
     <None Update="Assets\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

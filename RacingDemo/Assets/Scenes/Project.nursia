@@ -3,14 +3,16 @@
   "TopSplitterPosition": 0.19858712,
   "LeftSplitterPosition": 0.5,
   "OpenFiles": [
-    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\Banner.scene",
-    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\Banner2.scene",
-    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\Banner3.scene",
-    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\Banner4.scene"
+    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\AlphaDeadTree.scene",
+    "D:\\Projects\\Nursia.RacingDemo\\RacingDemo\\Assets\\Scenes\\AlphaPalm.scene"
   ],
   "ShowCameraPosition": true,
   "GraphicsSettings": {
-    "ShadowCascadeSize": "Size2048"
+    "ShadowMapSize": "Size4096",
+    "ShadowIntensity": 0.6,
+    "ShadowFadeStart": 0.8,
+    "Cascades": 4,
+    "MaxShadowDistance": 100.0
   },
   "DebugSettings": {}
 }

@@ -6,6 +6,7 @@
     <FNATargetFramework>net8.0</FNATargetFramework>
     <Version>0.6.0</Version>
     <MonoGameVersion>3.8.4.1</MonoGameVersion>
-    <MyraVersion>1.5.9</MyraVersion>
+    <NursiaVersion>0.6.0</NursiaVersion>
+    <MyraVersion>1.5.10</MyraVersion>
   </PropertyGroup>
 </Project>

@@ -1,6 +1,6 @@
 <Project>
   <Project.ExportOptions Namespace="RacingDemo.UI" Class="OptionsWindow" OutputPath="D:\Projects\Nursia.RacingDemo\RacingDemo\UI" />
-  <Window Title="Options" Left="564" Top="235" Width="400" Height="300">
+  <Window Title="Options" Left="464" Top="78" Width="600" Height="500">
     <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
       <TabItem Text="Graphics">
         <PropertyGrid Id="_propertiesGraphics" />

@@ -383,7 +383,7 @@ namespace RacingDemo.Tracks
 
 			/// Guard rail material, used for the left and right guard rails.
 			/// It is also used for the guard rail 
-			var material = new LitSolidMaterial
+			var material = new BlinnPhongMaterial
 			{
 				DiffuseColor = new Color(182, 182, 182),
 				SpecularColor = new Color(225, 225, 225),

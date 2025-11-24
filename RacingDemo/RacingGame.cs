@@ -10,6 +10,7 @@ using Nursia.Rendering;
 using Nursia.SceneGraph;
 using Nursia.SceneGraph.Landscape;
 using Nursia.SceneGraph.Lights;
+using Nursia.Shadows;
 using Nursia.Utilities;
 using RacingDemo.GameLogic;
 using RacingDemo.Landscapes;
@@ -114,9 +115,7 @@ namespace RacingDemo
 			// Direct Light
 			_directLight = new DirectLight
 			{
-				MaxShadowDistance = Constants.DefaultMaxShadowDistance,
 				Direction = -Constants.DefaultLightPos,
-				ShadowBias = 0.0f
 			};
 			_landscape = new Landscape(RacingDemoLevel.Beginner);
 
@@ -141,8 +140,9 @@ namespace RacingDemo
 			_root.Children.Add(_landscape.Scene);
 			_root.Children.Add(_car);
 
-			Nrs.GraphicsSettings.ShadowMapSize = ShadowMapSize.Size2048;
-			Nrs.GraphicsSettings.ShadowType = ShadowType.Simple;
+			Nrs.GraphicsSettings.ShadowMapSize = ShadowMapSize.Size4096;
+			Nrs.GraphicsSettings.ShadowType = ShadowType.PCF;
+			Nrs.GraphicsSettings.MaxShadowDistance = Constants.DefaultMaxShadowDistance;
 
 			// Myra
 			MyraEnvironment.Game = this;
@@ -176,7 +176,7 @@ namespace RacingDemo
 			{
 				_optionsWindow = new OptionsWindow();
 				_optionsWindow.Closed += (s, a) => _optionsButton.IsToggled = false;
-				_optionsWindow.Show(_desktop);
+				_optionsWindow.Show(_desktop, new Point(100, 100));
 			}
 			else if (_optionsWindow != null)
 			{
