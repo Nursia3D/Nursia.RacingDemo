@@ -3,7 +3,7 @@
     <AssemblyName>RacingDemo</AssemblyName>
     <DefineConstants>$(DefineConstants);MONOGAME</DefineConstants>
     <TargetFramework>$(MonoGameTargetFramework)</TargetFramework>
-    <OutputPath>bin\MonoGameGL\$(Configuration)</OutputPath>
+    <OutputPath>bin\MonoGame.DesktopGL\$(Configuration)</OutputPath>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   

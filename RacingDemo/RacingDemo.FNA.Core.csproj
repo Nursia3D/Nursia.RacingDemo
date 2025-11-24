@@ -1,11 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <AssemblyName>RacingGame</AssemblyName>
-    <RootNamespace>RacingGame</RootNamespace>
-    <PackageId>RacingGame.FNA.Core</PackageId>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>RacingDemo</AssemblyName>
     <DefineConstants>$(DefineConstants);FNA</DefineConstants>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>$(FNATargetFramework)</TargetFramework>
     <OutputPath>bin\FNA.Core\$(Configuration)</OutputPath>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
