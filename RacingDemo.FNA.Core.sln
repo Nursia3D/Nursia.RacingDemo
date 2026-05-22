@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34322.80
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11806.211 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{AE38BF19-90DC-4E6E-BE13-0C6DE60E1871}"
 EndProject
@@ -11,13 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RacingDemo.FNA.Core", "Raci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAssets.FNA.Core", "..\XNAssets\src\XNAssets\XNAssets.FNA.Core.csproj", "{55A6A49E-FCB0-0FA9-0CEC-734EB69F8855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRiseModel.FNA.Core", "..\DigitalRiseModel\Source\DigitalRiseModel.FNA.Core.csproj", "{8511EDB0-5B98-D8F4-6F4E-7DCD96A50732}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nursia.FNA.Core", "..\Nursia\Nursia\Nursia.FNA.Core.csproj", "{207BC1AE-0822-5FAF-0D3A-FE26ADCBC844}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontStashSharp.FNA.Core", "..\FontStashSharp\src\XNA\FontStashSharp.FNA.Core.csproj", "{2535A45B-38CA-0551-63AC-19F2D00C17EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Myra.FNA.Core", "..\Myra\src\Myra\Myra.FNA.Core.csproj", "{96FF26B3-E037-18F1-75AF-DAED23B417DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalRiseModel.FNA.Core", "..\DigitalRiseModel\DigitalRiseModel\DigitalRiseModel.FNA.Core.csproj", "{AF82EDF1-2582-EDB2-D858-C788CCD39A8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,6 @@ Global
 		{55A6A49E-FCB0-0FA9-0CEC-734EB69F8855}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55A6A49E-FCB0-0FA9-0CEC-734EB69F8855}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55A6A49E-FCB0-0FA9-0CEC-734EB69F8855}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8511EDB0-5B98-D8F4-6F4E-7DCD96A50732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8511EDB0-5B98-D8F4-6F4E-7DCD96A50732}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8511EDB0-5B98-D8F4-6F4E-7DCD96A50732}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8511EDB0-5B98-D8F4-6F4E-7DCD96A50732}.Release|Any CPU.Build.0 = Release|Any CPU
 		{207BC1AE-0822-5FAF-0D3A-FE26ADCBC844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{207BC1AE-0822-5FAF-0D3A-FE26ADCBC844}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{207BC1AE-0822-5FAF-0D3A-FE26ADCBC844}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,6 +49,10 @@ Global
 		{96FF26B3-E037-18F1-75AF-DAED23B417DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96FF26B3-E037-18F1-75AF-DAED23B417DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96FF26B3-E037-18F1-75AF-DAED23B417DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF82EDF1-2582-EDB2-D858-C788CCD39A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF82EDF1-2582-EDB2-D858-C788CCD39A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF82EDF1-2582-EDB2-D858-C788CCD39A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF82EDF1-2582-EDB2-D858-C788CCD39A8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,10 +60,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C61B0260-CFB0-47B3-B851-8C695A80815B} = {AE38BF19-90DC-4E6E-BE13-0C6DE60E1871}
 		{55A6A49E-FCB0-0FA9-0CEC-734EB69F8855} = {AE38BF19-90DC-4E6E-BE13-0C6DE60E1871}
-		{8511EDB0-5B98-D8F4-6F4E-7DCD96A50732} = {AE38BF19-90DC-4E6E-BE13-0C6DE60E1871}
 		{207BC1AE-0822-5FAF-0D3A-FE26ADCBC844} = {AE38BF19-90DC-4E6E-BE13-0C6DE60E1871}
 		{2535A45B-38CA-0551-63AC-19F2D00C17EB} = {AE38BF19-90DC-4E6E-BE13-0C6DE60E1871}
 		{96FF26B3-E037-18F1-75AF-DAED23B417DD} = {AE38BF19-90DC-4E6E-BE13-0C6DE60E1871}
+		{AF82EDF1-2582-EDB2-D858-C788CCD39A8F} = {AE38BF19-90DC-4E6E-BE13-0C6DE60E1871}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D266ED12-92D7-4FD3-A1F2-9D4D7F34C79B}

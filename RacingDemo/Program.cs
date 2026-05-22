@@ -46,7 +46,6 @@ namespace RacingDemo
 			try
 			{
 				AMBConfiguration.Logger = Console.WriteLine;
-				// Nrs.DebugSettings.DrawBoundingBoxes = true;
 				using (var game = new RacingGame())
 				{
 					game.Run();

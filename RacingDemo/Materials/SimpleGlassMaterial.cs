@@ -1,33 +1,18 @@
-﻿using DigitalRiseModel;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 using Nursia.Materials;
 using Nursia.Rendering;
-using Nursia.SceneGraph.Lights;
 using System.ComponentModel;
 
 namespace RacingDemo.Materials
 {
-	public class SimpleGlassMaterial : IMaterial
+	public class SimpleGlassMaterial : BaseMaterial
 	{
 		private static EffectBinding _effectBinding;
 
 		[Browsable(false)]
 		[JsonIgnore]
-		public BlendState BlendState => null;
-
-		[Browsable(false)]
-		[JsonIgnore]
-		public DepthStencilState DepthStencilState => null;
-
-		[Browsable(false)]
-		[JsonIgnore]
-		public RasterizerState RasterizerState => null;
-
-		[Browsable(false)]
-		[JsonIgnore]
-		public MaterialFlags Flags => MaterialFlags.AcceptsDirectionalLight | MaterialFlags.CastsShadows;
+		public override MaterialFlags Flags => MaterialFlags.AcceptsDirectionalLight | MaterialFlags.CastsShadows;
 
 		public Color AmbientColor { get; set; } = new Color(0.15f, 0.15f, 0.15f, 1.0f);
 		public Color DiffuseColor { get; set; } = new Color(0.25f, 0.25f, 0.25f, 1.0f);
@@ -49,7 +34,7 @@ namespace RacingDemo.Materials
 		public float ReflectionAmount { get; set; } = 1.0f;
 
 
-		public IMaterial Clone() => new SimpleGlassMaterial()
+		public override IMaterial Clone() => new SimpleGlassMaterial()
 		{
 			AmbientColor = AmbientColor,
 			DiffuseColor = DiffuseColor,
@@ -61,7 +46,7 @@ namespace RacingDemo.Materials
 			ReflectionAmount = ReflectionAmount
 		};
 
-		public EffectBinding GetEffectBinding(LightTechnique technique, ShadowType shadow, bool translucent, DrMeshPart mesh, bool clipPlane)
+		public override EffectBinding GetColorTechnique(MaterialTechnique materialTechnique, LightTechnique lightTechnique, bool shadow, bool translucent, bool normalMapping, bool clipPlane)
 		{
 			if (_effectBinding == null)
 			{

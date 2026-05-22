@@ -80,7 +80,7 @@ namespace RacingDemo
 			var result = Manager.LoadSceneNode($"Scenes/{name}.scene");
 
 			// Setup animations
-			result.Iterate(n =>
+			result.Traverse(n =>
 			{
 				var asModel = n as NursiaModelNode;
 				if (asModel == null)
@@ -91,11 +91,11 @@ namespace RacingDemo
 				var windmillWingsBone = (from bone in asModel.Model.Bones where bone.Name != null && bone.Name.ToLower().StartsWith("windmill_wings") select bone).FirstOrDefault();
 				if (windmillWingsBone != null)
 				{
-					asModel.PreRender += () =>
+					asModel.UpdateHandler += t =>
 					{
 						var originalTransform = windmillWingsBone.CalculateDefaultLocalTransform();
 
-						asModel.ModelInstance.SetBoneLocalTransform(windmillWingsBone.Index, Matrix.CreateRotationZ(RacingGame.TotalTime / 0.654f) * originalTransform);
+						asModel.ModelInstance.SetBoneLocalTransform(windmillWingsBone.Index, Matrix.CreateRotationZ((float)t.TotalGameTime.TotalSeconds / 0.654f) * originalTransform);
 					};
 				}
 			});

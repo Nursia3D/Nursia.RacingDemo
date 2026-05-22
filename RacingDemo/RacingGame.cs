@@ -27,7 +27,7 @@ namespace RacingDemo
 		private readonly FramesPerSecondCounter _fpsCounter = new FramesPerSecondCounter();
 		private GameTime _gameTime;
 		private ForwardRenderer _renderer;
-		private SceneNode _root;
+		private Scene _scene;
 		private DirectLight _directLight;
 		private Landscape _landscape;
 		private NursiaModelNode _car;
@@ -88,7 +88,10 @@ namespace RacingDemo
 
 			// 3D stuff
 			_renderer = new ForwardRenderer();
-			_root = new SceneNode();
+			_scene = new Scene
+			{
+				Root = new SceneNode()
+			};
 
 			// Render environment with skybox
 			_renderEnvironment = RenderEnvironment.Default.Clone();
@@ -136,9 +139,10 @@ namespace RacingDemo
 			_car = Assets.CreateCar(randomCarNumber);
 
 			// Build the scene
-			_root.Children.Add(_directLight);
-			_root.Children.Add(_landscape.Scene);
-			_root.Children.Add(_car);
+			var root = _scene.Root;
+			root.Children.Add(_directLight);
+			root.Children.Add(_landscape.Scene);
+			root.Children.Add(_car);
 
 			Nrs.GraphicsSettings.ShadowMapSize = ShadowMapSize.Size4096;
 			Nrs.GraphicsSettings.ShadowType = ShadowType.PCF;
@@ -250,7 +254,7 @@ namespace RacingDemo
 					_isPaused = true;
 					// Add main camera to scene
 					// So it'll be debug visualized
-					_root.Children.Add(_camera);
+					_scene.Root.Children.Add(_camera);
 
 					_pauseCamera = (Camera)_camera.Clone();
 					_pauseCamera.View = _camera.View;
@@ -258,12 +262,14 @@ namespace RacingDemo
 				}
 				else
 				{
-					_root.Children.Remove(_camera);
+					_scene.Root.Children.Remove(_camera);
 					_isPaused = false;
 				}
 			}
 
 			KeyboardUtils.End();
+
+			_scene.Update(gameTime);
 		}
 
 		protected override void Draw(GameTime gameTime)
@@ -275,7 +281,7 @@ namespace RacingDemo
 			GraphicsDevice.Clear(Color.Black);
 
 			var camera = _isPaused ? _pauseCamera : _camera;
-			_renderer.Render(_root, camera, _renderEnvironment);
+			_scene.Render(_renderer, camera, _renderEnvironment);
 
 			_spriteBatch.Begin();
 
