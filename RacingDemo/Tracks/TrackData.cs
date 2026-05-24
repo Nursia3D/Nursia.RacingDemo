@@ -264,6 +264,5 @@ namespace RacingDemo.Tracks
 			return loadedTrack;
 		}
 		#endregion
-
 	}
 }

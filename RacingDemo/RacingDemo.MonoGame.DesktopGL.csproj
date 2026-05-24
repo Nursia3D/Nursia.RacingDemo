@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>RacingDemo</AssemblyName>
+    <RootNamespace>RacingDemo</RootNamespace>
     <DefineConstants>$(DefineConstants);MONOGAME</DefineConstants>
     <TargetFramework>$(MonoGameTargetFramework)</TargetFramework>
     <OutputPath>bin\MonoGame.DesktopGL\$(Configuration)</OutputPath>
@@ -14,8 +15,16 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\..\Nursia\Nursia\Nursia.MonoGame.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <None Update="Assets\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Effects\MonoGameOGL\bin\*.*" />
+  </ItemGroup>  
 </Project>

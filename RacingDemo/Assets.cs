@@ -18,6 +18,7 @@ namespace RacingDemo
 		};
 
 		public static AssetManager Manager { get; private set; }
+		private static StaticEffectsSource EffectsSource { get; } = new StaticEffectsSource();
 
 		/// <summary>
 		/// Number of car texture types
@@ -107,13 +108,7 @@ namespace RacingDemo
 
 		public static Effect LoadEffect(string name)
 		{
-#if FNA
-			var path = $"Shaders/FNA/{name}.efb";
-#else
-			var path = $"Shaders/MonoGame.DesktopGL/{name}.efb";
-#endif
-
-			return Manager.LoadEffect(Nrs.GraphicsDevice, path);
+			return EffectsSource.GetEffect(typeof(Assets).Assembly, "ReflectionSimpleGlass.efb", null);
 		}
 	}
 }
