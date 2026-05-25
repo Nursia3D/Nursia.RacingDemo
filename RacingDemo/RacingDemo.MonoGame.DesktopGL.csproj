@@ -15,10 +15,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\..\Nursia\Nursia\Nursia.MonoGame.csproj" />
-  </ItemGroup>
-  
-  <ItemGroup>
     <None Update="Assets\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
